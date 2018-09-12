@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<!-- <button bindtap='clearSession'>清除session</button> -->
+<!-- <web-view src="https://m.weibo.cn/z/panorama?oid=1042143:ca3e410d59e4c33a2f3da164402c7fe2"></web-view> -->
+
+<view class=" {{iphone_type=='iPhone 5'?'is_5':''}}  {{iphone_type=='iPhone 6'?'is_6':''}}  {{iphone_type=='iPhone X'?'is_x':''}}  {{systemInfo.screenWidth==360&&systemInfo.screenHeight==640&&systemInfo.pixelRatio==3?'is_android_360_3':''}}  container">
+
+      <image wx:if="{{is_mask_show}}" class='mask-user' src="../../assets/images/mask-user.png" bindtap='hideMask'></image>
+
+      <!-- <button bindtap='clear'>清除缓存</button> -->
+      <view class='flex  flex-c justify-content-between .align-items-end header w100'>
+            <!-- <navigator url='/pages/vote/index' class='btn-user' hover-class="none"> -->
+            <image src="{{logo}}" class='logo' mode="widthFix"></image>
+            <!-- </navigator> -->
+            <navigator open-type='navigate' url='/pages/user/index' class='btn-user' hover-class="none" bindtap='turnToUser'>
+                  <view wx:if="{{user_sign_count!=0&&user_sign_count!=null}}" class='bubble'>
+                        {{user_sign_count}}
+                  </view>
+                  <image src="../../assets/images/btn-user.png" class='w100' mode="widthFix"></image>
+            </navigator>
+      </view>
+
+      <view class="swiper">
+            <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange" circular="{{circular}}" style="height:{{imgheights[current]}}rpx;" class="{{iphone_type=='iPhone X'?'pt60':''}}">
+                  <!-- <block wx:for='{{bannerUrls}}' wx:key="{{index}}"> -->
+
+                  <block wx:for='{{banner_urls}}' wx:key="{{index}}">
+                        <navigator url="{{banner_path[index]}}?index={{index}}" hover-class='none' app>
+                              <swiper-item>
+                                    <image src="{{item}}" data-id='{{index}}' class="slide-image" mode="widthFix" bindload="imageLoad" data-url="{{banner_path[index]}}?index={{index}}" />
+                              </swiper-item>
+                        </navigator>
+                  </block>
+            </swiper>
+            <view class="dots">
+                  <block wx:for="{{banner_urls}}" wx:key="unique">
+                        <view class="dot{{index == current ? ' active' : ''}}"></view>
+                  </block>
+            </view>
+      </view>
+      <!-- <image src='../../assets/images/hand.png' class='hand' mode='widthFix'></image> -->
+
+      <image src="../../assets/images/home-p1.png" class="{{iphone_type=='iPhone X'?'pt60':''}} p1 bounceInDown" mode="widthFix"></image>
+
+      <!-- <navigator url="/pages/comiketSign/index" hover-class="none">
+            <image src="../../assets/images/btn-sign.png" class="{{is_comico_disabled?'disabled':''}} btn-sign btn bounceIn" mode="widthFix"></image>
+      </navigator>
+
+      <navigator url="/pages/runSign/index" hover-class="none">
+            <image src="../../assets/images/btn-sign-run.png" class="{{is_run_disabled?'disabled':''}} btn-sign-run btn bounceIn" mode="widthFix"></image>
+      </navigator>
+
+      <navigator url="/pages/performSign/index" hover-class="none">
+            <image src="../../assets/images/btn-sign-perform.png" class="{{is_perform_disabled?'disabled':''}} btn-sign-perform btn " mode="widthFix"></image>
+      </navigator>  -->
+
+      <navigator url="{{is_run_disabled?'':'/pages/runSign/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}">
+            <image src="../../assets/images/btn-sign-run.png" class="{{is_run_disabled?'disabled':''}} btn-sign-run btn bounceIn" mode="widthFix"></image>
+      </navigator>
+
+      <navigator url="{{is_comico_disabled?'':'/pages/comiketSign/index'}}" hover-class="none">
+            <image src="../../assets/images/btn-sign.png" class="{{is_comico_disabled?'disabled':''}}  btn-sign btn bounceIn" mode="widthFix"></image>
+      </navigator>
+
+      <navigator url="{{is_perform_disabled?'':'/pages/performSign/index'}}" hover-class="none">
+            <image src="../../assets/images/btn-sign-perform.png" class="{{is_perform_disabled?'disabled':''}} btn-sign-perform btn " mode="widthFix"></image>
+      </navigator>
+</view>

@@ -1,0 +1,146 @@
+@import '../../assets/style/scrollbar.wxss';
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-vote.png');
+      background-size: 100% 100%;
+      color: #333;
+      width: 100%;
+      height: 100%;
+      padding: 30rpx 0;
+}
+
+.popup .solgan {
+      width: 68%;
+}
+.btn-home{
+      margin-top: 60px;
+      width: 40%
+}
+
+.header {
+      font-size: 24rpx;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0rpx 40rpx;
+      position: fixed;
+      z-index: 3;
+}
+
+.header view {
+      position: relative;
+      font-weight: 600;
+}
+
+.header view:nth-child(1) {
+      padding-left: 8rpx;
+}
+
+.header view:nth-child(2) i {
+      color: #e73a8f;
+      font-size: 28rpx;
+      padding-right: 8rpx;
+}
+
+.header view:nth-child(1)::before {
+      content: '';
+      width: 3px;
+      height: 80%;
+      top: 10%;
+      border-radius: 3rpx;
+      position: absolute;
+      background: #e73a8f;
+      left: -8rpx;
+}
+
+.panel .content {
+      width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+}
+
+.panel  .btn-get {
+      width: 360rpx;
+}
+.photo-container{
+  padding: 0 100rpx ;
+  width: 100%
+}
+.photo-wrp {
+      margin-top: 250rpx;
+    
+      position: relative;
+      width: 100%;
+      height: 580rpx;
+}
+
+.photo-wrp .bg1 {
+      width: 100%;
+      height: 610rpx;
+      background: #fff;
+      border-radius: 14rpx;
+      z-index: 2;
+      position: absolute;
+}
+.photo-wrp .bg1 .ht{
+      padding: 10rpx 60rpx;
+      font-size: 24rpx;
+}
+.photo-wrp .bg1 .name{
+      padding: 10rpx 60rpx;
+      font-size: 32rpx;
+}
+.photo-wrp .bg1 .photo{
+      height: 310rpx;
+      max-height: 310rpx;
+      max-width: 510rpx;
+      padding: 10rpx 60rpx;
+      font-size: 32rpx;
+}
+.btn-wrp{
+      height: 110rpx;
+      padding: 0 50rpx;
+}
+.btn-wrp .btn{
+  width: 45%;
+  position: relative;
+}
+.btn-wrp .btn-opacity{
+      position: absolute;
+      opacity: 0;
+      top:0;
+      left: 0;
+      width: 100%
+}
+.photo-wrp .bg2 {
+      position: absolute;
+      width: 94%;
+      left: 3%;
+      top: 25rpx;
+     height: 610rpx;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12rpx;
+        z-index: 1
+}
+
+.photo-wrp .bg3 {
+      position: absolute;
+      width: 90%;
+      left: 5%;
+      top: 50rpx;
+    height: 610rpx;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10rpx;
+      z-index: 0
+      
+}
+
+.avatar {
+      width: 110rpx;
+      height: 110rpx;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      left: calc(50% - 55rpx);
+      top:-50rpx;
+       z-index: 5
+}
+

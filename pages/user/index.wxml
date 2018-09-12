@@ -1,0 +1,77 @@
+<view class="container">
+      <view class="{{iphone_type=='iPhone X'?'pt30':''}}">
+            <user-header></user-header>
+      </view>
+
+      <view class='entrance-wrp flex justify-content-between pt60'>
+            <view class='entrance entrance1'>
+                  <navigator url="/pages/user/userInfoList/index?type=1" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance1.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon1.png" class='logo' mode="widthFix"></image>
+                        <text>幻装次元趴报名信息</text>
+                          <view wx:if="{{diffuse_counts!='0'}}" class='bubble'>
+                              {{diffuse_counts}}
+                        </view>
+                  </navigator>
+            </view>
+
+            <view class='entrance entrance2'>
+                  <navigator url="/pages/user/userInfoList/index?type=3" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance2.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon2.png" class='logo logo2' mode="widthFix"></image>
+                        <text>幻装表演赛报名信息</text>
+                        <view wx:if="{{perform_counts!='0'}}" class='bubble'>
+                              {{perform_counts}}
+                        </view>
+                  </navigator>
+            </view>
+
+            <view class='entrance entrance3'>
+                  <navigator url="/pages/user/userInfoList/index?type=2" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance2.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon3.png" class='logo logo3' mode="widthFix"></image>
+                        <text>幻装跑报名信息</text>
+                         <view wx:if="{{run_counts!='0'}}" class='bubble'>
+                              {{run_counts}}
+                        </view>
+                  </navigator>
+            </view>
+
+            <view class='entrance entrance4'>
+                  <navigator url="/pages/user/userInfoList/index?type=4?is_examine={{is_examine}}" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance1.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon4.png" class='logo' mode="widthFix"></image>
+                        <text>消息通知</text>
+                        <view wx:if="{{count!='0'}}" class='bubble'>
+                              {{count}}
+                        </view>
+                  </navigator>
+            </view>
+            <view class='entrance entrance5' wx:if="{{is_cash=='1'}}">
+                  <navigator url="/pages/user/userInfoList/index?type=5" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance2.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon5.png" class='logo' mode="widthFix"></image>
+                        <text>邀请返现</text>
+                  </navigator>
+            </view>
+            <view class='entrance entrance6'>
+                  <navigator url="/pages/user/userInfoList/index?type=6" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance2.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon6.png" class='logo' mode="widthFix"></image>
+                        <text>常见问题</text>
+                  </navigator>
+            </view>
+
+            <view class='entrance entrance7'>
+                  <navigator url="/pages/user/userInfoList/index?type=7" hover-class="none">
+                        <image src="../../assets/images/bg-user-entrance2.png" class='bg-entrance w100' mode="widthFix"></image>
+                        <image src="../../assets/images/user-enter-icon7.png" class='logo' mode="widthFix"></image>
+                        <text>号码布</text>
+                  </navigator>
+            </view>
+      </view>
+
+      <navigator open-type='navigateBack' url="/pages/index/index" hover-class="none">
+            <image src="../../assets/images/btn-home.png" class='btn-home pt60' mode="widthFix"></image>
+      </navigator>
+</view>

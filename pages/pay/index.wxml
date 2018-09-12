@@ -1,0 +1,38 @@
+<view class="container flex justify-content-center align-items-center flex-c">
+
+      <!-- <view class='photo'>
+            <image class=' w100' src='{{run_file_name}}' mode="aspectFit"></image>
+      </view> -->
+      <view class='t1 w-100'>您需要支付</view>
+      <view wx:if="{{run_type=='1'}}" class='t2 w-100'>
+            <text>98</text>元
+      </view>
+      <view wx:if="{{run_type=='2'}}" class='t2 w-100'>
+            <text>88</text>元
+      </view>
+      <image class='btn-pay' src='../../assets/images/btn-pay.png' mode="widthFix" bindtap='pay'></image>
+
+      <view wx:if="{{pay_success&&is_cash=='1'}}" class='popup pay-success flex align-items-center justify-content-center'>
+            <image class='solgan w100' src='../../assets/images/solgan-sign-success.png' mode="widthFix"></image>
+            <image class='poster' src='{{poster}}' mode="widthFix" bindtouchstart='timestart' bindtouchend='timeend' catchlongtap='saveImg'></image>
+            <view class='notice text-m text-white bold p30 letter-sp4'>长按保存上面的海报，分享出去，每成功邀请一位好友，返现20元，最高返现40元。</view>
+            <!-- <navigator url='/pages/index/index?is_run_sign=2' hover-class='none' class='btn-home'> -->
+            <image class='w100' bindtap='backhome' src='../../assets/images/btn-home.png' mode="widthFix"></image>
+            <!-- </navigator> -->
+            <!-- <button open-type="writePhotosAlbum" bindtap='saveImg' class="btn-save">保存</button> -->
+      </view>
+
+      <!-- 报名成功 -->
+      <view wx:if="{{pay_success&&is_cash=='2'}}" class="{{is_sign?'bounceIn':''}} popup flex flex-c align-items-center justify-content-center">
+            <image src="../../assets/images/solgan-sign-success.png" class='solgan-sign-success' mode="widthFix"></image>
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <image src="../../assets/images/icon-start.png" class='start' mode="widthFix"> </image>
+                  <text class='text-xl text-white '>祝贺您！报名成功！</text>
+                  <!-- <text class='text-l  text-yellow'>请去用户中心查看报名信息及签到检录二维码</text> -->
+                  <text class='text-l text-white '>点击右上角分享给更多人参与吧！</text>
+                  <navigator open-type='redirect' url="/pages/uploads/index?id={{id}}" hover-class="none">
+                  <image src="../../assets/images/btn-back.png" class='btn-home' mode="widthFix"> </image>
+                  </navigator>
+            </view>
+      </view>
+</view>

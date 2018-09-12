@@ -1,0 +1,21 @@
+<view class='container'>
+      <view class="{{iphone_type=='iPhone X'?'pt30':''}}">
+            <user-header></user-header>
+      </view>
+
+      <view class='list-wrp p30'>
+            <view class='item msg'>
+                  <view class='header'>
+                        <view class='text-xs text-gray row'>{{item.activity.activity_name}} {{item.created_at}}</view>
+                        <view class=' row'>{{item.notice.notice_title}}</view>
+                  </view>
+
+                  <view class='content'>
+                        {{item.notice.notice_content}}
+                        <navigator open-type="redirect"  wx:if="{{item.is_examine=='2'&&item.notice.notice_type=='5'}}" url="/pages/uploads/index?id={{run_id}}&&from=detail&&activity_id={{activity_id}}" hover-class='none'>
+                              <button wx:if="{{item.is_examine=='2'}}" class='btn-reUpload'>去上传</button>
+                        </navigator>
+                  </view>
+            </view>
+      </view>
+</view>

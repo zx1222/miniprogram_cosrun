@@ -1,0 +1,84 @@
+@import '../../assets/style/scrollbar.wxss';
+
+.container {
+      background-image: url('http://ccrt.h5.sindcorp.net/asset/cosrun/bg-sign.png');
+      background-size: 100% 100%;
+      color: #333;
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      padding: 30rpx 0;
+}
+
+.photo-wrp {
+      width: 670rpx;
+      height: 530rpx;
+      background: #fff;
+      border-radius: 10rpx;
+      border: 4rpx solid #dcdcdc;
+}
+
+.btn-wrp {
+      position: absolute;
+      text-align: center;
+}
+.avatar{
+      max-height: 520rpx;
+      height:480rpx;
+}
+
+.btn-upload {
+      background: #fcd703;
+      border-radius: 10rpx;
+      width: 290rpx;
+      height: 90rpx;
+      border: 4rpx solid #000;
+      text-align: center;
+      line-height: 90rpx;
+      margin-top: 10rpx;
+      font-size: 32rpx;
+}
+.mation-wrp {
+      color: #ffffff;
+       padding: 0 40rpx;
+}
+.mation {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      font-size: 24rpx;
+      word-break : break-all ;     
+}
+
+.btn-next{
+      width: 46%;
+      display: block;
+}
+
+.input-wrp.required text.valid {
+      top:21%;
+}
+
+/* 是否幻装 */
+.solgan-header {
+      width: 96%;
+      margin: 1% 2% 0 2%;
+      opacity: 0;
+      animation: bounceInDown 0.7s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.container-cosplay{
+      color: #ffffff;
+}
+.container-cosplay .notice_content_cos{
+      width: 78%;
+      margin-left: 11%;
+      height: 330rpx;
+      overflow-y: scroll
+}
+.btn-cosplay-wrp{
+      padding-bottom: 40rpx
+}
+.btn-cosplay-wrp .btn{
+      width: 40%
+}

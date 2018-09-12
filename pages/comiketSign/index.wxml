@@ -1,0 +1,53 @@
+<view class="{{is_sign?'overflow-y-hidden':''}} {{is_sign?'overflow-y-hidden':''}}  container">
+      <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
+
+      <!-- 表单 -->
+      <view class='form-wrp'>
+            <form bindsubmit="submit" bindreset="formReset">
+                  <view class='flex align-items-center radio-container'>
+                        <text>性别</text>
+                        <view class='gender-radio-wrp'>
+                              <image wx:if="{{gender==2||gender==0}}" src="../../assets/images/icon-male.png" class='gender gender-male' mode="widthFix" bindtap='selectGender' data-id='1'></image>
+                              <image wx:if="{{gender==1}}" src="../../assets/images/icon-male-selected.png" class='gender gender-male' mode="widthFix"></image>
+                              <!-- <text class="gender-male-label {{gender==1?'text-selected':''}}">男</text> -->
+                        </view>
+                         <view class='gender-radio-wrp'>
+                              <image wx:if="{{gender==1||gender==0}}" src="../../assets/images/icon-female.png" class='gender-female' mode="widthFix" bindtap='selectGender' data-id='2'></image>
+                              <image wx:if="{{gender==2}}" src="../../assets/images/icon-female-selected.png" class='gender-female' mode="widthFix"></image>
+                              <!-- <text class="gender-female-label {{gender==2?'text-selected':''}}">女</text> -->
+                        </view>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{comico_name.valid?'真实姓名':'请输入真实姓名'}}" type='text' placeholder-class="{{comico_name.valid?'':'text-explain'}}" value='{{comico_name.value}}' name="comico_name" class='required' />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{comico_phone.valid?'联系方式':'请输入有效联系方式'}}" type='number' placeholder-class="{{comico_phone.valid?'':'text-explain'}}" value='{{comico_phone.value}}' name="comico_phone" class='required' />
+                        <text>*</text>
+                  </view>
+
+                  <view class='p60'>
+                        <view class='pb25'>报名须知</view>
+                        <text class='mation notice_content'>{{notice_content}}</text>
+                  </view>
+
+                  <view class='btn-submit-wrp'>
+                        <image src="../../assets/images/btn-submit.png" class='btn-submit' mode="widthFix"></image>
+                        <button formType="submit" class='btn-opacity'>Submit</button>
+                  </view>
+            </form>
+      </view>
+
+      <!-- 报名成功 -->
+      <view wx:if="{{is_sign}}" class="{{is_sign?'bounceIn':''}} popup flex flex-c align-items-center justify-content-center">
+            <image src="../../assets/images/solgan-sign-success.png" class='solgan-sign-success' mode="widthFix"></image>
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <image src="../../assets/images/icon-start.png" class='start' mode="widthFix"> </image>
+                  <text class='text-xl'>祝贺您！报名成功！</text>
+                  <text class='text-l'>点击右上角分享给更多人参与吧！</text>
+                  <!-- <navigator open-type='redirect' url="/pages/index/index?is_comico_sign=2" hover-class="none"> -->
+                        <image bindtap='backhome' src="../../assets/images/btn-home.png" class='btn-home' mode="widthFix"> </image>
+                  <!-- </navigator> -->
+            </view>
+      </view>
+</view>

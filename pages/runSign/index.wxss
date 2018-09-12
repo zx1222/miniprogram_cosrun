@@ -1,0 +1,270 @@
+@import '../../assets/style/scrollbar.wxss';
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-run.png');
+      background-size: 100% auto;
+      color: #fff;
+}
+
+.solgan {
+      width: 96%;
+}
+
+.solgan-header {
+      width: 96%;
+      margin: 3% 2% 0 2%;
+      opacity: 0;
+      animation: bounceInDown 0.7s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+}
+
+.form-wrp {
+      padding: 10rpx 60rpx 0 60rpx;
+}
+
+.radio-container {
+      height: 100rpx;
+      margin-bottom: 30rpx;
+}
+
+.date-wrp {
+      border: 5px solid #cd267d;
+      font-weight: bold;
+      margin-bottom: 22rpx;
+      text-align: center;
+      padding: 2rpx 8rpx;
+      letter-spacing: 2px;
+      font-size: 30rpx;
+      border-radius: 6rpx;
+}
+
+.text-selected {
+      color: #fcd703;
+}
+
+.gender-radio-wrp {
+      width: 30%;
+      position: relative;
+      height: 100rpx;
+}
+
+.gender-radio-wrp image {
+      position: absolute;
+}
+
+.gender-female-label {
+      position: absolute;
+      left: 117%;
+      top: 37%;
+}
+
+.gender-male-label {
+      position: absolute;
+      left: 132%;
+      top: 37%;
+}
+
+.gender-female {
+      width: 62rpx;
+      height: 107rpx;
+      margin-left: 130rpx;
+}
+
+.gender-male {
+      width: 62rpx;
+      height: 108rpx;
+      margin-left: 110rpx;
+}
+
+input, picker {
+      background: #fff;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      margin-bottom: 30rpx;
+      padding: 15rpx;
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      color: #999;
+      font-size: 15px;
+}
+
+.picker view {
+      padding: 0rpx 10rpx;
+}
+
+.section-verification {
+      overflow: hidden;
+}
+
+.section-verification input {
+      width: 62%;
+      float: left;
+}
+
+.is_5 button {
+      font-size: 32rpx;
+      line-height: 1.8;
+      padding: 0;
+}
+
+.is_5 .section-verification button, .is_5 .section .btn_run_type {
+      line-height: 34px;
+}
+
+.is_5 .section .btn_cosplay {
+      line-height: 2.4;
+}
+
+.section-verification button {
+      width: 36%;
+      float: right;
+      background: #fcd703;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      line-height: 40px;
+}
+
+.mation {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      font-size: 14px;
+}
+
+.btn-submit-wrp {
+      position: relative;
+      width: 358rpx;
+      margin-left: calc(50% - 179rpx);
+      margin-top: 60rpx;
+      padding-bottom: 50rpx;
+}
+
+.btn-submit-wrp .btn-submit {
+      top: 0;
+      width: 100%;
+}
+
+.btn-submit-wrp .btn-opacity {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      opacity: 0;
+      /* background: transparent;
+      color: transparent; *//* z-index: -1; */
+}
+
+.btn-submit-wrp .btn-opacity::after {
+      border: none;
+}
+
+.section .btn_run_type.btn-disabled,
+.section .btn_run_type.selected.btn-disabled {
+      background: #ccc;
+}
+
+.section .btn_run_type.selected {
+      background: #fcd703;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      color: #333;
+      line-height: 40px;
+}
+
+.section .btn_run_type {
+      width: 48%;
+      float: left;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      color: #999;
+      line-height: 40px;
+}
+
+.section .btn_cosplay {
+      width: 15%;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      color: #999;
+      text-align: center;
+      line-height: 2.1;
+      padding: 0 10rpx;
+}
+
+.section .btn_cosplay.selected {
+      background: #fcd703;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      color: #333;
+}
+
+.rule-link {
+      color: #fcd703;
+      font-size: 22rpx;
+      text-decoration: underline;
+}
+
+.solgan-sign-success {
+      margin-top: 20%;
+}
+
+/* .panel .content {
+      width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+      max-height: 100%;
+} */
+
+.panel  .start {
+      width: 160rpx;
+      padding-bottom: 50rpx;
+}
+
+.panel  .btn-get {
+      width: 360rpx;
+      padding-top: 60rpx;
+}
+
+.input-wrp.required text.valid {
+      top: 21%;
+}
+
+.btn-agreement {
+      width: 42%;
+}
+
+/* .panel .icon-down {
+      position: absolute;
+      width: 56rpx;
+      left: calc(50% - 28rpx);
+      bottom: 33%;
+      animation: shake 1s 0.3s ease infinite;
+      animation-fill-mode: forwards;
+} */
+
+/* 确认信息是否修改 */
+
+.runInfo-wrp {
+      padding: 60rpx 120rpx;
+      letter-spacing: 2px;
+}
+
+.btn-confirm-wrp {
+      padding-bottom: 40rpx;
+}
+
+.btn-confirm-wrp .btn {
+      width: 40%;
+}
+

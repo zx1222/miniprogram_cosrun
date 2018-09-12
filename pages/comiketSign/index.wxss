@@ -1,0 +1,126 @@
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-sign.png');
+      background-size: 100% 100%;
+      height: auto;
+      min-height: 100%;
+      color: #fff;
+}
+
+.container::-webkit-scrollbar {
+      display: none;
+}
+
+.bounceIn {
+      animation: bounceIn 0.9s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.solgan-header {
+      width: 96%;
+      margin: 3% 2% 0 2%;
+      opacity: 0;
+      animation: bounceInDown 0.7s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.form-wrp {
+      padding: 80rpx 80rpx 0 80rpx;
+}
+
+.radio-container {
+      height: 100rpx;
+      margin-bottom: 30rpx;
+}
+
+.gender-radio-wrp {
+      width: 30%;
+      position: relative;
+      height: 100rpx;
+}
+
+.gender-radio-wrp image {
+      position: absolute;
+}
+
+.gender-female {
+      width: 62rpx;
+      height: 107rpx;
+      margin-left: 130rpx;
+}
+
+.gender-male {
+      width: 62rpx;
+      height: 108rpx;
+      margin-left: 115rpx;
+}
+
+.gender-female-label {
+      position: absolute;
+      left: 117%;
+      top: 37%;
+}
+
+.gender-male-label {
+      position: absolute;
+      left: 139%;
+      top: 37%;
+}
+
+.text-selected {
+      color: #fcd703;
+}
+
+input {
+      background: #fff;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      margin-bottom: 30rpx;
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      color: #999;
+      font-size: 15px;
+}
+
+.mation {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      font-size: 14px;
+}
+
+.btn-submit-wrp {
+      position: relative;
+      width: 358rpx;
+      margin-left: calc(50% - 179rpx);
+      margin-top: 50rpx;
+      padding-bottom: 50rpx;
+}
+
+.btn-submit-wrp .btn-submit {
+      width: 100%;
+}
+
+.btn-submit-wrp .btn-opacity {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      opacity: 0;
+}
+
+.panel {
+      width: 98%;
+      height: 57%;
+      background: url('https://cosrun.sindcorp.net/cosrun_img/bg-popUp.png');
+      background-size: 100% 100%;
+}
+
+.panel  .start {
+      width: 160rpx;
+      padding-bottom: 50rpx;
+}
+
+.panel  .btn-home {
+      width: 360rpx;
+      padding-top: 60rpx;
+}

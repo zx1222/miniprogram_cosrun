@@ -1,0 +1,206 @@
+<!-- <view>scroll-y="{{!is_cos_open&&!is_run_open}}"</view> -->
+<scroll-view wx:if="{{!sign_success}}" scroll-y="{{!is_cos_open&&!is_run_open}}" style="height:{{scrollHeight}}px " scroll-top="{{scrollTop}}" class='container'>
+      <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
+      <!-- 表单 -->
+
+      <view class='form-wrp'>
+            <form bindsubmit="submit" bindreset="formReset">
+                  <view class=' flex flex-c align-items-center justify-content-center'>
+                        <view class=' date-wrp'>
+                              <view>
+                                    COSRUN幻装跑
+                              </view>
+                              <view>
+                                    {{run_activity_start}}
+                              </view>
+                        </view>
+                  </view>
+
+                  <view class='flex align-items-center radio-container'>
+                        <text>性别</text>
+                        <view class='gender-radio-wrp'>
+                              <image wx:if="{{gender==2||gender==0}}" src="../../assets/images/icon-male.png" class='gender gender-male' mode="widthFix" bindtap='selectGender' data-id='1'></image>
+                              <image wx:if="{{gender==1}}" src="../../assets/images/icon-male-selected.png" class='gender gender-male' mode="widthFix"></image>
+                              <!-- <text class="gender-male-label {{gender==1?'text-selected':''}}">男</text> -->
+                        </view>
+                        <view class='gender-radio-wrp'>
+                              <image wx:if="{{gender==1||gender==0}}" src="../../assets/images/icon-female.png" class='gender-female' mode="widthFix" bindtap='selectGender' data-id='2'></image>
+                              <image wx:if="{{gender==2}}" src="../../assets/images/icon-female-selected.png" class='gender-female' mode="widthFix"></image>
+                              <!-- <text class="gender-female-label {{gender==2?'text-selected':''}}">女</text> -->
+                        </view>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <input placeholder="{{name.valid?'真实姓名':'请输入真实姓名'}}" type='text' placeholder-class="{{name.valid?'':'text-explain'}}" value='{{name.value}}' name="run_name" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <view class="section">
+                              <picker value="{{certificates_type.index}}" range="{{certificates_type.dataArr}}" name="certificates_type" bindchange="certificatesTypeChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!certificates_type.selected&&!certificates_type.valid}}">证件类型</view>
+                                          <view wx:if="{{!certificates_type.selected&&certificates_type.valid}}" class="text-explain">请选择证件类型</view>
+                                          <view wx:if="{{certificates_type.selected&&certificates_type.valid}}">{{certificates_type.dataArr[certificates_type.index]}}</view>
+                                    </view>
+                              </picker>
+                        </view>
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{idCard.valid?'有效证件号':'请输入有效证件号'}}" type='text' placeholder-class="{{idCard.valid?'':'text-explain'}}" value='{{idCard.value}}' name="run_idcard" />
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <view class="section">
+                              <picker mode="date" value="{{birthday.value}}" start="1970-01" end="2018-08" fields="month" name="run_birthday" bindchange="bindBirthdayChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!birthday.selected&&!birthday.valid}}">出生年月</view>
+                                          <view wx:if="{{!birthday.selected&&birthday.valid}}" class="text-explain">请选择出生年月</view>
+                                          <view wx:if="{{birthday.selected&&birthday.valid}}"> {{birthday.value}}</view>
+
+                                    </view>
+                              </picker>
+                        </view>
+                        <text>*</text>
+                  </view>
+
+
+                  <view class='input-wrp required'>
+                        <view class="section">
+                              <picker value="{{country.index}}" range="{{country.dataArr}}" range-key="name" bindchange="bindCountryChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!country.selected&&!country.valid}}">国籍</view>
+                                          <view wx:if="{{!country.selected&&country.valid}}" class="text-explain">请选择国籍</view>
+                                          <view wx:if="{{country.selected&&country.valid}}">{{country.dataArr[country.index].name}}</view>
+                                    </view>
+                              </picker>
+                        </view>
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <input placeholder="{{address.valid?'家庭住址':'请输入家庭住址'}}" type='text' placeholder-class="{{address.valid?'':'text-explain'}}" value='{{address.value}}' name="run_address" />
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <view class="section">
+                              <picker value="{{blood.index}}" range="{{blood.dataArr}}" name="run_blood" bindchange="bindBloodChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!blood.selected&&!blood.valid}}">血型</view>
+                                          <view wx:if="{{!blood.selected&&blood.valid}}" class="text-explain">请选择血型</view>
+                                          <view wx:if="{{blood.selected&&blood.valid}}">{{blood.dataArr[blood.index]}}</view>
+                                    </view>
+                              </picker>
+                        </view>
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <view class="section">
+                              <picker value="{{run_size.index}}" range="{{run_size.dataArr}}" name="run_size" bindchange="bindSizeChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!run_size.selected&&!run_size.valid}}">服装尺码</view>
+                                          <view wx:if="{{!run_size.selected&&run_size.valid}}" class="text-explain">请选择服装尺码</view>
+                                          <view wx:if="{{run_size.selected&&run_size.valid}}"> {{run_size.dataArr[run_size.index]}}</view>
+                                    </view>
+                              </picker>
+                        </view>
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <input placeholder="{{contact.valid?'联系方式':'请输入有效联系方式'}}" type='number' placeholder-class="{{contact.valid?'':'text-explain'}}" value='{{contact.value}}' name="run_phone" bindblur='verification_phone' />
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <view class="section-verification ">
+                              <input placeholder="{{verification.valid?'验证码':'验证码错误'}}" type='number' placeholder-class="{{verification.valid?'':'text-explain'}}" value='{{verification.value}}' name="valid_code" bindblur='verification_code'  bindinput="bindVerificationInput"/>
+                              <button wx:if="{{!countdown}}" bindtap='getValidCode'>发送验证码</button>
+                              <button wx:if="{{countdown}}">{{countdown_num}}s</button>
+                        </view>
+                        <text class='valid'>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <input placeholder="{{run_emergency_name.valid?'紧急联系人':'请输入紧急联系人'}}" type='text' placeholder-class="{{run_emergency_name.valid?'':'text-explain'}}" value='{{run_emergency_name.value}}' name="run_emergency_name" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{run_emergency_contact.valid?'紧急联系方式':'请输入有效紧急联系方式'}}" type='number' placeholder-class="{{run_emergency_contact.valid?'':'text-explain'}}" value='{{run_emergency_contact.value}}' name="run_emergency_phone" />
+                        <text>*</text>
+                  </view>
+
+                  <view class='section'>
+                        <view>赛程选报</view>
+                        <view class='flex justify-content-between'>
+                              <button bindtap='selectType' class="{{run_type==1&&number_limit=='2'?'selected':''}} {{number_limit=='2'?'':'btn-disabled'}} btn_run_type" data-id='1'>全程7千米</button>
+                              <button bindtap='selectType' class="{{run_type==2&&half_limit=='2'?'selected':''}} {{half_limit=='2'?'':'btn-disabled'}} btn_run_type" data-id='2'>半程4千米</button>
+                        </view>
+                  </view>
+                  <!-- <view class='section pt30'>
+                        <view>是否报名换装奖
+                              <text class='rule-link' bindtap='toggleCosPopup'>报名幻装奖，领取千元奖品（规则）</text>
+                              <view class='flex justify-content-between pt30'>
+                                    <button bindtap='selectCos' class="{{is_cosplay=='1'?'selected':''}} btn_cosplay" data-id='1'>是</button>
+                                    <button bindtap='selectCos' class="{{is_cosplay=='2'?'selected':''}} btn_cosplay" data-id='2'>否</button>
+                              </view>
+                        </view>
+                  </view> -->
+                  <view class='btn-submit-wrp'>
+                        <image src="../../assets/images/btn-next.png" class='btn-submit' mode="widthFix"></image>
+                        <button formType="submit" class='btn-opacity'>Submit</button>
+                  </view>
+            </form>
+      </view>
+</scroll-view>
+<!-- 跑步须知条款 -->
+<view class="popup" wx:if="{{is_run_open}}">
+      <image src="../../assets/images/solgan-agreement.png" class='solgan' mode="widthFix"></image>
+      <view class='panel flex flex-c align-items-center justify-content-center '>
+            <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" >{{notice_content_run}}</scroll-view>
+            <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
+            <checkbox-group bindchange="checkboxChange">
+                  <label class="checkbox">
+                        <checkbox value="1" checked="{{item.checked}}" />我已阅读并同意活动详细须知
+                  </label>
+            </checkbox-group>
+            <image src="../../assets/images/btn-confirm.png" class="btn-agreement {{checked?'':'disabled'}}" mode="widthFix" bindtap="toggleRunPopup"> </image>
+      </view>
+</view>
+<!-- 换装须知 -->
+<!-- <view class="popup" wx:if="{{is_cos_open}}" style="">
+      <image src="../../assets/images/solgan-rules.png" class='solgan' mode="widthFix"></image>
+      <view class='panel flex flex-c align-items-center justify-content-center '>
+            <text class='content'>{{notice_content_cos}}</text>
+            <image src="../../assets/images/btn-get.png" class='btn-get' mode="widthFix" bindtap='toggleCosPopup'> </image>
+      </view>
+</view> -->
+
+
+
+<!-- 报名成功确认信息是否修改 -->
+<view  wx:if="{{sign_success}}" class=" container">
+      <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
+      <view class='flex flex-c  justify-content-center runInfo-wrp text-l '>
+            <view><text class='bold'>姓名:</text>{{resultData.run_name}}</view>
+            <view><text class='bold'>证件类型:</text>{{resultData.certificates_type}}</view>
+            <view><text class='bold'>有效证件号:</text>{{resultData.run_idcard}}</view>
+            <view><text class='bold'>出生年月:</text>{{resultData.run_birthday}}</view>
+              <view><text class='bold'>国籍:</text>{{resultData.run_country}}</view>
+            <view><text class='bold'>家庭住址:</text>{{resultData.run_address}}</view>
+            <view><text class='bold'>血型:</text>{{resultData.run_blood}}</view>
+            <view><text class='bold'>服装尺码:</text>{{resultData.run_size}}码</view>
+            <view><text class='bold'>联系方式:</text>{{resultData.run_phone}}</view>
+            <view><text class='bold'>紧急联系人:</text>{{resultData.run_emergency_name}}</view>
+            <view><text class='bold'>紧急联系方式:</text>{{resultData.run_emergency_phone}}</view>
+              <view wx:if="{{resultData.run_type=='1'}}"><text class='bold'>赛程选报:</text>全程</view>
+              <view wx:if="{{resultData.run_type=='2'}}"><text class='bold'>赛程选报:</text>半程</view>
+      </view>
+      <view class='flex  align-items-center justify-content-center btn-confirm-wrp'>
+            <image src="../../assets/images/btn-confirm-info.png" class='btn' data-id='1' bindtap='confirmRunInfo' mode="widthFix"></image>
+            <image src="../../assets/images/btn-modify-info.png" class='btn' data-id='2' bindtap='confirmRunInfo' mode="widthFix"></image>
+      </view>
+</view>

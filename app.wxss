@@ -1,0 +1,542 @@
+@import './assets/style/weui.wxss';
+@import './assets/style/fontawsome.wxss';
+
+page {
+      width: 100%;
+      height: 100%;
+      background: #3cb1c5;
+}
+
+view {
+      box-sizing: border-box;
+}
+
+/* * {
+      box-sizing: border-box;
+} */
+
+.container {
+      width: 100%;
+      /* display: flex;
+  flex-direction: column;
+   align-items: center; 
+  justify-content: space-between; */
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+}
+
+::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      color: transparent;
+}
+
+.w100 {
+      width: 100%;
+}
+
+.none {
+      display: none;
+}
+
+.text-left {
+      text-align: left;
+}
+
+.text-center {
+      text-align: center;
+}
+
+/* text */
+
+.text-xl {
+      font-size: 46rpx;
+}
+
+.text-l {
+      font-size: 32rpx;
+}
+
+.text-xs {
+      font-size: 24rpx;
+}
+
+/* text-color */
+
+.text-right {
+      text-align: right;
+}
+
+.text-explain {
+      color: red;
+}
+.text-pink{
+      color: #cf1e76;
+}
+.text-yellow {
+      color: #f9da1f;
+}
+
+.text-gray {
+      color: #999;
+}
+
+.text-white {
+      color: #fff;
+}
+
+.bold {
+      font-weight: bold;
+}
+
+.letter-sp4 {
+      letter-spacing: 4rpx;
+}
+
+.p30 {
+      padding: 30rpx 0;
+}
+
+.p60 {
+      padding: 60rpx 0;
+}
+
+.pt60 {
+      padding-top: 60rpx;
+}
+
+.pt90 {
+      padding-top: 90rpx;
+}
+
+.pt30 {
+      padding-top: 30rpx;
+}
+
+.pb25 {
+      padding-bottom: 25rpx;
+}
+
+/* flex */
+
+.flex {
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.flex-c {
+      flex-direction: column;
+}
+
+.align-items-center {
+      align-items: center;
+}
+
+.align-items-end {
+      align-items: flex-end;
+}
+
+.justify-content-between {
+      justify-content: space-between;
+}
+
+.justify-content-center {
+      justify-content: center;
+}
+
+/* fontawsome */
+@keyframes shake {
+  0% {
+    opacity: .7;
+    transform: translate3d(0, -40%, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+  100%{
+         opacity: .7;
+    transform: translate3d(0, -40%, 0);
+  }
+}
+
+@keyframes waveUp {
+      0% {
+            opacity: 5;
+            transform: none;
+      }
+
+      50% {
+            opacity: 1;
+            transform: translate3d(0, 7%, 0);
+      }
+
+      100% {
+            opacity: 5;
+            transform: none;
+      }
+}
+
+@keyframes bounceInDown {
+      from, 60%, 75%, 90%, to {
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      }
+
+      0% {
+            opacity: 0;
+            transform: translate3d(0, -3000px, 0);
+      }
+
+      60% {
+            opacity: 1;
+            transform: translate3d(0, 25px, 0);
+      }
+
+      75% {
+            opacity: 1;
+            transform: translate3d(0, -10px, 0);
+      }
+
+      90% {
+            opacity: 1;
+            transform: translate3d(0, 5px, 0);
+      }
+
+      to {
+            opacity: 1;
+            transform: none;
+      }
+}
+
+@keyframes zoomIn {
+      from {
+            opacity: 0;
+            transform: scale3d(0.3, 0.3, 0.3);
+      }
+
+      50% {
+            opacity: 1;
+      }
+
+      100% {
+            opacity: 1;
+      }
+}
+
+@keyframes swing {
+      20% {
+            transform: rotate3d(0, 0, 1, 20deg);
+      }
+
+      40% {
+            transform: rotate3d(0, 0, 1, -15deg);
+      }
+
+      60% {
+            transform: rotate3d(0, 0, 1, 7deg);
+      }
+
+      80% {
+            transform: rotate3d(0, 0, 1, -7deg);
+      }
+
+      to {
+            transform: rotate3d(0, 0, 1, 0deg);
+      }
+}
+
+@keyframes bounceIn {
+      from, 20%, 40%, 60%, 80%, to {
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      }
+
+      0% {
+            opacity: 0;
+            transform: scale3d(0.3, 0.3, 0.3);
+      }
+
+      20% {
+            transform: scale3d(1.1, 1.1, 1.1);
+      }
+
+      40% {
+            transform: scale3d(0.9, 0.9, 0.9);
+      }
+
+      60% {
+            opacity: 1;
+            transform: scale3d(1.03, 1.03, 1.03);
+      }
+
+      80% {
+            transform: scale3d(0.97, 0.97, 0.97);
+      }
+
+      to {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+      }
+}
+
+image {
+      /* will-change: transform; */
+      height: auto;
+      vertical-align: bottom;
+}
+
+/* 弹出层 */
+
+.popup {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      animation: bounceIn 0.6s ease 1;
+      -webkit-animation: bounceIn 0.6s ease 1;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      opacity: 0;
+}
+
+.container.overflow-y-hidden {
+      height: 100%;
+      overflow-y: hidden;
+}
+
+.popup .panel {
+      width: 98%;
+      height: 57%;
+      background: url('http://ccrt.h5.sindcorp.net/asset/cosrun/bg-popUp.png');
+      background-size: 100% 100%;
+}
+
+/* 搜索框 */
+
+.weui-search-bar {
+      padding: 40rpx 0;
+      background: transparent;
+      border: none;
+}
+
+.weui-search-bar__form {
+      border: 4rpx solid #000;
+}
+
+/* 加载更多 */
+
+/*  加载更多   */
+
+.weui-loading {
+      margin: 0 5px;
+      width: 20px;
+      height: 20px;
+      color: #fff;
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+      animation: weuiLoading 1s steps(12, end) infinite;
+      background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+      background-size: 100%;
+}
+
+.weui-loadmore {
+      width: 65%;
+      margin: 1.5em auto;
+      line-height: 1.6em;
+      font-size: 14px;
+      text-align: center;
+}
+
+.weui-loadmore__tips {
+      display: inline-block;
+      vertical-align: middle;
+}
+
+.loadmore-end {
+      width: 100%;
+      margin: 1.2em auto;
+      line-height: 1.6em;
+      font-size: 14px;
+      text-align: center;
+}
+
+/* uploads*/
+
+.cropper-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: #e5e5e5;
+}
+
+.cropper-buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+}
+
+.cropper-buttons .upload, .cropper-buttons .getCropperImage {
+      width: 50%;
+      text-align: center;
+}
+
+.notice_content {
+      word-wrap: break-word;
+      overflow: hidden;
+      word-break: break-all;
+      text-align: justify;
+}
+
+.disabled {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%);
+}
+
+.panel .content {
+      /* overflow-y: scroll; */
+      margin-bottom: 20rpx;
+      color: #ffffff;
+       width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+      max-height: 100%;
+}
+.panel .content {
+      width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+      max-height: 100%;
+}
+
+.panel .icon-down {
+      position: absolute;
+      width: 56rpx;
+      left: calc(50% - 28rpx);
+      bottom: 33%;
+      animation: shake 1s 0.3s ease infinite;
+      animation-fill-mode: forwards;
+}
+scroll-viewt::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+      color: rgba(200,200,200,.5);
+}
+
+
+.input-wrp.required {
+      position: relative;
+}
+
+.input-wrp.required text {
+      position: absolute;
+      color: #ff4949;
+      margin-right: 4px;
+      top: 30%;
+      left: 1%;
+}
+
+input:not(.weui-search-bar__input), picker {
+      padding: 15rpx 20rpx;
+}
+
+.mask-user {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+}
+
+
+/* swiper */
+.swiper{
+  position: relative;
+}
+.swiper .swiper{
+  height: 300rpx;
+}
+.swiper .swiper .img{
+  width: 100%;
+  height: 100%;
+}
+.swiper .dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  
+  bottom: 10rpx;
+  display: flex;
+  justify-content: center;
+}
+.swiper .dots .dot{
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #333;
+  border-radius: 8rpx;
+  transition: all .6s;
+}
+.swiper .dots .dot.active{
+  width: 24rpx;
+  background: #f80;
+}
+
+/* checkbox */
+checkbox .wx-checkbox-input {
+      background: transparent;
+      border: none;
+      width: 26rpx;
+      height: 26rpx;
+}
+
+checkbox {
+      background: transparent;
+      border: 2px solid #000;
+      border-radius: 10rpx;
+      width: 26rpx;
+      height: 26rpx;
+      margin-right: 10rpx;
+}
+
+checkbox-group label {
+      font-size: 24rpx;
+      font-weight: 600;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+        width: 26rpx;
+      height: 26rpx;
+   border: none;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;
+     width: 26rpx;
+      height: 26rpx;
+   line-height:14rpx;
+   text-align: center;
+   font-size:22rpx; 
+   color:#fff; 
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

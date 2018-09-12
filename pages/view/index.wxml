@@ -1,0 +1,75 @@
+<view class="container flex align-items-center flex-c">
+
+      <view class='section header flex justify-content-between' wx:if="{{!is_share}}">
+            <navigator url="/pages/vote/ranking/index" hover-class='none'>
+                  <view>投票排行榜</view>
+            </navigator>
+            <view bindtap="togglePopup">
+                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>投票说明</view>
+      </view>
+
+
+      <view class='photo-container'>
+            <view class='photo-wrp w100'>
+                  <view class='avatar'>
+                        <image src='{{item.user.avatarUrl}}' mode='widthFix' class='w100'> </image>
+
+                  </view>
+                  <view class='bg1 flex flex-c align-items-center justify-content-center'>
+                        <view class='flex justify-content-between ht w100'>
+                              <view>地区:{{item.user.province}}</view>
+                              <view>性别:{{item.user.gender}}</view>
+                        </view>
+                        <view class='text-center name bold'>{{item.voteUser.run_name}}</view>
+                        <image src="{{item.voteUser.run_file_name}}" class='photo' mode="aspectFit"></image>
+                        <!-- <image src="../../assets/images/photo-default.png" class='photo' mode="aspectFit"></image> -->
+                        <view class=' text-xs'>票数:
+                              <text class='text-pink'>{{item.voteUser.run_votes}}</text>
+                        </view>
+                        <view class='btn-wrp flex justify-content-between  w100'>
+                              <image src="../../assets/images/btn-vote.png" class='btn btn-vote' bindtap='vote' mode="widthFix"></image>
+                              <view class='btn'>
+                                    <image src="../../assets/images/btn-share.png" class='w100 btn-share' bindtap='share' mode="widthFix"></image>
+                                    <button open-type='share' class='btn-opacity'>转发</button>
+                              </view>
+                        </view>
+                  </view>
+                  <view class='bg2'></view>
+                  <view class='bg3'></view>
+            </view>
+      </view>
+
+
+
+      <view class="popup" wx:if="{{is_open}}">
+            <image src="../../assets/images/solgan-vote-instruction.png" class='solgan' mode="widthFix"></image>
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px">{{notice_content}}</scroll-view>
+                  <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
+
+                  <image src="../../assets/images/btn-get.png" class='btn-get' mode="widthFix" bindtap='togglePopup'> </image>
+            </view>
+      </view>
+
+      <!-- <view class='solgan-wrp' wx:if="{{!loading}}">
+            <image class='solgan' src='../../assets/images/solgan.png' mode='widthFix'></image>
+            <view class='nickname' data-text="{{item.voteUser.run_name}}">{{item.voteUser.run_name}}</view>
+      </view>
+      <image class='photo' src='{{item.voteUser.run_file_name}}' mode="widthFix"></image>
+      <view class="{{iphone_type=='iPhone X'?'is_x':''}} t1 w-100">编号: {{item.voteUser.run_id}}</view>
+      <view class='t2 w-100'>
+            <text>{{item.voteUser.run_votes}}</text>票
+      </view>
+      <image class='btn-vote' src='../../assets/images/btn-vote.png' mode="widthFix" bindtap='vote'></image> -->
+      <navigator wx:if="{{is_share}}" open-type='redirect' url="/pages/home/index" hover-class='none' class='btn-home'>
+            <image class='w100 ' src='../../assets/images/btn-home.png' mode='widthFix'></image>
+      </navigator>
+</view>
+
+<view wx:if="{{is_yet}}" class='popup bounceIn flex align-items-center justify-content-center'>
+      <image src='../../assets/images/popup-vote-yet.png' mode='widthFix'></image>
+</view>
+
+<view wx:if="{{is_vote}}" class='popup bounceIn flex align-items-center justify-content-center'>
+      <image src='../../assets/images/popup-vote-success.png' mode='widthFix'></image>
+</view>

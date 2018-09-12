@@ -1,0 +1,43 @@
+<view class=" {{iphone_type=='iPhone 5'?'is_5':''}}  {{iphone_type=='iPhone 6'?'is_6':''}}  {{iphone_type=='iPhone X'?'is_x':''}}  {{systemInfo.screenWidth==360&&systemInfo.screenHeight==640&&systemInfo.pixelRatio==3?'is_android_360_3':''}}  container">
+
+
+      <view class='flex  justify-content-between .align-items-end header w100'>
+            <image src="../../assets/images/logo.png" class="{{iphone_type=='iPhone X'?'pt60':''}} logo" mode="widthFix"></image>
+      </view>
+
+      <image src="../../assets/images/solgan-header.png" class="{{iphone_type=='iPhone X'?'pt60':''}} solgan-header" mode="widthFix"></image>
+
+      <view class='btn-container'>
+            <view wx:for="{{activityList}}" class="{{item.is_activity_end=='1'||item.is_sign_up=='2'?'disabled':''}} btn-wrp flex justify-content-center align-items-center"   data-disabled="{{item.is_activity_end=='1'||item.is_sign_up=='2'}}"
+                 bindtap='turnToIndex' data-id="{{item.activity_id}}" data-name="{{item.activity_name}}">
+                    <view style='width:76%'>
+                        <view>
+                              <image class='icon-location' src="../../assets/images/icon-location.png" mode='widthFix'></image>
+                              <text class='activity_name bold'>{{item.activity_name}}</text>
+                              <text class='activity_date bold'>{{item.activity_start}}~{{item.activity_end}}</text>
+                        </view>
+                        <view class='sign-date'>报名起止: {{item.activity_sign_start}}~{{item.activity_sign_end}}</view>
+                        <view class='activity_address'>地点: {{item.activity_point}}</view>
+                  </view>
+                  <view style='width:22%;margin-left:2%'>
+                        <image class='btn-sign'  src="../../assets/images/btn-sign-home.png" mode='widthFix'></image>
+                  </view>
+            </view>
+      </view>
+
+
+
+      <!-- 获取用户信息授权 -->
+      <view class='popup' wx:if="{{is_open}}">
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <view class='content text-white'>
+                        <view>亲爱的用户: </view>
+                        <view>为了保证报名及支付的准确性，请先关注“COSRUN幻装跑”公众号，并允许我们获取您的用户信息。</view>
+                  </view>
+                  <view class='btn-getUserInfo-wrp'>
+                        <image src="../../assets/images/btn-getUerInfo.png" class='btn-getUserInfo' mode="widthFix"> </image>
+                        <button open-type="getUserInfo" lang="zh_CN" class='btn-getUserInfo-open' bindgetuserinfo="onGotUserInfo">允许授权</button>
+                  </view>
+            </view>
+      </view>
+</view>

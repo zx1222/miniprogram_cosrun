@@ -1,0 +1,135 @@
+@import '../../assets/style/scrollbar.wxss';
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-vote.png');
+      background-size: 100% 100%;
+      color: #333;
+      width: 100%;
+      height: 100%;
+      padding: 30rpx 0;
+}
+
+.header {
+      font-size: 24rpx;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0rpx 40rpx;
+      position: fixed;
+      z-index: 3;
+}
+
+.header view {
+      position: relative;
+      font-weight: 600;
+}
+
+.header view:nth-child(1) {
+      padding-left: 8rpx;
+}
+
+.header view:nth-child(2) i {
+      color: #e73a8f;
+      font-size: 28rpx;
+      padding-right: 8rpx;
+}
+
+.header view:nth-child(1)::before {
+      content: '';
+      width: 3px;
+      height: 80%;
+      top: 10%;
+      border-radius: 3rpx;
+      position: absolute;
+      background: #e73a8f;
+      left: -8rpx;
+}
+
+.voteList-wrp {
+      height: calc(100% + 120rpx);
+      transform: translateY(-120rpx);
+      padding-top: 35%;
+      box-sizing: border-box;
+}
+
+.search-wrp {
+      padding: 10px 40rpx;
+      width: 100%;
+      box-sizing: border-box;
+      position: fixed;
+      z-index: 2;
+}
+
+.voteList {
+      box-sizing: border-box;
+      padding: 0 40rpx;
+}
+
+.voteList navigator {
+      width: 47%;
+}
+
+.item-wrp {
+      width: 100%;
+      border-radius: 6rpx;
+      box-shadow: 0 0 0 6rpx #000;
+      margin: 6rpx 6rpx 40rpx 6rpx;
+      background: #e73a8f;
+      padding: 0 0 10rpx 0;
+      box-sizing: border-box;
+}
+
+.item-wrp .vote-header {
+      color: #fff;
+      font-size: 30rpx;
+      padding: 14rpx 12rpx;
+      font-weight: 700;
+}
+
+.item-wrp .photo {
+      width: 96%;
+      margin-left: 1.5%;
+      border-radius: 10rpx;
+      height: 220rpx;
+      overflow-y: hidden;
+}
+
+.item-wrp .photo image {
+      width: 100%;
+}
+
+.item-wrp .btn-vote {
+      width: 170rpx;
+      height: 50rpx;
+      background: #f9db20;
+      border-radius: 15%/50%;
+      line-height: 50rpx;
+      font-size: 24rpx;
+      font-weight: 700;
+      margin: 10rpx calc(50% - 85rpx);
+      padding-bottom: 10rpx;
+}
+.solgan{
+      width: 68%
+}
+/* .panel .content {
+      width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+      max-height: 100%;
+}
+
+.panel .icon-down {
+      position: absolute;
+      width: 56rpx;
+      left: calc(50% - 28rpx);
+      bottom: 33%;
+      animation: shake 1s 0.3s ease infinite;
+      animation-fill-mode: forwards;
+} */
+
+.panel  .btn-get {
+      width: 360rpx;
+}
+
+.weui-search-bar__label {
+line-height:24px;
+}

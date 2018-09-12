@@ -1,0 +1,6 @@
+{
+      "component": true,
+      "usingComponents": {
+            "user-header": "../../../components/user-header/user-header"
+      }
+}

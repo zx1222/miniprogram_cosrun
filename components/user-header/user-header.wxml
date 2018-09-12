@@ -1,0 +1,13 @@
+<view class='header'>
+            <view class='avatar'>
+                  <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class='nickname'>
+                  <open-data type="userNickName" class="nickname"></open-data>
+            </view>
+
+            <!-- <view class='btn-sign-wrp flex justify-content-between w100'>
+                  <button class='btn btn-'>嘉年华签到</button>
+                  <button class='btn btn-'>换装跑签到</button>
+            </view> -->
+      </view>

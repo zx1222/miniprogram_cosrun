@@ -1,0 +1,27 @@
+{
+      "pages": [
+            "pages/home/index",
+            "pages/index/index",
+            "pages/uploads/index",
+            "pages/view/index",
+            "pages/pay/index",
+            "pages/comiketSign/index",
+            "pages/runSign/index",
+            "pages/vote/index",
+            "pages/indexRules/index",
+            "pages/performSign/index",
+            "pages/uploads/upload/upload",
+            "pages/user/userInfoList/index",
+            "pages/user/index",
+            "pages/logs/logs",
+            "pages/user/userInfoView/index",
+            "pages/vote/ranking/index"
+      ],
+      "window": {
+            "backgroundTextStyle": "#333333",
+            "navigationBarBackgroundColor": "#bce3ed",
+            "navigationBarTitleText": "COS RUN幻装嘉年华",
+            "navigationBarTextStyle": "black",
+            "enablePullDownRefresh": false
+      }
+}

@@ -1,0 +1,135 @@
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-index.png');
+      background-size: 100% 100%;
+      height: 100%;
+}
+
+.solgan-header {
+      width: 96%;
+      margin: 1% 2% 0 2%;
+      opacity: 0;
+      animation: bounceInDown 0.7s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.bounceIn {
+      animation-name: bounceIn;
+}
+
+.header {
+      height: 122rpx;
+      position: relative;
+      padding: 0 12px;
+      box-sizing: border-box;
+}
+
+.logo {
+      width: 86%;
+      margin-left: 7%
+}
+
+.btn-user {
+      width: 15%;
+      transform-origin: top center;
+      animation: swing 1.2s 0.7s ease 1;
+      animation-fill-mode: forwards;
+      position: relative;
+}
+
+.btn-container {
+      margin-top: 6%;
+}
+
+.btn-wrp {
+      position: relative;
+      overflow: hidden;
+      width: 76%;
+      margin-left: 12%;
+      background: #cd267d;
+      border-radius: 24rpx;
+      border:10rpx solid #133354;
+         opacity: 0;
+      animation: bounceIn 1s 0.5s ease 1;
+      animation-fill-mode: forwards;
+      color: #ffffff;
+      padding: 16rpx 30rpx; 
+      margin-bottom: 32rpx;
+}
+.is_6 .btn-wrp{
+      width: 80%
+}
+
+.is_x .btn-wrp{
+      width: 80%;
+       margin-bottom: 40rpx;
+}
+
+.icon-location{
+      width: 40rpx;
+}
+.activity_name{
+      font-size: 38rpx;
+      padding-left: 16rpx;
+      letter-spacing: 1px;
+}
+.activity_date{
+      font-size: 28rpx;
+      padding-left: 16rpx;
+}
+.sign-date,.activity_address{
+      font-size: 28rpx;
+}
+.btn-sign{
+      width: 94rpx;
+}
+
+
+/* .btn-activity-name {
+      opacity: 0;
+      position: absolute;
+      font-size: 40rpx;
+      color: #fff;
+      top: 24%;
+      letter-spacing: 8rpx;
+      width: 100%;
+      text-align: center;
+      animation: bounceIn 1s 0.5s ease 1;
+      animation-fill-mode: forwards;
+} */
+
+.btn1 {
+      animation: bounceIn 0.7s 0.8s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.btn2 {
+      animation: bounceIn 0.7s 1s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.btn-getUserInfo-wrp {
+      margin-top: 10%;
+      position: relative;
+      width: 100%;
+}
+
+.btn-getUserInfo-wrp .btn-getUserInfo {
+      width: 50%;
+      position: absolute;
+      top: 0;
+      left: 25%;
+}
+
+.btn-getUserInfo-wrp .btn-getUserInfo-open {
+      width: 48%;
+      position: absolute;
+      margin-top: 3%;
+      opacity: 0;
+      left: 26%;
+}
+
+.panel .content {
+      max-height: 54%;
+      overflow-y: scroll;
+      padding: 0 60rpx;
+}

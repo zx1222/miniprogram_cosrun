@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('FontAwesome.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'FontAwesome';
+    src: url(data:application/font-woff2;charset=utf-8;base64, )
+}

@@ -1,0 +1,80 @@
+<view class="container">
+      <view class='section header flex justify-content-between'>
+            <navigator url="/pages/vote/ranking/index" hover-class='none'>
+                  <view>投票排行榜</view>
+            </navigator>
+            <view bindtap="togglePopup">
+                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>投票说明</view>
+      </view>
+
+      <view class=" search-wrp wrp">
+            <view class="weui-search-bar">
+                  <view class="weui-search-bar__form">
+                        <view class="weui-search-bar__box">
+                              <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                              <input type="text" bindconfirm='formSubmit' class="weui-search-bar__input" placeholder="搜索" value="{{keywords}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                              <view class="weui-icon-clear" wx:if="{{keywords.length > 0}}" bindtap="clearInput">
+                                    <icon type="clear" size="14"></icon>
+                              </view>
+                        </view>
+                        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                              <icon class="weui-icon-search" type="search" size="14"></icon>
+                              <view class="weui-search-bar__text">请输入要搜索的姓名或者编号</view>
+                        </label>
+                  </view>
+                  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+            </view>
+      </view>
+      <scroll-view scroll-y bindscrolltolower="reachBottom" bindscrolltoupper="pullDownRefresh" bindscroll="scroll" class='voteList-wrp'>
+            <view class="weui-loadmore" wx:if="{{loading_refresh}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在刷新</view>
+            </view>
+
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{!loading}}" class='voteList flex justify-content-between'>
+                  <navigator wx:for="{{voteList}}" url="/pages/view/index?id={{item.run_id}}" hover-class="none" wx:key="run_id">
+                        <view class='item-wrp'>
+                              <view class='vote-header flex justify-content-between'>
+                                    <view>{{item.run_id}}号</view>
+                                    <view>{{item.run_votes}}票</view>
+                              </view>
+                              <view class='photo'>
+                                    <image src='{{item.run_file_name}}' mode="widthFix"></image>
+                              </view>
+                              <button class='btn-vote' catchtap='vote' data-id="{{item.run_id}}" data-index="{{index}}">投票</button>
+                        </view>
+                  </navigator>
+            </view>
+
+            <!--加载  -->
+            <view class="weui-loadmore" wx:if="{{loading_more}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <!--暂无更多  -->
+            <view class='loadmore-end' wx:if="{{loadmore_end}}">
+                  暂无更多数据
+            </view>
+      </scroll-view>
+
+      <view class="popup" wx:if="{{is_open}}">
+            <image src="../../assets/images/solgan-vote-instruction.png" class='solgan' mode="widthFix"></image>
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" >{{notice_content}}</scroll-view>
+                  <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
+
+                  <image src="../../assets/images/btn-get.png" class='btn-get' mode="widthFix" bindtap='togglePopup'> </image>
+            </view>
+      </view>
+</view>
+
+<view wx:if="{{is_vote}}" class='popup bounceIn flex align-items-center justify-content-center'>
+      <image class='w100' src='../../assets/images/popup-vote-success.png' mode='widthFix'></image>
+</view>
+<view wx:if="{{is_yet}}" class='popup bounceIn flex align-items-center justify-content-center'>
+      <image src='../../assets/images/popup-vote-yet.png' mode='widthFix'></image>
+</view>

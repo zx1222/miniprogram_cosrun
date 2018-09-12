@@ -1,0 +1,32 @@
+@import '../../assets/style/scrollbar.wxss';
+.container {
+      width: 100%;
+      height: auto;
+      background: url('https://cosrun.sindcorp.net/cosrun_img/bg-user.png');
+      background-size: 100% 100%;
+}
+
+.solgan {
+      width: 96%;
+      margin-left: 2%;
+      position: absolute;
+      top: 1%;
+      z-index: 2;
+}
+
+.banner {
+      width: 100%;
+      margin-top: 16%;
+}
+
+.title,.content{
+ padding-left: 40rpx;
+ padding-right: 40rpx;
+ box-sizing: border-box;
+}
+
+
+.btn-back{
+width: 44%;
+margin-left: 28%;
+}

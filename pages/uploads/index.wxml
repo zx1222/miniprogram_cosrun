@@ -1,0 +1,35 @@
+<view wx:if="{{is_cosplay==1}}" class="container flex align-items-center flex-c justify-content-center">
+      <view class=' photo-wrp flex align-items-center  justify-content-center'>
+            <image src="{{src}}" class="avatar" bindtap="upload" mode='aspectFit'></image>
+
+            <view class="btn-wrp">
+                  <text>请上传服装照片</text>
+                  <button bindtap="upload" class=' btn-upload'>上传</button>
+            </view>
+      </view>
+      <view class='mation-wrp text-left w100'>
+            <view class='pb25 pt30'>报名须知</view>
+            <view class='mation'>{{notice_content}}</view>
+      </view>
+
+      <!-- <navigator url='/pages/pay/index' hover-class='none' > -->
+      <!-- <image src="../../assets/images/btn-next.png" wx:if="{{from!='notice'}}" class='btn-next pt90' mode="widthFix" bindtap='turnToPay'></image> -->
+      <!-- <image src="../../assets/images/btn-submit.png" wx:if="{{from=='notice'}}" class='btn-next pt90' mode="widthFix" bindtap='submit'></image> -->
+          <image src="../../assets/images/btn-submit.png"  class='btn-next pt90' mode="widthFix" bindtap='submit'></image>
+      <!-- </navigator> -->
+
+</view>
+
+
+<!-- 是否报名幻装 -->
+<view wx:if="{{is_cosplay==0}}" class=" container container-cosplay">
+      <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
+      <view class='text-xl bold w100 text-center p30'>幻装跑报名</view>
+      <scroll-view  scroll-y  class='notice_content_cos notice_content' style="height:{{scrollHeight*.25}}px" >
+            {{notice_content_cos}}
+      </scroll-view>
+      <view class='flex pt30 align-items-center justify-content-center btn-cosplay-wrp'>
+            <image src="../../assets/images/btn-cosplay.png" class='btn' data-id='1' bindtap='selectCosplay' mode="widthFix"></image>
+            <image src="../../assets/images/btn-unCosplay.png" class='btn' data-id='2' bindtap='selectCosplay' mode="widthFix"></image>
+      </view>
+</view>

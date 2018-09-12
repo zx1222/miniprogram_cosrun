@@ -1,0 +1,108 @@
+@import '../../assets/style/scrollbar.wxss';
+.container {
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-run.png');
+      background-size: 100% auto;
+      color: #fff;
+      /* height: 100% */
+}
+
+.solgan-header {
+      width: 96%;
+      margin: 3% 2% 0 2%;
+      opacity: 0;
+      animation: bounceInDown 0.7s 0.2s ease 1;
+      animation-fill-mode: forwards;
+}
+
+.form-wrp {
+      padding: 60rpx 80rpx 0 70rpx;
+}
+
+input, picker {
+      background: #fff;
+      border: 4rpx solid #313c58;
+      border-radius: 10rpx;
+      height: 80rpx;
+      margin-bottom: 30rpx;
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      color: #999;
+      font-size: 15px;
+}
+
+.picker view {
+      padding: 0rpx 10rpx;
+}
+
+.note {
+      text-align: justify;
+      font-size: 24rpx;
+}
+
+.mation {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      font-size: 28rpx;
+      word-break: break-all;
+}
+
+.btn-submit-wrp {
+      position: relative;
+      width: 358rpx;
+      margin-left: calc(50% - 179rpx);
+      margin-top: 30rpx;
+      padding-bottom: 50rpx;
+}
+
+.btn-submit-wrp .btn-submit {
+      width: 100%;
+}
+
+.btn-submit-wrp .btn-opacity {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      opacity: 0;
+}
+
+.btn-agreement {
+      width: 42%;
+}
+
+.solgan {
+      width: 96%;
+}
+
+.panel {
+      width: 98%;
+      height: 57%;
+      background: url('https://cosrun.sindcorp.net/cosrun_img/bg-popUp.png');
+      background-size: 100% 100%;
+}
+
+.panel  .start {
+      width: 160rpx;
+      padding-bottom: 50rpx;
+}
+
+.panel  .btn-home {
+      width: 360rpx;
+      padding-top: 60rpx;
+}
+
+/* .panel .content {
+      width: 86%;
+      text-align: justify;
+      font-size: 28rpx;
+      max-height: 100%;
+} */
+/* 
+.panel .icon-down {
+      position: absolute;
+      width: 56rpx;
+      left: calc(50% - 28rpx);
+      bottom: 33%;
+      animation: shake 1s 0.3s ease infinite;
+      animation-fill-mode: forwards;
+} */

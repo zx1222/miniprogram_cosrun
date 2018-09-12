@@ -1,0 +1,263 @@
+<view class="{{type=='5'?'cashback':''}} container">
+      <view class="{{iphone_type=='iPhone X'?'pt30':''}}">
+            <user-header></user-header>
+      </view>
+
+      <!-- 漫展报名信息列表 -->
+      <view wx:if="{{type=='1'}}" class='list-wrp p30' >
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length==0&&!loading}}" class='text-white'>暂无漫展报名信息</view>
+            <view wx:if="{{!loading}}" class='item comico' wx:for="{{list}}" bindtap='get_comico_code' data-index="{{index}}">
+                  <view class='header flex justify-content-between  align-items-center text-xs'>
+                        <text><text class="fa fa-check text-l" aria-hidden="true" style='padding-right:5rpx'></text>报名成功</text>
+                        <text class='address'>{{item.activity.activity_name}}</text>
+                        <text>{{item.created_at}}</text>
+                  </view>
+                  <view class='content text-xs flex justify-content-between align-items-center'>
+                        <view class='col'>
+                              <view class='flex justify-content-between row'>
+                                    <text><text class='bold'>姓名:</text>{{item.comico_name}}</text>
+                                    <text><text class='bold'>性别:</text> {{item.comico_sex}}</text>
+                              </view>
+                              <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view>
+                              <view class='row'><text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
+                              <view class='row'><text class='bold'>参赛时间:</text> {{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
+                        </view>
+                           <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
+                  </view>
+            </view>
+      </view>
+
+      <!-- 跑步信息列表 -->
+      <view wx:if="{{type=='2'}}" class='list-wrp p30'>
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length==0&&!loading}}" class='text-white'>暂无跑步报名信息</view>
+            <view wx:if="{{!loading}}" class='item' wx:for="{{list}}">
+                  <view class='header flex justify-content-between  align-items-center text-xs'>
+                        <text wx:if="{{item.run_pay_status==1}}"><text class="fa fa-check text-l" aria-hidden="true" style='padding-right:5rpx'></text>报名成功</text>
+                        <text wx:if="{{item.run_pay_status==0}}" class='text-pink'>待缴报名费用...</text>
+                        <text wx:if="{{item.is_cosplay=='1'}}" class='address'>{{item.activity.activity_name}}(幻装奖)</text>
+                         <text wx:if="{{item.is_cosplay=='2'}}" class='address'>{{item.activity.activity_name}}(竞速奖)</text>
+                        <text>{{item.created_at}}</text>
+                  </view>
+                  <view class='content text-xs flex justify-content-between ' style='padding-bottom:90rpx'>
+                        <view wx:if="{{item.is_cosplay==1}}" style='width:34%;margin-right:1%' class='flex justify-content-center '>
+                        
+                              <view class='photo'>
+                                    <image class=" w100" src="{{item.run_file_name!=''?item.run_file_name:'../../../assets/images/photo-default.png'}}" mode="widthFix"></image>
+                                    <view class='w100 text-center' style='padding-top:20rpx'>幻装票数: {{item.run_votes}}</view>
+                                    <view wx:if="{{item.run_pay_status==0}}" class="btn-toPay" data-index="{{index}}" bindtap='pay'>去支付</view>
+                              </view>
+                        </view>
+                        
+                        <view class="{{item.is_cosplay==1?'has-photo-r':'no-photo-r'}}">
+                              <view class='row flex justify-content-between '>
+                                    <view class='col' style='width:64%'>
+                                          <text class='bold'>姓名:</text> {{item.run_name}}
+                                    </view>
+                                    <view class='col' style='width:36%'>
+                                           <text class='bold'>性别: </text>{{item.run_sex}}
+                                    </view>
+                              </view>
+                                <view class='row flex justify-content-between '>
+                                    <view class='col' style='width:64%'>
+                                           <text class='bold'>血型:</text> {{item.run_blood}}
+                                    </view>
+                                    <view class='col' style='width:36%'>
+                                           <text class='bold'>服装尺码: </text>{{item.run_size}}
+                                    </view>
+                              </view>
+                               <view class='row'>
+                                     <text class='bold'>证件类型:</text> {{item.certificates_type}}
+                              </view>
+                              <view class='row'>
+                                     <text class='bold'>有效证件号码:</text> {{item.run_idcard}}
+                              </view>
+                              <view class='row flex justify-content-between '>
+                                    <view class='col' style='width:64%'>
+                                           <text class='bold'>出生年月: </text>{{item.run_birthday}}
+                                    </view>
+                                    <view class='col' style='width:36%'>
+                                          <text class='bold'> 国籍: </text>{{item.run_country}}
+                                    </view>
+                              </view>
+                              <view class='row address'>
+                                     <text class='bold'>家庭住址: </text>{{item.run_address}}
+                              </view>
+                              <view class='row'>
+                                     <text class='bold'>联系方式:</text> {{item.run_phone}}
+                              </view>
+                              <view class='row flex justify-content-between '>
+                                    <view class='col' style='width:64%'>
+                                           <text class='bold'>血型:</text> {{item.run_blood}}
+                                    </view>
+                                    <view class='col' style='width:36%'>
+                                           <text class='bold'>服装尺码: </text>{{item.run_size}}
+                                    </view>
+                              </view>
+                              <view class='row'>
+                                     <text class='bold'>紧急联系人:</text> {{item.run_emergency_name}}
+                              </view>
+                              <view class='row'>
+                                     <text class='bold'>紧急联系方式:</text> {{item.run_emergency_phone}}
+                              </view>
+                                  <view class='row' wx:if="{{item.run_type=='1'}}">
+                                     <text class='bold'>赛程选报:</text>全程
+                              </view>
+                                  <view class='row' wx:if="{{item.run_type=='2'}}">
+                                     <text class='bold'>赛程选报:</text>半程
+                              </view>
+                              <view class='row'> <text class='bold'>参赛时间:</text> {{item.activity.run_activity_start}}-{{item.activity.run_activity_end}}</view>
+                              <view class='row'> <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
+                            <view wx:if="{{item.run_pay_status==0 && item.is_cosplay==2}}" class="btn-toPay"  bindtap='pay' data-index="{{index}}">去支付</view>
+                            <view wx:if="{{item.is_cosplay==2&&item.run_pay_status==1}}" class="btn-toPay" data-index="{{index}}" bindtap='turnToCos'>去报名幻装</view>
+                        </view>
+                        <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
+                  </view>
+            </view>
+      </view>
+
+      <!-- 表演信息列表 -->
+      <view wx:if="{{type=='3'}}" class='list-wrp p30'>
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length==0&&!loading}}" class='text-white'>暂无表演报名信息</view>
+            <view wx:if="{{!loading}}" class='item' wx:for="{{list}}">
+                  <view class='header flex justify-content-between  align-items-center text-xs'>
+                        <text><text class="fa fa-check text-l" aria-hidden="true" style='padding-right:5rpx'></text>报名成功</text>
+                        <text class='address'>{{item.activity.activity_name}}</text>
+                        <text>{{item.created_at}}</text>
+                  </view>
+                  <view class='content text-xs flex justify-content-between align-items-center' style='padding-bottom:60rpx'>
+                        <view class='col'>
+                              <view class=' row'>
+                                    <text class='bold'>节目名称: </text>{{item.perform_show}}
+                              </view>
+                              <view class=' row'>
+                                    <text class='bold'>负责人名称: </text>{{item.perform_player}}
+                              </view>
+                              <view class='row'>
+                                    <text class='bold'>节目时长:</text> {{item.performer_duration}}
+                              </view>
+                              <view class='row'>
+                                    <text class='bold'>参赛团体名称:</text> {{item.performer_team}}
+                              </view>
+                              <view wx:if="{{item.performer_remark!=''}}" class=' row'>
+                                    <text class='bold'>备注: </text>{{item.performer_remark}}
+                              </view>
+                              <view wx:if="{{item.performer_remark==''}}" class=' row'>
+                                    <text class='bold'>备注:</text> 无
+                              </view>
+                                  <view class='row'><text class='bold'>参赛地点: </text>{{item.activity.activity_point}}</view>
+                           
+                        </view>
+                        <view class='col'>
+                              <view class=' row'>
+                                    <text class='bold'>节目类型:</text> {{item.perform_type}}
+                              </view>
+                              <view class='row'>
+                                   <text class='bold'> 联系方式:</text> {{item.perform_phone}}
+                              </view>
+                              <view class='row'>
+                                   <text class='bold'> 表演人数:</text> {{item.performer_performers}}人
+                              </view>
+                               <view wx:if="{{item.performer_qq!=''}}" class=' row'>
+                                    <text class='bold'>QQ:</text> {{item.performer_qq}}
+                              </view>
+                               <view wx:if="{{item.performer_wechat!=''}}" class=' row'>
+                                    <text class='bold'>微信:</text> {{item.performer_wechat}}
+                              </view>
+                        </view>
+                           <view class='row'><text class='bold'>参赛时间: </text>{{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
+                        <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
+                  </view>
+            </view>
+      </view>
+
+
+      <!-- 消息通知信息列表 -->
+      <!-- 1是已读 2是未读 -->
+      <view wx:if="{{type=='4'}}" class='list-wrp p30'>
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length==0&&!loading}}" class='text-white'>暂无消息通知</view>
+            <view wx:if="{{!loading||item.notice==null}}" class='item msg notice' wx:for="{{list}}">
+                  <navigator url='/pages/user/userInfoView/index?id={{item.message_id}}' hover-class='none'>
+                        <view class='header flex justify-content-between align-items-center'>
+                              <view>
+                                    <view class='text-xs text-gray row'>{{item.activity.activity_name}} {{item.created_at}}</view>
+                                    <view class=' row'>{{item.notice.notice_title}}</view>
+                              </view>
+                              <text class="fa fa-angle-right" aria-hidden="true"></text>
+                        </view>
+                  </navigator>
+                  <view wx:if="{{item.message_status=='2'}}" class="{{item.message_status=='2'?'':'none'}} notRead"></view>
+            </view>
+      </view>
+
+      <!-- 邀请返现 -->
+      <view wx:if="{{type=='5'}}" class='flex flex-c align-items-center justify-content-center '>
+            <view wx:if="{{poster!=''}}" class='w100 flex justify-content-center' wx:if="{{run_poster!=''}}">
+                  <view wx:if="{{poster!=''}}" class='text-white invite-count'>已邀请{{invite_counts}}位好友</view>
+                  <view wx:if="{{poster!=''}}" class='poster'>
+                        <image class='w100' src='{{poster}}' mode="widthFix"></image>
+                  </view>
+            </view>
+            <view wx:if="{{poster==''}}" class='text-m bold pt30 text-left text-white w100'>您暂未报名幻装跑生成相应海报 请先去报名</view>
+
+            <view class='pt60 text-white text-l letter-sp4'>邀请说明</view>
+            <view class='p30 notice_content text-white'>{{notice_content}}</view>
+      </view>
+
+      <!-- 常见问题列表 -->
+      <view wx:if="{{type=='6'}}" class='list-wrp p30'>
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length==0&&!loading}}" class='text-white'>暂无常见问题</view>
+            <view wx:id="{{!loading}}" class="item msg question  {{item.slideUp?'slideUp':''}}" wx:for="{{list}}">
+                  <view class='header flex align-items-center justify-content-between' bindtap='toggleSlide' data-index='{{index}}'>
+                        <view class=' row'>{{item.question_title}}</view>
+                        <text class="fa fa-angle-down" aria-hidden="true"></text>
+                  </view>
+                  <view class='content'>
+                        <view class=''>{{item.question_content}}</view>
+                  </view>
+            </view>
+      </view>
+
+      <!-- 号码布 -->
+      <view wx:if="{{type=='7'}}" class='flex flex-c align-items-center justify-content-center  p30'>
+            <view class="weui-loadmore" wx:if="{{loading}}" data-index="{{index}}">
+                  <view class="weui-loading"></view>
+                  <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+            <view wx:if="{{list.length!=0&&!loading}}" wx:id="{{!loading}}" class="item msg question  {{item.slideUp?'slideUp':''}}" wx:for="{{list}}">
+                  <view class='header flex align-items-center justify-content-between' bindtap='toggleSlide' data-index='{{index}}'>
+                        <view class=' row'>{{item.activity}}</view>
+                        <text class="fa fa-angle-down" aria-hidden="true"></text>
+                  </view>
+                  <view class='content'>
+                        <image class='w100' src='{{item.qrcode}}' mode="widthFix"></image>
+                        <view class=' pt60 notice-code' wx:if="{{qrCode!=''}}">此二维码将用于活动签到检录</view>
+                  </view>
+            </view>
+
+            <view wx:if="{{list.length==0&&!loading}}" class='bold text-left text-white w100'>号码布暂未开放，请在10月12日后查看个人号码布。</view>
+      </view>
+
+      <view wx:if="{{is_qrcode_open}}" class='qrCode-popup popup' bindtap='toggleQrcodePopup'>
+<image src='{{qrCode}}' mode='widthFix'></image>
+      </view>      
+</view>

@@ -1,0 +1,94 @@
+<view class="{{is_open||is_perform_open?'overflow-y-hidden':''}} container">
+      <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
+      <!-- 表单 -->
+      <view class='form-wrp'>
+            <view class='p30'>
+                  <view class='pb25'>报名须知</view>
+                  <text class='mation'>{{notice_content}}</text>
+            </view>
+
+            <form bindsubmit="submit" bindreset="formReset">
+                  <view class='input-wrp required'>
+                        <input placeholder="{{perform_show.valid?'节目名称':'请输入节目名称'}}" type='text' placeholder-class="{{perform_show.valid?'':'text-explain'}}" value='{{perform_show.value}}' name="perform_show" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <picker value="{{perform.index}}" range="{{perform.dataArr}}" name="perform_type" bindchange="bindPerformChange">
+                              <view class="picker">
+                                    <view wx:if="{{!perform.selected&&!perform.valid}}">表演类型</view>
+                                    <view wx:if="{{!perform.selected&&perform.valid}}" class="text-explain">请选择表演类型</view>
+                                    <view wx:if="{{perform.selected&&perform.valid}}">{{perform.dataArr[perform.index]}}</view>
+                              </view>
+                        </picker>
+                        <text>*</text>
+                  </view>
+
+                  <view class='input-wrp required'>
+                        <input placeholder="{{perform_player?'负责人':'请输入负责人'}}" type='text' placeholder-class="{{perform_player.valid?'':'text-explain'}}" value='{{perform_player.value}}' name="perform_player" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{perform_contact.valid?'联系方式':'请输入有效联系方式'}}" type='number' placeholder-class="{{perform_contact.valid?'':'text-explain'}}" value='{{perform_contact.value}}' name="perform_phone" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <picker value="{{performer_duration.index}}" range="{{performer_duration.dataArr}}" bindchange="bindperformerDurationChange">
+                              <view class="picker">
+                                    <view wx:if="{{!performer_duration.selected&&!performer_duration.valid}}">节目时长</view>
+                                    <view wx:if="{{!performer_duration.selected&&performer_duration.valid}}" class="text-explain">请选择节目时长</view>
+                                    <view wx:if="{{performer_duration.selected&&performer_duration.valid}}">{{performer_duration.dataArr[performer_duration.index]}}</view>
+                              </view>
+                        </picker>
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{performer_performers.valid?'表演人数':'请输入整数表演人数'}}" type='number' placeholder-class="{{performer_performers.valid?'':'text-explain'}}" value='{{performer_performers.value}}' name="performer_performers" />
+                        <text>*</text>
+                  </view>
+                  <view class='input-wrp required'>
+                        <input placeholder="{{performer_team.valid?'参加团体名称':'请输入参加团体名称'}}" type='text' placeholder-class="{{performer_team.valid?'':'text-explain'}}" value='{{performer_team.value}}' name="performer_team" />
+                        <text>*</text>
+                  </view>
+                  <input placeholder="QQ联系方式" class='texrarea' type='text' value='{{performer_qq}}' name="performer_qq" />
+                  <input placeholder="微信联系方式" class='texrarea' type='text' value='{{performer_wechat}}' name="performer_wechat" />
+                  <input placeholder="备注" class='texrarea' type='text' value='{{performer_remark}}' name="performer_remark" />
+                  <view class='btn-submit-wrp'>
+                        <image src="../../assets/images/btn-submit.png" class='btn-submit' mode="widthFix"></image>
+                        <button formType="submit" class='btn-opacity'>Submit</button>
+                  </view>
+                  <text></text>
+            </form>
+      </view>
+
+
+
+      <!-- 报名成功 -->
+      <view class="popup bounceIn" wx:if="{{is_open}}">
+            <image src="../../assets/images/solgan-sign-success.png" class='solgan-sign-success' mode="widthFix"></image>
+            <view class='panel flex flex-c align-items-center justify-content-center '>
+                  <image src="../../assets/images/icon-start.png" class='start' mode="widthFix"> </image>
+                  <text class='text-xl'>祝贺您！报名成功！</text>
+                  <text class='text-l'>将会有工作人员与您联系</text>
+                  <text class='text-l'>点击右上角分享给更多人参与吧！</text>
+                  <!-- <navigator open-type='redirect' url="/pages/index/index?is_perform_sign=2" hover-class="none"> -->
+                  <image bindtap='backhome' src="../../assets/images/btn-home.png" class='btn-home' mode="widthFix"> </image>
+                  <!-- </navigator> -->
+            </view>
+      </view>
+</view>
+
+<!-- 跑步须知条款 -->
+<view class="popup" wx:if="{{is_perform_open}}">
+      <image src="../../assets/images/solgan-agreement.png" class='solgan' mode="widthFix"></image>
+      <view class='panel flex flex-c align-items-center justify-content-center '>
+            <scroll-view scroll-y class='content' style="height:{{noticeHeight}}px" >{{notice_content_perform}}</scroll-view>
+            <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
+               <checkbox-group bindchange="checkboxChange">
+                  <label class="checkbox">
+                        <checkbox value="1"  checked="{{item.checked}}" />我已阅读并同意活动详细须知
+                  </label>
+            </checkbox-group>
+            
+            <image src="../../assets/images/btn-confirm.png" class="btn-agreement {{checked?'':'disabled'}}" mode="widthFix" bindtap="togglePerformPopup"> </image>
+      </view>
+</view>
