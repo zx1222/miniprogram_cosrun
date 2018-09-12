@@ -407,7 +407,7 @@ Page({
                         flag: false
                   })
             }
-            if (!this.data.verification.valid || this.data.verification.value == '' || this.data.verification.value.length!=6) {
+            if (!this.data.verification.valid || this.data.verification.value == '' || this.data.verification.value.length != 6) {
                   this.setData({
                         verification: {
                               valid: false,
@@ -415,7 +415,7 @@ Page({
                         }
                   })
             }
-            if (data.run_name != '' && data.idCard != '' && data.run_birthday != '' && this.data.country.selected && this.data.blood.selected && this.data.certificates_type.selected && this.data.run_size.selected && data.run_address != '' && reg_contact.test(data.run_phone) && reg_contact.test(data.run_emergency_phone) && data.run_emergency_name != '' && this.data.verification.valid && this.data.verification.value != ''&&this.data.verification.value.length==6 && data.run_sex != 0) {
+            if (data.run_name != '' && data.idCard != '' && data.run_birthday != '' && this.data.country.selected && this.data.blood.selected && this.data.certificates_type.selected && this.data.run_size.selected && data.run_address != '' && reg_contact.test(data.run_phone) && reg_contact.test(data.run_emergency_phone) && data.run_emergency_name != '' && this.data.verification.valid && this.data.verification.value != '' && this.data.verification.value.length == 6 && data.run_sex != 0) {
                   this.setData({
                         flag: true
                   })
@@ -489,32 +489,23 @@ Page({
                   }
             })
       },
-      verification_code:function(e){
-            this.setData({
-                  verification: {
-                        value: e.detail.value
-                  }
-            })
-         if(this.data.verification.value.length!=6){
-               this.setData({
-                     verification: {
-                           valid: false,
-                           value: ''
-                     }
-               })
-         }
+      verification_code: function(e) {
+            if (e.detail.value.length != 6) {
+                  this.setData({
+                        verification: {
+                              value: '',
+                              valid: false,
+                        }
+                  })
+            }
       },
       bindVerificationInput: function(e) {
-            this.setData({
-                  verification: {
-                        value: e.detail.value
-                  }
-            })
-            if (e.detail.value.length == 6) {
+            let code=e.detail.value
+            if (code.length == 6) {
                   const url = `${app.globalData.baseUrl}/run/verification`
                   const data = {
                         mobile_number: this.data.contact.value,
-                        valid_code: this.data.verification.value
+                        valid_code: code
                   }
                   http.request(url, data, 'POST').then((res) => {
                         if (res.data.error) {
@@ -525,13 +516,12 @@ Page({
                                           value: ''
                                     }
                               })
-                              console.log(this.data.verification)
                         } else {
                               console.log('验证成功')
                               this.setData({
                                     verification: {
                                           valid: true,
-                                          value: this.data.verification.value
+                                          value: code
                                     }
                               })
                         }
