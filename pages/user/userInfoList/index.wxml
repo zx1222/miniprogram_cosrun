@@ -93,14 +93,6 @@
                               <view class='row'>
                                      <text class='bold'>联系方式:</text> {{item.run_phone}}
                               </view>
-                              <view class='row flex justify-content-between '>
-                                    <view class='col' style='width:64%'>
-                                           <text class='bold'>血型:</text> {{item.run_blood}}
-                                    </view>
-                                    <view class='col' style='width:36%'>
-                                           <text class='bold'>服装尺码: </text>{{item.run_size}}
-                                    </view>
-                              </view>
                               <view class='row'>
                                      <text class='bold'>紧急联系人:</text> {{item.run_emergency_name}}
                               </view>

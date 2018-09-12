@@ -256,7 +256,7 @@ input, picker {
 /* 确认信息是否修改 */
 
 .runInfo-wrp {
-      padding: 60rpx 120rpx;
+      padding: 50rpx 102rpx;
       letter-spacing: 2px;
 }
 
