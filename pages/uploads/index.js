@@ -173,9 +173,12 @@ Page({
                               setTimeout(() => {
                                     if (this.data.from == '') {
                                           console.log('from normal')
-                                          wx.redirectTo({
-                                                url: `/pages/index/index?id=${this.data.activity_id}&&name=${this.data.activity_name}`,
+                                          wx.navigateBack({
+                                                delta: 1
                                           })
+                                          // wx.redirectTo({
+                                          //       url: `/pages/index/index?id=${this.data.activity_id}&&name=${this.data.activity_name}`,
+                                          // })
                                     }
                                     if (this.data.from == 'list') {
                                           console.log('from list')

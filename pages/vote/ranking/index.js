@@ -83,6 +83,12 @@ Page({
                   this.setData({
                         loading: false
                   })
+                  if (res.data.items.length < this.data.pageSize || res.data._meta.pageCount <= this.data.currentPage) {
+                        this.setData({
+                              noData: true
+                        })
+                  }
+            
                   this.setData({
                         voteList: res.data.items
                   })
@@ -103,7 +109,7 @@ Page({
                         voteList[this.data.index].run_votes = voteList[this.data.index].run_votes + 1
                         this.setData({
                               is_vote: true,
-                              voteList: voteList
+                              voteList: this.formatData(voteList)
                         })
                         setTimeout(() => {
                               this.setData({
@@ -130,16 +136,16 @@ Page({
                   activity_id: this.data.activity_id,
                   sort: 1
             }
-            if (!this.data.loadmore_end) {
+            if (!this.data.noData) {
                   this.setData({
                         loading_more: true
                   })
                   http.request(url, data).then((res) => {
-                        console.log(res)
-                        newVoteList = res.data.items
+                        newVoteList = this.formatData(res.data.items)
                         if (newVoteList.length < this.data.pageSize) {
                               _this.setData({
-                                    loadmore_end: true
+                                    loadmore_end: true,
+                                    noData:true
                               })
                         }
                         setTimeout(function () {
@@ -151,6 +157,19 @@ Page({
                         }, 300)
                   });
             }
+      },
+      formatData: function (data) {
+            let resData = data
+            resData.forEach((item) => {
+                  console.log(item)
+                  if (item.run_id < 10) {
+                        item.run_id = '00' + item.run_id
+                  }
+                  if (item.run_id >= 10 && item.run_id < 100) {
+                        item.run_id = '0' + item.run_id
+                  }
+            })
+            return resData
       },
       togglePopup: function () {
             this.setData({

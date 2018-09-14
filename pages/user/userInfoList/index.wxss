@@ -103,7 +103,7 @@
 
 .item .content {
       box-sizing: border-box;
-      padding: 20rpx 12rpx;
+      padding: 20rpx 14rpx;
       background: #fff;
       border-radius: 0 0 14rpx 14rpx;
       font-size: 24rpx;
@@ -112,6 +112,10 @@
       -webkit-transition: all 0.2s;
       position: relative;
 }
+.item .content.run{
+         padding: 20rpx 26rpx;
+}
+
 .item .content .col {
       width: 45%;
 }
@@ -121,6 +125,12 @@
       width: 110rpx;
       right: 2%;
       bottom: 3%;
+}
+.item .content  .logo-user.run{
+      position: absolute;
+      width: 110rpx;
+      right: 2%;
+      top: 3%;
 }
 .item.comico .content{
       padding: 28rpx 52rpx 34rpx 58rpx;
@@ -181,11 +191,12 @@
 .btn-toPay{
       border: 3px solid #cf1e76;
       border-radius: 12rpx;
-      width: 60%;
-      margin-top: 40rpx;
+      /* width: 60%; */
+      margin-top: 20rpx;
+      padding: 0 10rpx;
       height: 54rpx;
       line-height: 42rpx;
-      margin-left: 20%;
+      /* margin-left: 20%; */
       color: #cf1e76;
       text-align: center;
 }

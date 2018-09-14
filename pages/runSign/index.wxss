@@ -1,4 +1,5 @@
 @import '../../assets/style/scrollbar.wxss';
+
 .container {
       background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-run.png');
       background-size: 100% auto;
@@ -6,7 +7,8 @@
 }
 
 .solgan {
-      width: 96%;
+      width: 108%;
+      margin-left: -4%;
 }
 
 .solgan-header {
@@ -49,14 +51,15 @@
       color: #fcd703;
 }
 
+.label-gender {
+      color: #434343;
+      font-size: 44rpx;
+      padding-left: 24rpx;
+}
+
 .gender-radio-wrp {
       width: 30%;
       position: relative;
-      height: 100rpx;
-}
-
-.gender-radio-wrp image {
-      position: absolute;
 }
 
 .gender-female-label {
@@ -71,15 +74,8 @@
       top: 37%;
 }
 
-.gender-female {
-      width: 62rpx;
-      height: 107rpx;
-      margin-left: 130rpx;
-}
-
-.gender-male {
-      width: 62rpx;
-      height: 108rpx;
+.gender-female, .gender-male {
+      width: 110rpx;
       margin-left: 110rpx;
 }
 
@@ -244,17 +240,12 @@ input, picker {
       width: 42%;
 }
 
-/* .panel .icon-down {
-      position: absolute;
-      width: 56rpx;
-      left: calc(50% - 28rpx);
-      bottom: 33%;
-      animation: shake 1s 0.3s ease infinite;
-      animation-fill-mode: forwards;
-} */
-
 /* 确认信息是否修改 */
-
+.confirm-tips{
+      color: red;
+      font-weight: bold;
+      font-size: 24rpx;
+}
 .runInfo-wrp {
       padding: 50rpx 102rpx;
       letter-spacing: 2px;
@@ -267,4 +258,3 @@ input, picker {
 .btn-confirm-wrp .btn {
       width: 40%;
 }
-

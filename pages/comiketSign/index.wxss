@@ -32,26 +32,15 @@
       margin-bottom: 30rpx;
 }
 
+.label-gender {
+      color: #434343;
+      font-size: 44rpx;
+      padding-left: 24rpx;
+}
+
 .gender-radio-wrp {
       width: 30%;
       position: relative;
-      height: 100rpx;
-}
-
-.gender-radio-wrp image {
-      position: absolute;
-}
-
-.gender-female {
-      width: 62rpx;
-      height: 107rpx;
-      margin-left: 130rpx;
-}
-
-.gender-male {
-      width: 62rpx;
-      height: 108rpx;
-      margin-left: 115rpx;
 }
 
 .gender-female-label {
@@ -62,9 +51,15 @@
 
 .gender-male-label {
       position: absolute;
-      left: 139%;
+      left: 132%;
       top: 37%;
 }
+
+.gender-female, .gender-male {
+      width: 110rpx;
+      margin-left: 110rpx;
+}
+
 
 .text-selected {
       color: #fcd703;

@@ -7,9 +7,30 @@
             <view bindtap="togglePopup">
                   <i class="fa fa-exclamation-circle" aria-hidden="true"></i>投票说明</view>
       </view>
+      <view class='photo-container flex align-items-center justify-content-center'>
+            <view class='photo-wrp'>
+                  <!-- <image src="../../assets/images/share-cover.jpg" class='photo w100' long mode="widthFix"></image> -->
+                  <image src="{{item.voteUser.run_file_name}}" class='photo w100' long mode="widthFix" catchlongtap='saveImg'></image>
+                  <view class='photo-info bold flex justify-content-between'>
+                        <view class='col'>
+                              <view>姓名:{{item.voteUser.run_name}}</view>
+                              <view>性别:{{item.user.gender}}</view>
+                              <view>地区:{{item.user.province}}</view>
+                        </view>
+                        <view class='col'>
+                              <view class='flex align-item-center'>
+                                    <text class='vote-counts text-pink bold'>{{item.voteUser.run_votes}}</text>
+                                    <image src="../../assets/images/icon-heart.png" class="icon-heart" mode="widthFix"></image>
+                              </view>
+                        </view>
+                  </view>
+
+                  <view class='btn-vote bold text-white' bindtap='vote' mode="widthFix"><text decode="{{true}}">投&ensp;票</text></view>
+            </view>
+      </view>
 
 
-      <view class='photo-container'>
+      <!-- <view class='photo-container'>
             <view class='photo-wrp w100'>
                   <view class='avatar'>
                         <image src='{{item.user.avatarUrl}}' mode='widthFix' class='w100'> </image>
@@ -22,7 +43,6 @@
                         </view>
                         <view class='text-center name bold'>{{item.voteUser.run_name}}</view>
                         <image src="{{item.voteUser.run_file_name}}" class='photo' mode="aspectFit"></image>
-                        <!-- <image src="../../assets/images/photo-default.png" class='photo' mode="aspectFit"></image> -->
                         <view class=' text-xs'>票数:
                               <text class='text-pink'>{{item.voteUser.run_votes}}</text>
                         </view>
@@ -37,14 +57,16 @@
                   <view class='bg2'></view>
                   <view class='bg3'></view>
             </view>
-      </view>
+      </view> -->
 
 
 
       <view class="popup" wx:if="{{is_open}}">
             <image src="../../assets/images/solgan-vote-instruction.png" class='solgan' mode="widthFix"></image>
             <view class='panel flex flex-c align-items-center justify-content-center '>
-                  <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px">{{notice_content}}</scroll-view>
+                  <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px">
+                        <text>{{notice_content}}</text>
+                  </scroll-view>
                   <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
 
                   <image src="../../assets/images/btn-get.png" class='btn-get' mode="widthFix" bindtap='togglePopup'> </image>

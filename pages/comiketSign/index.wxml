@@ -5,7 +5,7 @@
       <view class='form-wrp'>
             <form bindsubmit="submit" bindreset="formReset">
                   <view class='flex align-items-center radio-container'>
-                        <text>性别</text>
+                         <text class='label-gender'>性别</text>
                         <view class='gender-radio-wrp'>
                               <image wx:if="{{gender==2||gender==0}}" src="../../assets/images/icon-male.png" class='gender gender-male' mode="widthFix" bindtap='selectGender' data-id='1'></image>
                               <image wx:if="{{gender==1}}" src="../../assets/images/icon-male-selected.png" class='gender gender-male' mode="widthFix"></image>

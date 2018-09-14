@@ -5,6 +5,7 @@
 
       <view class='form-wrp'>
             <form bindsubmit="submit" bindreset="formReset">
+            <image src='../../assets/images/solgan.png' class='solgan' mode='widthFix'></image>
                   <view class=' flex flex-c align-items-center justify-content-center'>
                         <view class=' date-wrp'>
                               <view>
@@ -17,7 +18,7 @@
                   </view>
 
                   <view class='flex align-items-center radio-container'>
-                        <text>性别</text>
+                        <text class='label-gender'>性别</text>
                         <view class='gender-radio-wrp'>
                               <image wx:if="{{gender==2||gender==0}}" src="../../assets/images/icon-male.png" class='gender gender-male' mode="widthFix" bindtap='selectGender' data-id='1'></image>
                               <image wx:if="{{gender==1}}" src="../../assets/images/icon-male-selected.png" class='gender gender-male' mode="widthFix"></image>
@@ -160,11 +161,11 @@
 <view class="popup" wx:if="{{is_run_open}}">
       <image src="../../assets/images/solgan-agreement.png" class='solgan' mode="widthFix"></image>
       <view class='panel flex flex-c align-items-center justify-content-center '>
-            <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" >{{notice_content_run}}</scroll-view>
+            <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" ><text>{{notice_content_run}}</text></scroll-view>
             <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
             <checkbox-group bindchange="checkboxChange">
                   <label class="checkbox">
-                        <checkbox value="1" checked="{{item.checked}}" />我已阅读并同意活动详细须知
+                        <checkbox value="1" checked="{{item.checked}}" />我已阅读并同意免责声明
                   </label>
             </checkbox-group>
             <image src="../../assets/images/btn-confirm.png" class="btn-agreement {{checked?'':'disabled'}}" mode="widthFix" bindtap="toggleRunPopup"> </image>
@@ -198,6 +199,7 @@
             <view><text class='bold'>紧急联系方式:</text>{{resultData.run_emergency_phone}}</view>
               <view wx:if="{{resultData.run_type=='1'}}"><text class='bold'>赛程选报:</text>全程</view>
               <view wx:if="{{resultData.run_type=='2'}}"><text class='bold'>赛程选报:</text>半程</view>
+               <view class='confirm-tips'>注：请保证信息真实有效，如因信息有误影响报名参赛，后果由个人承担。</view>
       </view>
       <view class='flex  align-items-center justify-content-center btn-confirm-wrp'>
             <image src="../../assets/images/btn-confirm-info.png" class='btn' data-id='1' bindtap='confirmRunInfo' mode="widthFix"></image>

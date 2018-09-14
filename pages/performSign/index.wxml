@@ -2,11 +2,6 @@
       <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
       <!-- 表单 -->
       <view class='form-wrp'>
-            <view class='p30'>
-                  <view class='pb25'>报名须知</view>
-                  <text class='mation'>{{notice_content}}</text>
-            </view>
-
             <form bindsubmit="submit" bindreset="formReset">
                   <view class='input-wrp required'>
                         <input placeholder="{{perform_show.valid?'节目名称':'请输入节目名称'}}" type='text' placeholder-class="{{perform_show.valid?'':'text-explain'}}" value='{{perform_show.value}}' name="perform_show" />
@@ -52,12 +47,16 @@
                   <input placeholder="QQ联系方式" class='texrarea' type='text' value='{{performer_qq}}' name="performer_qq" />
                   <input placeholder="微信联系方式" class='texrarea' type='text' value='{{performer_wechat}}' name="performer_wechat" />
                   <input placeholder="备注" class='texrarea' type='text' value='{{performer_remark}}' name="performer_remark" />
+                  <view class='p30'>
+                        <view class='pb25'>报名须知</view>
+                        <text class='mation'>{{notice_content}}</text>
+                  </view>
                   <view class='btn-submit-wrp'>
                         <image src="../../assets/images/btn-submit.png" class='btn-submit' mode="widthFix"></image>
                         <button formType="submit" class='btn-opacity'>Submit</button>
                   </view>
-                  <text></text>
             </form>
+
       </view>
 
 
@@ -81,14 +80,16 @@
 <view class="popup" wx:if="{{is_perform_open}}">
       <image src="../../assets/images/solgan-agreement.png" class='solgan' mode="widthFix"></image>
       <view class='panel flex flex-c align-items-center justify-content-center '>
-            <scroll-view scroll-y class='content' style="height:{{noticeHeight}}px" >{{notice_content_perform}}</scroll-view>
+            <scroll-view scroll-y class='content' style="height:{{noticeHeight}}px">
+                  <text>{{notice_content_perform}}</text>
+            </scroll-view>
             <image class='icon-down' src='../../assets/images/icon-down.png' mode='widthFix'></image>
-               <checkbox-group bindchange="checkboxChange">
+            <checkbox-group bindchange="checkboxChange">
                   <label class="checkbox">
-                        <checkbox value="1"  checked="{{item.checked}}" />我已阅读并同意活动详细须知
+                        <checkbox value="1" checked="{{item.checked}}" />我已阅读并同意免责声明
                   </label>
             </checkbox-group>
-            
+
             <image src="../../assets/images/btn-confirm.png" class="btn-agreement {{checked?'':'disabled'}}" mode="widthFix" bindtap="togglePerformPopup"> </image>
       </view>
 </view>

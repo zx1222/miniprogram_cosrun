@@ -39,7 +39,9 @@ App({
             // 当前活动是否返现 1返现 2不返现
             is_cash: '2',
             // 有待支付订单 1存在 2不存在
-            is_unpay_order:2
+            is_unpay_order:2,
+            activity_time:{},
+            project:[]
       },
       onLaunch: function() {
             let info = wx.getSystemInfoSync();

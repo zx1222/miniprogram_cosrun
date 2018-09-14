@@ -8,11 +8,11 @@ const height = device.windowHeight
 
 Page({
       data: {
-            activity_id:'',
+            activity_id: '',
             inputShowed: false,
             keywords: '',
             is_vote: false,
-            is_open:false,
+            is_open: false,
             voteList: [],
             scrollHeight: height,
             notice_content: '',
@@ -22,11 +22,11 @@ Page({
             loading_more: false,
             loadmore_end: false,
             currentPage: 1,
-            pageSize:20,
+            pageSize: 10,
 
             noData: false,
-            loading:true,
-            index:0,
+            loading: true,
+            index: 0,
       },
       //事件处理函数loadingloading
       bindViewTap: function() {
@@ -35,12 +35,12 @@ Page({
             })
       },
       onLoad: function() {
-       
+
       },
-      formSubmit:function(e){
+      formSubmit: function(e) {
             this.getData();
       },
-      onShow:function(){
+      onShow: function() {
             this.setData({
                   notice_content: app.globalData.rules[3],
                   activity_id: app.globalData.activity_id
@@ -71,38 +71,43 @@ Page({
                   openRegion: false
             });
       },
-      getData: function(){
-                 let url = `${app.globalData.baseUrl}/vote/list`
-            const data={
+      getData: function() {
+            let url = `${app.globalData.baseUrl}/vote/list`
+            const data = {
                   limits: this.data.pageSize,
                   page: this.data.currentPage,
                   keywords: this.data.keywords,
                   activity_id: this.data.activity_id,
                   sort: 2
             }
-            http.request(url,data).then((res) => {
+            http.request(url, data).then((res) => {
                   this.setData({
-                        loading: false                        
+                        loading: false
                   })
+                  if (res.data.items.length < this.data.pageSize || res.data._meta.pageCount <= this.data.currentPage) {
+                        this.setData({
+                              noData: true
+                        })
+                  }
                   this.setData({
-                        voteList:res.data.items
+                        voteList: this.formatData(res.data.items)
                   })
             })
       },
       vote: function(e) {
             this.setData({
-                  cosrun_id : e.currentTarget.dataset.id,
+                  cosrun_id: e.currentTarget.dataset.id,
                   index: e.currentTarget.dataset.index
             })
             let url = `${app.globalData.baseUrl}/vote/vote`
-            const data={
+            const data = {
                   id: this.data.cosrun_id,
                   activity_id: this.data.activity_id
             }
-            http.request(url, data,'POST').then((res) => {
-                  if (res.data.id){
+            http.request(url, data, 'POST').then((res) => {
+                  if (res.data.id) {
                         let voteList = this.data.voteList
-                        voteList[this.data.index].run_votes= voteList[this.data.index].run_votes+1
+                        voteList[this.data.index].run_votes = voteList[this.data.index].run_votes + 1
                         this.setData({
                               is_vote: true,
                               voteList: voteList
@@ -116,7 +121,7 @@ Page({
             })
       },
       scroll: function(e) {
-        
+
       },
 
       // 分页上拉加载
@@ -126,21 +131,22 @@ Page({
             let voteList = this.data.voteList;
             let newVoteList = []
             let data = {
-                  limits:this.data.pageSize,
+                  limits: this.data.pageSize,
                   page: _this.data.currentPage + 1,
                   keywords: this.data.keywords,
                   activity_id: this.data.activity_id,
-                  sort:2
+                  sort: 2
             }
-            if (!this.data.loadmore_end) {
+            if (!this.data.noData) {
                   this.setData({
                         loading_more: true
                   })
                   http.request(url, data).then((res) => {
-                        newVoteList = res.data.items
-                        if (newVoteList.length <  this.data.pageSize) {
+                        newVoteList = this.formatData(res.data.items)
+                        if (newVoteList.length < this.data.pageSize) {
                               _this.setData({
-                                    loadmore_end: true
+                                    loadmore_end: true,
+                                    noData: true
                               })
                         }
                         setTimeout(function() {
@@ -153,12 +159,25 @@ Page({
                   });
             }
       },
-      togglePopup:function(){
+      togglePopup: function() {
             this.setData({
-                  is_open:!this.data.is_open
+                  is_open: !this.data.is_open
             })
       },
-      onShareAppMessage: function (res) {
+      formatData: function(data) {
+            let resData = data
+            resData.forEach((item) => {
+                  console.log(item)
+                  if(item.run_id<10){
+                        item.run_id = '00' + item.run_id
+                  }
+                  if (item.run_id >= 10 && item.run_id <100){
+                        item.run_id = '0' + item.run_id
+                  }
+            })
+            return resData
+      },
+      onShareAppMessage: function(res) {
             if (res.from === 'button') {
 
             }

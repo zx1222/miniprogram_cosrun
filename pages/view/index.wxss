@@ -1,4 +1,5 @@
 @import '../../assets/style/scrollbar.wxss';
+
 .container {
       background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-vote.png');
       background-size: 100% 100%;
@@ -11,9 +12,10 @@
 .popup .solgan {
       width: 68%;
 }
-.btn-home{
+
+.btn-home {
       margin-top: 60px;
-      width: 40%
+      width: 40%;
 }
 
 .header {
@@ -60,6 +62,8 @@
 .panel  .btn-get {
       width: 360rpx;
 }
+
+/* 
 .photo-container{
   padding: 0 100rpx ;
   width: 100%
@@ -143,4 +147,43 @@
       top:-50rpx;
        z-index: 5
 }
+ */
 
+.photo-container {
+      width: 100%;
+      height: 100%;
+}
+
+.photo-wrp {
+      margin-top: -10rpx;
+      width: 76%;
+      height: auto;
+      border-radius: 14rpx;
+      overflow: hidden;
+      box-shadow: 8rpx 13.856rpx 49rpx 13rpx rgba(34, 23, 20, 0.3);
+      background: #fff;
+}
+
+.photo-info {
+      padding: 18rpx 40rpx;
+}
+
+.vote-counts {
+      font-size: 50rpx;
+      padding-right: 10rpx;
+}
+
+.icon-heart {
+      width: 66rpx;
+}
+
+.btn-vote {
+      font-size: 48rpx;
+      background: #cd267d;
+      border-radius: 12rpx;
+      text-align: center;
+      width: 32%;
+      margin-left: 34%;
+      /* letter-spacing: 8px;28% */
+      margin-bottom: 38rpx;
+}

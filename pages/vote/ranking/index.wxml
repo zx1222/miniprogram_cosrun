@@ -63,7 +63,7 @@
      <view class="popup" wx:if="{{is_open}}">
        <image src="../../../assets/images/solgan-vote-instruction.png" class='solgan' mode="widthFix"></image>
       <view class='panel flex flex-c align-items-center justify-content-center '>
-            <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" >{{notice_content}}</scroll-view>
+            <scroll-view scroll-y class='content' style="height:{{scrollHeight*0.54*0.57}}px" ><text>{{notice_content}}</text></scroll-view>
             <image class='icon-down' src='../../../assets/images/icon-down.png' mode='widthFix'></image>
       
               <image src="../../../assets/images/btn-get.png" class='btn-get' mode="widthFix" bindtap='togglePopup'> </image>

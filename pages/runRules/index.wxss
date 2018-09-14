@@ -1,0 +1,53 @@
+.container{
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-poster.png')
+}
+.solgan-header{
+      width: 86%;
+      margin-left: 9%
+}
+.main-content{
+      background: #ffffff;
+      height: auto;
+}
+.section{
+      border-bottom: 8px solid #dcdcdc;
+      padding: 22rpx 60rpx;
+}
+.btn-wrp{
+      padding: 0 20rpx;
+}
+.btn{
+      width: 43%;
+}
+.tips{
+      letter-spacing: -1px;
+      font-size: 12px
+}
+.sub_title{
+      font-weight: bold;
+      font-size: 30rpx;
+      color: #5b5b5b;
+      padding-top: 6rpx;
+}
+.date{
+      font-size: 26rpx;
+      letter-spacing: -1px;
+}
+.icon{
+      width: 90rpx;
+}
+.icon-right{
+      width: 40rpx;
+      margin-top: -82rpx;
+}
+.title{
+      color: #5b5b5b;
+      font-size: 42rpx;
+}
+.content{
+      color: #5b5b5b;
+      font-size: 30rpx
+}

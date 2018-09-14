@@ -19,11 +19,9 @@ export function request(url, params, method) {
                   },
                   method: method || 'GET',
                   success: function(res) {
-                        //     app.globalData.netWorkData = res.data
                         resolve(res);
                         console.log(res)
                         if (res.data.error) {
-
                               wx.showModal({
                                     title: '提示',
                                     content: res.data.error.message,

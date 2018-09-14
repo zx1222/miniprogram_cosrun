@@ -137,7 +137,7 @@ Page({
                   this.setData({
                         loading: false
                   })
-            
+
             }
       },
 
@@ -161,6 +161,33 @@ Page({
                         list: this.formatData(res.data),
                         loading: false
                   })
+            })
+      },
+      downloadFile: function() {
+            const downloadTask = wx.downloadFile({
+                  url: 'https://cosrun.sindcorp.net/cosrun_img/matchStatement.docx', //仅为示例，并非真实的资源
+                  success: function(res) {
+                        console.log(res)
+                        if (res.statusCode === 200) {
+                              wx.saveFile({
+                                    tempFilePath: res.tempFilePath,
+                                    success: function(res) {
+                                          var savedFilePath = res.savedFilePath
+                                          wx.openDocument({
+                                                filePath: savedFilePath,
+                                                success: function(res) {
+                                                      console.log('打开文档成功')
+                                                }
+                                          })
+                                    }
+                              })
+                        }
+                  }
+            })
+            downloadTask.onProgressUpdate((res) => {
+                  console.log('下载进度', res.progress)
+                  console.log('已经下载的数据长度', res.totalBytesWritten)
+                  console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
             })
       },
       toggleSlide: function(e) {
@@ -201,6 +228,43 @@ Page({
                   day;
             return newTime;
       },
+      formatDate3: function(time) {
+            const date = new Date(time * 1000);
+            let year = date.getFullYear(),
+                  month = date.getMonth() + 1, //月份是从0开始的
+                  day = date.getDate(),
+                  hour = date.getHours(),
+                  min = date.getMinutes(),
+                  sec = date.getSeconds();
+            let flag = '上午'
+            if (hour > 12) {
+                  flag = '下午'
+                  hour = hour - 12
+            }
+            if (min < 10) {
+                  min = '0' + min
+            }
+
+            const newTime = year + '.' +
+                  month + '.' +
+                  day + flag + hour + ":" + min;
+            return newTime;
+      },
+      formatDate4: function(time) {
+            const date = new Date(time * 1000);
+            let year = date.getFullYear(),
+                  month = date.getMonth() + 1, //月份是从0开始的
+                  day = date.getDate(),
+                  hour = date.getHours(),
+                  min = date.getMinutes(),
+                  sec = date.getSeconds();
+            if (min < 10) {
+                  min = '0' + min
+            }
+
+            const newTime = hour + ":" + min;
+            return newTime;
+      },
       formatData: function(data) {
             let resData = data
             resData.forEach((item) => {
@@ -210,6 +274,8 @@ Page({
                   item.activity.run_activity_end = this.formatDate2(item.activity.run_activity_end)
                   item.activity.activity_start = this.formatDate1(item.activity.activity_start)
                   item.activity.activity_end = this.formatDate2(item.activity.activity_end)
+                  item.activity.run_check_start_time = this.formatDate3(item.activity.run_check_start_time)
+                  item.activity.run_check_end_time = this.formatDate4(item.activity.run_check_end_time)
             })
             return resData
       },

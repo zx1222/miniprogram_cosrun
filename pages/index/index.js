@@ -18,7 +18,6 @@ Page({
                   '../../assets/images/banner-voteHide.png',
                   '../../assets/images/banner-voteHide.png'
             ],
-            baner_urls: [],
             banner_path: [],
             logo: '',
             indicatorDots: false,
@@ -35,7 +34,8 @@ Page({
             is_run_disabled: false,
             is_perform_disabled: false,
 
-            is_open: false
+            is_open: false,
+
       },
       //事件处理函数
       bindViewTap: function() {
@@ -191,10 +191,12 @@ Page({
             })
       },
       formatBannerData: function(data, key) {
+            console.log(data,key)
             const dataArr = []
             for (const index in data) {
                   dataArr.push(data[index][key])
             }
+            console.log(dataArr)
             return dataArr
       },
       initActivity: function() {
@@ -212,6 +214,12 @@ Page({
                               banner_path: this.formatBannerData(res.data.banner, 'banner_path')
                         })
                   }
+                  app.globalData.activity_time={
+                        activity_sign_start: res.data.activity.activity_sign_start,
+                        activity_sign_end: res.data.activity.activity_sign_end,
+                        run_activity_start: res.data.activity.run_activity_start
+                  }
+                  app.globalData.project = res.data.project
                   app.globalData.run_activity_start = this.formatDate(res.data.activity.run_activity_start)
                   app.globalData.is_cash = res.data.activity.activity_is_cash
                   app.globalData.rules = res.data.rules
@@ -274,7 +282,7 @@ Page({
                         })
                   }
 
-                  if (res.data.project.indexOf('2') != -1 || app.globalData.is_sign_up == '2' || app.globalData.activity_is_run == '2' || app.globalData.is_sign_end == '1' || app.globalData.run_number_limit == '1') {
+                  if ((res.data.project.indexOf('2') != -1 && res.data.project.indexOf('4') != -1) || app.globalData.is_sign_up == '2' || app.globalData.activity_is_run == '2' || app.globalData.is_sign_end == '1' || app.globalData.run_number_limit == '1') {
                         this.setData({
                               is_run_disabled: true,
                         })

@@ -1,9 +1,9 @@
 {
       "pages": [
+           
             "pages/home/index",
             "pages/index/index",
             "pages/uploads/index",
-            "pages/view/index",
             "pages/pay/index",
             "pages/comiketSign/index",
             "pages/runSign/index",
@@ -15,7 +15,9 @@
             "pages/user/index",
             "pages/logs/logs",
             "pages/user/userInfoView/index",
-            "pages/vote/ranking/index"
+            "pages/vote/ranking/index",
+            "pages/runRules/index",
+            "pages/view/index"
       ],
       "window": {
             "backgroundTextStyle": "#333333",
