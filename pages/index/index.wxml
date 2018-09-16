@@ -53,7 +53,7 @@
             <image src="../../assets/images/btn-sign-perform.png" class="{{is_perform_disabled?'disabled':''}} btn-sign-perform btn " mode="widthFix"></image>
       </navigator>  -->
 
-      <navigator url="{{is_run_disabled?'':'/pages/runRules/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}">
+      <navigator url="{{is_run_disabled||is_true_unpay_order==1?'':'/pages/runRules/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}" bindtap='checkPayment'>
             <image src="../../assets/images/btn-sign-run.png" class="{{is_run_disabled?'disabled':''}} btn-sign-run btn bounceIn" mode="widthFix"></image>
       </navigator>
 

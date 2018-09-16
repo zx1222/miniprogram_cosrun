@@ -1,4 +1,4 @@
-<!-- <button bindtap='clear'>清除</button> -->
+<button bindtap='clear'>清除</button>
 <view class=" {{iphone_type=='iPhone 5'?'is_5':''}}  {{iphone_type=='iPhone 6'?'is_6':''}}  {{iphone_type=='iPhone X'?'is_x':''}}  {{systemInfo.screenWidth==360&&systemInfo.screenHeight==640&&systemInfo.pixelRatio==3?'is_android_360_3':''}}  container">
 
 

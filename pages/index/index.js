@@ -35,6 +35,8 @@ Page({
             is_perform_disabled: false,
 
             is_open: false,
+            // 有待支付订单
+            is_true_unpay_order:2
 
       },
       //事件处理函数
@@ -108,9 +110,9 @@ Page({
       clearSession: function() {
             wx.removeStorageSync('sign_info')
       },
+      
       onShow: function() {
             // 报名了但是没有选择是否报名幻装
-
             this.setData({
                   user_sign_count: app.globalData.user_sign_count
             })
@@ -148,6 +150,23 @@ Page({
                   }
             })
       },
+      checkPayment:function(){
+            if (this.data.is_true_unpay_order == 1) {
+                  wx.showModal({
+                        title: '提示',
+                        content: '你所报的竞速跑尚未支付报名费用，请前往个人中心支付完成报名',
+                        success: (res) => {
+                              if (res.confirm) {
+                                    wx.navigateTo({
+                                          url: '/pages/user/userInfoList/index?type=2',
+                                    })
+                              } else if (res.cancel) {
+                              }
+                        }
+                  })
+            }
+      },
+
       turnToUser: function() {
             let sign_info = wx.getStorageSync('sign_info')
             sign_info.sign_list[app.globalData.activity_index].count = 0
@@ -233,7 +252,10 @@ Page({
                   this.formatRules();
 
                   if (res.data.is_true_unpay_order == '1') {
-                        app.globalData.is_true_unpay_order=1
+                        app.globalData.is_true_unpay_order = 1
+                        this.setData({
+                              is_true_unpay_order:1
+                        })
                         wx.setStorageSync('is_true_unpay_order', 1)
                         if (wx.getStorageSync('is_true_unpay_order') == '1') {
                               this.setData({
@@ -247,7 +269,7 @@ Page({
                   if (res.data.is_unpay_order == '1') {
                         wx.showModal({
                               title: '提示',
-                              content: '您有待支付订单 请前去支付',
+                              content: '你所报的竞速跑尚未支付报名费用，请前往个人中心支付完成报名',
                               success: (res) => {
                                     const url = `${app.globalData.baseUrl}/person/tips-pay`
                                     const data = {

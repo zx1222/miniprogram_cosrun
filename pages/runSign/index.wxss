@@ -251,7 +251,7 @@ input, picker {
       font-size: 24rpx;
 }
 .runInfo-wrp {
-      padding: 50rpx 76rpx;
+      padding: 50rpx 70rpx;
       letter-spacing: 2px;
 }
 

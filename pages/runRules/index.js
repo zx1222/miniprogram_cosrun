@@ -69,7 +69,6 @@ Page({
                         is_cos_disabled: true
                   })
             }
-            console.log(app.globalData.rules)
             this.setData({
                   notice_content: app.globalData.rules[8]
             })
