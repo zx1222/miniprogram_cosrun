@@ -27,7 +27,9 @@
 
                   <view class='btn-vote bold text-white' bindtap='vote' mode="widthFix"><text decode="{{true}}">投&ensp;票</text></view>
             </view>
+             <view class='text-xs text-pink bold'>长按可以保存图片，分享至朋友圈或好友邀请他们一起投票吧！</view>
       </view>
+     
 
 
       <!-- <view class='photo-container'>

@@ -91,7 +91,8 @@ Page({
 
             // 报名成功信息
             sign_success: false,
-            resultData: {}
+            resultData: {},
+            solgan_run_time:''
       },
       //事件处理函数
       bindViewTap: function() {
@@ -124,7 +125,9 @@ Page({
                   this.getCountry();
             }
             this.setData({
-                  activity_id: app.globalData.activity_id
+                  activity_id: app.globalData.activity_id,
+                  solgan_run_time: app.globalData.solgan_run_time,
+                  iphone_type: app.globalData.iphone_type,
             })
       },
       onShow: function() {

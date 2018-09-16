@@ -1,5 +1,5 @@
 .container {
-      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-sign.png');
+      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-pay.jpg');
       background-size: 100% auto;
       color: #333;
       width: 100%;

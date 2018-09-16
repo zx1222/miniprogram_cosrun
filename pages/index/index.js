@@ -135,18 +135,18 @@ Page({
             }
             // 查询用户是否授权
             wx.getSetting({
-                        success: (res) => {
-                              if (res.authSetting['scope.userInfo']) {
-                                    this.setData({
-                                          is_open: false
-                                    })
-                              } else {
-                                    this.setData({
-                                          is_open: true
-                                    })
-                              }
+                  success: (res) => {
+                        if (res.authSetting['scope.userInfo']) {
+                              this.setData({
+                                    is_open: false
+                              })
+                        } else {
+                              this.setData({
+                                    is_open: true
+                              })
                         }
-                  })
+                  }
+            })
       },
       turnToUser: function() {
             let sign_info = wx.getStorageSync('sign_info')
@@ -156,8 +156,8 @@ Page({
       },
       formatRules: function() {
             let rules = app.globalData.rules;
-            const rulesList = new Array(8);
-            const indexArr = [1, 2, 3, 4, 5, 6, 7, 8]
+            const rulesList = new Array(9);
+            const indexArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
             for (var index = 0; index < rulesList.length; index++) {
                   rulesList[index] = ''
                   for (const index_i in rules) {
@@ -191,12 +191,10 @@ Page({
             })
       },
       formatBannerData: function(data, key) {
-            console.log(data,key)
             const dataArr = []
             for (const index in data) {
                   dataArr.push(data[index][key])
             }
-            console.log(dataArr)
             return dataArr
       },
       initActivity: function() {
@@ -214,12 +212,13 @@ Page({
                               banner_path: this.formatBannerData(res.data.banner, 'banner_path')
                         })
                   }
-                  app.globalData.activity_time={
+                  app.globalData.activity_time = {
                         activity_sign_start: res.data.activity.activity_sign_start,
                         activity_sign_end: res.data.activity.activity_sign_end,
                         run_activity_start: res.data.activity.run_activity_start
                   }
                   app.globalData.project = res.data.project
+                  app.globalData.solgan_run_time = res.data.activity.run_activity_logo
                   app.globalData.run_activity_start = this.formatDate(res.data.activity.run_activity_start)
                   app.globalData.is_cash = res.data.activity.activity_is_cash
                   app.globalData.rules = res.data.rules
@@ -233,6 +232,18 @@ Page({
                   app.globalData.rules = res.data.activity.rules
                   this.formatRules();
 
+                  if (res.data.is_true_unpay_order == '1') {
+                        app.globalData.is_true_unpay_order=1
+                        wx.setStorageSync('is_true_unpay_order', 1)
+                        if (wx.getStorageSync('is_true_unpay_order') == '1') {
+                              this.setData({
+                                    user_sign_count: this.data.user_sign_count + 1
+                              })
+                        }
+                  } else {
+                        app.globalData.is_true_unpay_order = 2
+                        wx.setStorageSync('is_true_unpay_order', 0)
+                  }
                   if (res.data.is_unpay_order == '1') {
                         wx.showModal({
                               title: '提示',
@@ -243,14 +254,12 @@ Page({
                                           type: 1
                                     }
                                     if (res.confirm) {
-                                          http.request(url, data).then((res) => {
-                                          })
+                                          http.request(url, data).then((res) => {})
                                           wx.navigateTo({
                                                 url: '/pages/user/userInfoList/index?type=2',
                                           })
                                     } else if (res.cancel) {
-                                          http.request(url, data).then((res) => {
-                                          })
+                                          http.request(url, data).then((res) => {})
                                     }
                               }
                         })

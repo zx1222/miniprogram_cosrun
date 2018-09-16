@@ -44,8 +44,10 @@
                   <view class='header flex justify-content-between  align-items-center text-xs'>
                         <text wx:if="{{item.run_pay_status==1}}"><text class="fa fa-check text-l" aria-hidden="true" style='padding-right:5rpx'></text>报名成功</text>
                         <text wx:if="{{item.run_pay_status==0}}" class='text-pink'>待缴报名费用...</text>
-                        <text wx:if="{{item.is_cosplay=='1'}}" class='address'>{{item.activity.activity_name}}(幻装奖)</text>
-                        <text wx:if="{{item.is_cosplay=='2'}}" class='address'>{{item.activity.activity_name}}(竞速奖)</text>
+                        <text wx:if="{{item.is_cosplay=='1'&&item.run_type=='1'}}" class='address'>{{item.activity.activity_name}}(幻装奖-全程)</text>
+                        <text wx:if="{{item.is_cosplay=='2'&&item.run_type=='1'}}" class='address'>{{item.activity.activity_name}}(竞速奖-全程)</text>
+                          <text wx:if="{{item.is_cosplay=='1'&&item.run_type=='2'}}" class='address'>{{item.activity.activity_name}}(幻装奖-半程)</text>
+                        <text wx:if="{{item.is_cosplay=='2'&&item.run_type=='2'}}" class='address'>{{item.activity.activity_name}}(竞速奖-半程)</text>
                         <text>{{item.created_at}}</text>
                   </view>
                   <view class='content run text-xs flex justify-content-between ' style='padding-bottom:30rpx'>
@@ -118,8 +120,8 @@
                               <view class='flex align-items-center justify-content-between'>
                                     <view wx:if="{{item.run_pay_status==0 && item.is_cosplay==2}}" class="btn-toPay" bindtap='pay' data-index="{{index}}">去支付</view>
                                     <view wx:if="{{item.is_cosplay==2&&item.run_pay_status==1}}" class="btn-toPay" data-index="{{index}}" bindtap='turnToCos'>去报名幻装</view>
-                                    <view class="btn-toPay" data-index="{{index}}" bindtap=''>竞赛规则</view>
-                                    <view class="btn-toPay" data-index="{{index}}" bindtap='downloadFile'>参赛声明下载</view>
+                                    <view class="btn-toPay" data-index="{{index}}" bindtap='downloadFile_rules'>竞赛规则</view>
+                                    <view class="btn-toPay" data-index="{{index}}" bindtap='preview_greement'>参赛声明下载</view>
                               </view>
                         </view>
                         <image class="logo-user run" src="../../../assets/images/logo-user.png" mode="widthFix"></image>

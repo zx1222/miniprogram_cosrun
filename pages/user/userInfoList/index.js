@@ -21,7 +21,6 @@ Page({
             qrCodeList: [],
             is_qrcode_open: false,
             qrCode: ''
-
       },
 
       /**
@@ -137,7 +136,6 @@ Page({
                   this.setData({
                         loading: false
                   })
-
             }
       },
 
@@ -163,9 +161,9 @@ Page({
                   })
             })
       },
-      downloadFile: function() {
+      downloadFile_rules: function() {
             const downloadTask = wx.downloadFile({
-                  url: 'https://cosrun.sindcorp.net/cosrun_img/matchStatement.docx', //仅为示例，并非真实的资源
+                  url: 'https://cosrun.sindcorp.net/cosrun_img/COS RUN Race.docx', //仅为示例，并非真实的资源
                   success: function(res) {
                         console.log(res)
                         if (res.statusCode === 200) {
@@ -188,6 +186,12 @@ Page({
                   console.log('下载进度', res.progress)
                   console.log('已经下载的数据长度', res.totalBytesWritten)
                   console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
+            })
+      },
+      preview_greement: function () {
+            wx.previewImage({
+                  current: 'https://cosrun.sindcorp.net/cosrun_img/matchStatement.png', // 当前显示图片的http链接
+                  urls: ['https://cosrun.sindcorp.net/cosrun_img/matchStatement.png']
             })
       },
       toggleSlide: function(e) {
@@ -339,8 +343,12 @@ Page({
                   url: `/pages/uploads/index?id=${this.data.list[index].run_id}&&activity_id=${this.data.list[index].activity.activity_id}&&from=list`,
             })
       },
+      turnToRules:function(){
+            wx.redirectTo({
+                  url: '/pages/runRules/index',
+            })
+      },
       get_comico_code: function(e) {
-
             const index = e.currentTarget.dataset.index
             console.log(index)
             const url = `${app.globalData.baseUrl}/person/diffuse-detail`;

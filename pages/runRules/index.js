@@ -8,7 +8,13 @@ Page({
       data: {
             activity_time: {},
             is_run_disabled:false,
-            is_cos_disabled: false
+            is_cos_disabled: false,
+            is_sign_up:true,
+            is_sign_end:false,
+            is_activity_start:true,
+            timenow:'',
+            notice_content:'',
+            is_true_unpay_order:2
       },
 
       /**
@@ -21,8 +27,31 @@ Page({
                   run_activity_start: this.formatDate(app.globalData.activity_time.run_activity_start),
             }
             this.setData({
-                  activity_time: data
+                  timenow : Date.parse(new Date())/1000,
+                  activity_time: data,
+                  is_true_unpay_order:app.globalData.is_true_unpay_order
             })
+            if (app.globalData.activity_time.activity_sign_start > this.data.timenow ){
+                  this.setData({
+                        is_sign_up: false,
+                        is_sign_end: true,
+                        is_activity_start: false
+                  })
+            }
+            if (app.globalData.activity_time.activity_sign_end > this.data.timenow && this.data.timenow >=app.globalData.activity_time.activity_sign_start) {
+                  this.setData({
+                        is_sign_up: true,
+                        is_sign_end: true,
+                        is_activity_start: false
+                  })
+            }
+            if (app.globalData.activity_time.activity_sign_end <=this.data.timenow) {
+                  this.setData({
+                        is_sign_up: false,
+                        is_sign_end: true,
+                        is_activity_start: true
+                  })
+            }
             const project = app.globalData.project
             if (project.indexOf('2') != -1){
                   this.setData({
@@ -40,6 +69,10 @@ Page({
                         is_cos_disabled: true
                   })
             }
+            console.log(app.globalData.rules)
+            this.setData({
+                  notice_content: app.globalData.rules[8]
+            })
       },
       turnToUploads:function(e){
             if (!e.currentTarget.dataset.disabled) {

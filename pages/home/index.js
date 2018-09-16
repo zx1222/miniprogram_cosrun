@@ -88,14 +88,11 @@ Page({
 
 clear:function(){
       wx.removeStorageSync('access_token')
-      console.log(wx.getStorageSync('access_token'))
 },
 
       initActivity: function() {
             let url = `${app.globalData.baseUrl}/activity/lists`
             http.request(url).then((res) => {
-                  console.log(res)
-                  console.log(res.data.activity)
                   this.formatData(res.data.activity)
                   app.globalData.is_unpay_order = res.data.is_unpay_order
                   this.setData({
@@ -183,7 +180,6 @@ clear:function(){
       },
       formatData: function(data) {
             let resData = data
-            console.log(resData)
             resData.forEach((item) => {
                   item.activity_start = this.formatDate1(item.activity_start)
                   item.activity_end = this.formatDate1(item.activity_end)

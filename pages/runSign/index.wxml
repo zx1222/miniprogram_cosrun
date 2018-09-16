@@ -1,12 +1,12 @@
 <!-- <view>scroll-y="{{!is_cos_open&&!is_run_open}}"</view> -->
-<scroll-view wx:if="{{!sign_success}}" scroll-y="{{!is_cos_open&&!is_run_open}}" style="height:{{scrollHeight}}px " scroll-top="{{scrollTop}}" class='container'>
+<scroll-view wx:if="{{!sign_success}}" scroll-y="{{!is_cos_open&&!is_run_open}}" style="height:{{scrollHeight}}px " scroll-top="{{scrollTop}}" class=" {{iphone_type=='iPhone 5'?'is_5':''}} container">
       <image src="../../assets/images/solgan-header.png" class='solgan-header' mode="widthFix"></image>
       <!-- 表单 -->
 
       <view class='form-wrp'>
             <form bindsubmit="submit" bindreset="formReset">
-            <image src='../../assets/images/solgan.png' class='solgan' mode='widthFix'></image>
-                  <view class=' flex flex-c align-items-center justify-content-center'>
+            <image src="{{solgan_run_time}}" class='solgan-time' mode='widthFix'></image>
+                  <!-- <view class=' flex flex-c align-items-center justify-content-center'>
                         <view class=' date-wrp'>
                               <view>
                                     COSRUN幻装跑
@@ -15,7 +15,7 @@
                                     {{run_activity_start}}
                               </view>
                         </view>
-                  </view>
+                  </view> -->
 
                   <view class='flex align-items-center radio-container'>
                         <text class='label-gender'>性别</text>
@@ -124,7 +124,8 @@
                         </view>
                         <text class='valid'>*</text>
                   </view>
-
+<view class='text-xs text-explain bold' style='padding-bottom:10rpx'>注：未满18周岁的参赛选手务必填写法定监护人或法定代理人的真实姓名和电话
+</view>
                   <view class='input-wrp required'>
                         <input placeholder="{{run_emergency_name.valid?'紧急联系人':'请输入紧急联系人'}}" type='text' placeholder-class="{{run_emergency_name.valid?'':'text-explain'}}" value='{{run_emergency_name.value}}' name="run_emergency_name" />
                         <text>*</text>

@@ -40,8 +40,10 @@ App({
             is_cash: '2',
             // 有待支付订单 1存在 2不存在
             is_unpay_order:2,
+            is_true_unpay_order:2,
             activity_time:{},
-            project:[]
+            project:[],
+            solgan_run_time:''
       },
       onLaunch: function() {
             let info = wx.getSystemInfoSync();

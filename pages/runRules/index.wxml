@@ -3,27 +3,27 @@
       <view class='main-content'>
             <view class='section flex align-items-center justify-content-between'>
                   <view class='flex flex-c align-items-center justify-content-center'>
-                        <image src="../../assets/images/icon-rules1.png" mode='widthFix' class='icon'></image>
+                        <image src="../../assets/images/icon-rules1.png" mode='widthFix' class="{{is_sign_up?'':'disabled'}} icon"></image>
                         <text class='sub_title'>开始报名</text>
                         <text class='date'>{{activity_time.activity_sign_start}}</text>
                   </view>
                    <image src="../../assets/images/icon-rules4.png" mode='widthFix' class='icon-right'></image>
                   <view class='flex flex-c align-items-center justify-content-center'>
-                        <image src="../../assets/images/icon-rules2.png" mode='widthFix' class='icon'></image>
+                        <image src="../../assets/images/icon-rules2.png" mode='widthFix' class="{{is_sign_end?'disabled':''}} icon"></image>
                         <text class='sub_title'>报名截止</text>
                         <text class='date'>{{activity_time.activity_sign_end}}</text>
                   </view>
                    <image src="../../assets/images/icon-rules4.png" mode='widthFix' class='icon-right'></image>
                   <view class='flex flex-c align-items-center justify-content-center'>
-                        <image src="../../assets/images/icon-rules1.png" mode='widthFix' class='icon'></image>
+                        <image src="../../assets/images/icon-rules1.png" mode='widthFix' class="{{is_activity_start?'':'disabled'}} icon"></image>
                         <text class='sub_title'>比赛时间</text>
                         <text class='date'>{{activity_time.run_activity_start}}</text>
                   </view>
             </view>
             <view class='section'>
                   <view class='w100 flex align-items-center justify-content-between btn-wrp'>
-                        <image src="../../assets/images/btn-run-sign1.png" bindtap='turnToSIgn' class="{{is_run_disabled?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_run_disabled}}"></image>
-                        <image src="../../assets/images/btn-run-sign2.png" bindtap='turnToUploads' class="{{is_cos_disabled?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_cos_disabled}}"></image>
+                        <image src="../../assets/images/btn-run-sign1.png" bindtap='turnToSIgn' class="{{is_run_disabled||is_true_unpay_order==1?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_run_disabled||is_true_unpay_order==1}}"></image>
+                        <image src="../../assets/images/btn-run-sign2.png" bindtap='turnToUploads' class="{{is_cos_disabled||is_true_unpay_order==1?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_cos_disabled||is_true_unpay_order==1}}"></image>
                   </view>
                   <text class='text-explain tips'>*温馨提示：竞速奖报名完毕后，才可报名幻装奖，详见下方竞赛规程。</text>
             </view>
@@ -31,7 +31,7 @@
                   <view class='title w100 text-center bold'>竞赛规程</view>
                   <view class='content bold'>
                   <text>赛事基本情况介绍</text>
-                  <text>纵深推进龙坞茶镇建设力度，加快打造全面小康、全域美丽、全民幸福的首善之区，大力实施龙坞茶镇4A景区开发建设，提升景区热度；融合茶文化、二次元文化，探索现代年轻人的喜好与热度；尝试培育龙坞茶镇除茶文化外新的IP，加强龙坞茶镇景区在青年群体中的传播度与知名度，进一步集聚人气，提升景区关注度与活跃度，打响西湖区龙坞茶镇景区品牌。</text>
+                  <text>{{notice_content}}</text>
                   </view>
             </view>
       </view>

@@ -40,8 +40,8 @@
       <!-- <image src='../../assets/images/hand.png' class='hand' mode='widthFix'></image> -->
 
       <image src="../../assets/images/home-p1.png" class="{{iphone_type=='iPhone X'?'pt60':''}} p1 bounceInDown" mode="widthFix"></image>
-
-      <!-- <navigator url="/pages/comiketSign/index" hover-class="none">
+<!-- 
+      <navigator url="/pages/comiketSign/index" hover-class="none">
             <image src="../../assets/images/btn-sign.png" class="{{is_comico_disabled?'disabled':''}} btn-sign btn bounceIn" mode="widthFix"></image>
       </navigator>
 
