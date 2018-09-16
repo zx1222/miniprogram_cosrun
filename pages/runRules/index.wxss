@@ -51,3 +51,9 @@
       color: #5b5b5b;
       font-size: 30rpx
 }
+.btn-fixed{
+      width: 100%;
+      background: #fff;
+      position: fixed;
+      bottom: 0
+}

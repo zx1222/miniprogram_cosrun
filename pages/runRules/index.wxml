@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" >
       <image src="../../assets/images/rules-header.png" class='solgan-header' mode="widthFix"></image>
       <view class='main-content'>
             <view class='section flex align-items-center justify-content-between'>
@@ -29,9 +29,18 @@
             </view>
             <view class='section'>
                   <view class='title w100 text-center bold'>竞赛规程</view>
-                  <view class='content bold'>
+                  <view class='content bold' id="content">
                   <text>赛事基本情况介绍</text>
                   <text>{{notice_content}}</text>
+                  </view>
+            </view>
+      </view>
+
+      <view wx:if="{{scrollTop>1100}}" class="btn-fixed">
+       <view class='section'>
+                  <view class='w100 flex align-items-center justify-content-between btn-wrp'>
+                        <image src="../../assets/images/btn-run-sign1.png" bindtap='turnToSIgn' class="{{is_run_disabled||is_true_unpay_order==1?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_run_disabled||is_true_unpay_order==1}}"></image>
+                        <image src="../../assets/images/btn-run-sign2.png" bindtap='turnToUploads' class="{{is_cos_disabled||is_true_unpay_order==1?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_cos_disabled||is_true_unpay_order==1}}"></image>
                   </view>
             </view>
       </view>

@@ -14,7 +14,9 @@ Page({
             is_activity_start:true,
             timenow:'',
             notice_content:'',
-            is_true_unpay_order:2
+            is_true_unpay_order:2,
+            is_show:false,
+            scrollTop:0
       },
 
       /**
@@ -86,6 +88,28 @@ Page({
                         url: '/pages/runSign/index',
                   })
             }
+      },
+      onPageScroll: function (e) {
+            // console.log(e)
+            let _this = this;
+            var query = wx.createSelectorQuery()
+            query.selectViewport().scrollOffset()
+            query.exec(function (res) {
+                  if (res[0].top <= 0) {
+                        _this.setData({
+                              "scrollCls": 'fixedCls'
+                        })
+                  } else if (res[0].top > 0) {
+                        _this.setData({
+                              "scrollCls": ''
+                        })
+                  }
+
+                  let scrollTop = res[0].scrollTop
+                  _this.setData({
+                        scrollTop: scrollTop
+                  })
+            })
       },
 
       /**
