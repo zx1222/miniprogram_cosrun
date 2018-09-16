@@ -1,4 +1,4 @@
-<view class="container flex align-items-center flex-c">
+<view class="container flex align-items-center flex-c {{is_open?'overflow-y-hidden':''}}">
 
       <view class='section header flex justify-content-between' wx:if="{{!is_share}}">
             <navigator url="/pages/vote/ranking/index" hover-class='none'>

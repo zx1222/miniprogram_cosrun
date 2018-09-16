@@ -183,7 +183,7 @@ Page({
                                     if (this.data.from == 'list') {
                                           console.log('from list')
                                           wx.navigateBack({
-                                                delta: 2
+                                                delta: 1
                                           })
                                     }
                                     if (this.data.from == 'detail') {

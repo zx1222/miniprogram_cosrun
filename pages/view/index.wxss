@@ -155,7 +155,7 @@
 }
 
 .photo-wrp {
-      margin-top: -10rpx;
+      margin-top: 34rpx;
       width: 76%;
       height: auto;
       border-radius: 14rpx;

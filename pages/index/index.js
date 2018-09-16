@@ -7,6 +7,7 @@ import getSystemInfo from '../../utils/getSystemInfo.js'
 
 Page({
       data: {
+            is_run:1,
             is_mask_show: false,
             activity_id: '',
             activity_name: '',
@@ -234,8 +235,12 @@ Page({
                   app.globalData.activity_time = {
                         activity_sign_start: res.data.activity.activity_sign_start,
                         activity_sign_end: res.data.activity.activity_sign_end,
-                        run_activity_start: res.data.activity.run_activity_start
+                        run_activity_start: res.data.activity.run_activity_start,
                   }
+                  app.globalData.activity_is_run=res.data.activity.activity_is_run
+                 this.setData({
+                       is_run:app.globalData.activity_is_run
+                 })
                   app.globalData.project = res.data.project
                   app.globalData.solgan_run_time = res.data.activity.run_activity_logo
                   app.globalData.run_activity_start = this.formatDate(res.data.activity.run_activity_start)

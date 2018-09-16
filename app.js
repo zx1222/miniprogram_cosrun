@@ -4,6 +4,8 @@ App({
       isReady: wx.getSystemInfoSync('isReady'),
       readyCallback: null,
       globalData: {
+            // 当前活动是否有跑步
+            activity_is_run:1,
             // 跑步开始时间
             run_activity_start: '',
             is_first: wx.getStorageSync('is_first'),

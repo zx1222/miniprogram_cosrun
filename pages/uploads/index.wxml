@@ -8,7 +8,7 @@
             </view>
       </view>
       <view class='mation-wrp text-left w100'>
-      <view class='text-explain '>注：请您上传竖版照片</view>
+      <view class='text-explain '>注：请您上传竖版照片, 上传的照片在1个工作日内审核完毕</view>
             <view class='pb25 pt30'>报名须知</view>
             <view class='mation'>{{notice_content}}</view>
       </view>
