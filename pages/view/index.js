@@ -194,9 +194,12 @@ Page({
       formatData:function(data){
             let resultData=data
             if (resultData.voteUser.member_id<10){
-                  resultData.voteUser.member_id = '00' + resultData.voteUser.member_id
+                  resultData.voteUser.member_id = '000' + resultData.voteUser.member_id
             }
             if (resultData.voteUser.member_id >= 10 && resultData.voteUser.member_id < 100){
+                  resultData.voteUser.member_id = '00' + resultData.voteUser.member_id
+            }
+            if (resultData.voteUser.member_id >= 100 && resultData.voteUser.member_id < 1000) {
                   resultData.voteUser.member_id = '0' + resultData.voteUser.member_id
             }
             return resultData

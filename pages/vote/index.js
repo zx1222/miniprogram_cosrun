@@ -169,9 +169,12 @@ Page({
             resData.forEach((item) => {
                   console.log(item)
                   if(item.run_id<10){
-                        item.run_id = '00' + item.run_id
+                        item.run_id = '000' + item.run_id
                   }
                   if (item.run_id >= 10 && item.run_id <100){
+                        item.run_id = '00' + item.run_id
+                  }
+                  if (item.run_id >= 100&& item.run_id < 1000) {
                         item.run_id = '0' + item.run_id
                   }
             })
