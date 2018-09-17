@@ -36,7 +36,7 @@
             </view>
       </view>
 
-      <view wx:if="{{scrollTop>1100}}" class="btn-fixed">
+      <view wx:if="{{scrollTop>900}}" class="btn-fixed">
        <view class='section'>
                   <view class='w100 flex align-items-center justify-content-between btn-wrp'>
                         <image src="../../assets/images/btn-run-sign1.png" bindtap='turnToSIgn' class="{{is_run_disabled||is_true_unpay_order==1?'disabled':''}} btn" mode='widthFix' data-disabled="{{is_run_disabled||is_true_unpay_order==1}}"></image>

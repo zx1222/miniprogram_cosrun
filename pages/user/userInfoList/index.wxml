@@ -23,10 +23,11 @@
                                     <text><text class='bold'>性别:</text> {{item.comico_sex}}</text>
                               </view>
                               <!-- <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view> -->
+                               <view class='row'>
+                                    <text class='bold'>参赛时间:</text> {{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
-                              <view class='row'>
-                                    <text class='bold'>参赛时间:</text> {{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
+                             
                         </view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
                   </view>
@@ -263,7 +264,7 @@
                   </view>
             </view>
 
-            <view wx:if="{{list.length==0&&!loading}}" class='bold text-left text-white w100'>请在报名成功5日后查询</view>
+            <view wx:if="{{list.length==0&&!loading}}" class='bold text-left text-white w100'>参赛号码查询功能将于10月16日开启</view>
       </view>
 
       <view wx:if="{{is_qrcode_open}}" class='qrCode-popup popup' bindtap='toggleQrcodePopup'>

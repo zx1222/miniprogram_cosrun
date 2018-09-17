@@ -2,9 +2,9 @@
       <image src="../../assets/images/home-p1.png" class='solgan bounceInDown' mode="widthFix"></image>
       <image class='banner' src='{{banner.banner_url}}' mode='widthFix'></image>
       <view class='title bold text-white text-l w100 text-center pt30'>{{banner.banner_title}}</view>
-      <scroll-view class='content notice_content text-white  w100 pt30' scroll-y="{{!is_cos_open&&!is_run_open}}" style="height:{{scrollHeight*.3}}px " scroll-top="{{scrollTop}}">
+      <view class='content notice_content text-white  w100 pt30' scroll-y="{{!is_cos_open&&!is_run_open}}"  scroll-top="{{scrollTop}}">
             <text>{{banner.banner_desc}}</text>
-      </scroll-view>
+      </view>
       <!-- <navigator url='/pages/index/index' hover-class='none'> -->
       <image bindtap='backhome' src="../../assets/images/btn-back.png" class='btn-back pt30' mode="widthFix"></image>
       <!-- </navigator> -->

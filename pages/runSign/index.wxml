@@ -52,7 +52,7 @@
                         <text>*</text>
                   </view>
 
-                  <view class='input-wrp required'>
+                  <!-- <view class='input-wrp required'>
                         <view class="section">
                               <picker mode="date" value="{{birthday.value}}" start="1970-01" end="2018-08" fields="month" name="run_birthday" bindchange="bindBirthdayChange">
                                     <view class="picker">
@@ -64,10 +64,10 @@
                               </picker>
                         </view>
                         <text>*</text>
-                  </view>
+                  </view> -->
 
 
-                  <view class='input-wrp required'>
+                  <!-- <view class='input-wrp required'>
                         <view class="section">
                               <picker value="{{country.index}}" range="{{country.dataArr}}" range-key="name" bindchange="bindCountryChange">
                                     <view class="picker">
@@ -78,14 +78,14 @@
                               </picker>
                         </view>
                         <text>*</text>
-                  </view>
+                  </view> -->
 
-                  <view class='input-wrp required'>
+                  <!-- <view class='input-wrp required'>
                         <input placeholder="{{address.valid?'家庭住址':'请输入家庭住址'}}" type='text' placeholder-class="{{address.valid?'':'text-explain'}}" value='{{address.value}}' name="run_address" />
                         <text>*</text>
-                  </view>
+                  </view> -->
 
-                  <view class='input-wrp required'>
+                  <!-- <view class='input-wrp required'>
                         <view class="section">
                               <picker value="{{blood.index}}" range="{{blood.dataArr}}" name="run_blood" bindchange="bindBloodChange">
                                     <view class="picker">
@@ -96,9 +96,9 @@
                               </picker>
                         </view>
                         <text>*</text>
-                  </view>
+                  </view> -->
 
-                  <view class='input-wrp required'>
+                  <!-- <view class='input-wrp required'>
                         <view class="section">
                               <picker value="{{run_size.index}}" range="{{run_size.dataArr}}" name="run_size" bindchange="bindSizeChange">
                                     <view class="picker">
@@ -109,7 +109,7 @@
                               </picker>
                         </view>
                         <text>*</text>
-                  </view>
+                  </view> -->
 
                   <view class='input-wrp required'>
                         <input placeholder="{{contact.valid?'联系方式':'请输入有效联系方式'}}" type='number' placeholder-class="{{contact.valid?'':'text-explain'}}" value='{{contact.value}}' name="run_phone" bindblur='verification_phone' />
@@ -124,8 +124,7 @@
                         </view>
                         <text class='valid'>*</text>
                   </view>
-<view class='text-xs text-explain bold' style='padding-bottom:10rpx'>注：未满18周岁的参赛选手务必填写法定监护人或法定代理人的真实姓名和电话
-</view>
+
                   <view class='input-wrp required'>
                         <input placeholder="{{run_emergency_name.valid?'紧急联系人':'请输入紧急联系人'}}" type='text' placeholder-class="{{run_emergency_name.valid?'':'text-explain'}}" value='{{run_emergency_name.value}}' name="run_emergency_name" />
                         <text>*</text>
@@ -151,6 +150,11 @@
                               </view>
                         </view>
                   </view> -->
+                  <view class='text-xs text-explain bold pt30' style='padding-bottom:10rpx'>注：
+                  <view>1、您所填写的个人资料用于购买保险，请确保资料填写的真实无误。如因填写错误导致无法购买保险，后果由您个人承担。</view>
+                  <view>2、未满18周岁的参赛选手务必填写法定监护人或法定代理人的真实姓名和电话。 </view>
+                  <view>3、非中国籍人员的报名请在官方微信公众号“COSRUN幻装嘉年华”的后台留言。我们会尽快与您联系。 </view>
+</view>
                   <view class='btn-submit-wrp'>
                         <image src="../../assets/images/btn-next.png" class='btn-submit' mode="widthFix"></image>
                         <button formType="submit" class='btn-opacity'>Submit</button>
@@ -190,11 +194,11 @@
             <view><text class='bold'>姓名:</text>{{resultData.run_name}}</view>
             <view><text class='bold'>证件类型:</text>{{resultData.certificates_type}}</view>
             <view><text class='bold'>有效证件号:</text>{{resultData.run_idcard}}</view>
-            <view><text class='bold'>出生年月:</text>{{resultData.run_birthday}}</view>
+            <!-- <view><text class='bold'>出生年月:</text>{{resultData.run_birthday}}</view>
               <view><text class='bold'>国籍:</text>{{resultData.run_country}}</view>
             <view><text class='bold'>家庭住址:</text>{{resultData.run_address}}</view>
             <view><text class='bold'>血型:</text>{{resultData.run_blood}}</view>
-            <view><text class='bold'>服装尺码:</text>{{resultData.run_size}}码</view>
+            <view><text class='bold'>服装尺码:</text>{{resultData.run_size}}码</view> -->
             <view><text class='bold'>联系方式:</text>{{resultData.run_phone}}</view>
             <view><text class='bold'>紧急联系人:</text>{{resultData.run_emergency_name}}</view>
             <view><text class='bold'>紧急联系方式:</text>{{resultData.run_emergency_phone}}</view>

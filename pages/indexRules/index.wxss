@@ -1,4 +1,4 @@
-@import '../../assets/style/scrollbar.wxss';
+/* @import '../../assets/style/scrollbar.wxss'; */
 .container {
       width: 100%;
       height: auto;
