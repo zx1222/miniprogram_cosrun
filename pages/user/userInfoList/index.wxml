@@ -23,8 +23,8 @@
                                     <text><text class='bold'>性别:</text> {{item.comico_sex}}</text>
                               </view>
                               <!-- <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view> -->
-                              <view class='row'>
-                                    <text class='bold'>参赛时间:</text> {{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
+                              <view class='row time'>
+                                    <text class='bold'>参赛时间:</text> {{item.activity.comico_show_time}}</view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
 
@@ -111,8 +111,8 @@
                                   <view class='row' wx:if="{{item.run_type=='2'}}">
                                      <text class='bold'>赛程选报:</text>半程
                               </view> -->
-                              <view class='row'>
-                                    <text class='bold'>参赛时间:</text> {{item.activity.run_activity_start}}-{{item.activity.run_show_time}}</view>
+                              <view class='row time'>
+                                    <text class='bold'>参赛时间:</text>{{item.activity.run_show_time}}</view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
                               <view class='row'>
@@ -185,8 +185,8 @@
                               </view> -->
                         </view>
 
-                        <view class='row'>
-                              <text class='bold'>参赛时间: </text>{{item.activity.activity_start}}-{{item.activity.comico_show_time}}</view>
+                        <view class='row time'>
+                              <text class='bold'>参赛时间: </text>{{item.activity.comico_show_time}}</view>
                         <view class='row'>
                               <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>

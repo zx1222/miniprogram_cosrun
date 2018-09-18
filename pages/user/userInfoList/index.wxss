@@ -159,7 +159,9 @@
 .item .content .col .row {
       padding: 6rpx 0;
 }
-
+.item .content  .row.time{
+      width: 82%;
+}
 .item .content .photo {
       width: 92%;
       overflow: hidden;
