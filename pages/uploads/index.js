@@ -158,7 +158,8 @@ Page({
                   const url = `${app.globalData.baseUrl}/run/image-save`;
                   const data = {
                         id: this.data.id,
-                        run_file_name: this.data.run_file_name
+                        run_file_name: this.data.run_file_name,
+                        activity_id: this.data.activity_id
                   }
                   console.log(data)
                   http.request(url, data, 'POST').then((res) => {
