@@ -164,7 +164,7 @@ Page({
                   console.log(data)
                   http.request(url, data, 'POST').then((res) => {
                         console.log(res)
-                        if (this.data.id) {
+                        if (res.data.id) {
                               console.log('save成功')
                               wx.showToast({
                                     title: '提交成功',
