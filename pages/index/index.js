@@ -169,9 +169,9 @@ Page({
       },
 
       turnToUser: function() {
-            let sign_info = wx.getStorageSync('sign_info')
-            sign_info.sign_list[app.globalData.activity_index].count = 0
-            wx.setStorageSync('sign_info', sign_info)
+            // let sign_info = wx.getStorageSync('sign_info')
+            // sign_info.sign_list[app.globalData.activity_index].count = 0
+            // wx.setStorageSync('sign_info', sign_info)
             // app.globalData.user_sign_count = 0
       },
       formatRules: function() {
