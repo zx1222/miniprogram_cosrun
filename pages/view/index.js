@@ -90,22 +90,26 @@ Page({
             wx.downloadFile({
                   url: imgUrl,
                   success: function(res) {
-                        console.log('s')
+                        const file = res.tempFilePath
                         // 下载成功后再保存到本地
                         wx.saveImageToPhotosAlbum({
                               //返回的临时文件路径，下载后的文件会存储到一个临时文件
-                              filePath: res.tempFilePath,
+                              filePath: file,
                               success: function(res) {
                                     console.log('aa')
-                                    wx.showModal({
-                                          title: '提示',
-                                          content: '成功保存图片',
-                                          success: function(res) {
-                                                if (res.confirm) {
-
-                                                } else if (res.cancel) {}
-                                          }
+                                    wx.previewImage({
+                                          current: file, 
+                                          urls: [file]
                                     })
+                                    // wx.showModal({
+                                    //       title: '提示',
+                                    //       content: '成功保存图片',
+                                    //       success: function(res) {
+                                    //             if (res.confirm) {
+
+                                    //             } else if (res.cancel) {}
+                                    //       }
+                                    // })
                               }
                         })
                   },
