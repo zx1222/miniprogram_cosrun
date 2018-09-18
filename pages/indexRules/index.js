@@ -13,6 +13,10 @@ Page({
             banner: {},
             activity_name:'',
             scrollHeight: height,
+            is_comico_disabled: false,
+            is_run_disabled: false,
+            is_perform_disabled: false,
+
       },
 
       /**
@@ -21,10 +25,17 @@ Page({
       onLoad: function(options) {
             this.setData({
                   banner: app.globalData.banners[options.index],
-                  activity_name: app.globalData.activity_name
+                  activity_name: app.globalData.activity_name,
+                  banner_index: options.index
             })
+            console.log(this.data.banner)
             wx.setNavigationBarTitle({
                   title: `COS RUN${this.data.activity_name}`
+            })
+            this.setData({
+                  is_comico_disabled: app.globalData.is_comico_disabled,
+                  is_run_disabled: app.globalData.is_run_disabled,
+                  is_perform_disabled: app.globalData.is_perform_disabled,
             })
       },
 

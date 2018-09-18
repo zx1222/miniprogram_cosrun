@@ -115,10 +115,10 @@ Page({
                                     is_open: true
                               })
 
-                              let sign_info = wx.getStorageSync('sign_info')
-                              sign_info.sign_list[app.globalData.activity_index].count = sign_info.sign_list[app.globalData.activity_index].count + 1
-                              wx.setStorageSync('sign_info', sign_info)
-                              app.globalData.user_sign_count = wx.getStorageSync('sign_info').sign_list[app.globalData.activity_index].count
+                              // let sign_info = wx.getStorageSync('sign_info')
+                              // sign_info.sign_list[app.globalData.activity_index].count = sign_info.sign_list[app.globalData.activity_index].count + 1
+                              // wx.setStorageSync('sign_info', sign_info)
+                              // app.globalData.user_sign_count = wx.getStorageSync('sign_info').sign_list[app.globalData.activity_index].count
                         }
                   })
             }

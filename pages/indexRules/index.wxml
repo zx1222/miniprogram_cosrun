@@ -1,11 +1,34 @@
 <view class="container">
       <image src="../../assets/images/home-p1.png" class='solgan bounceInDown' mode="widthFix"></image>
       <image class='banner' src='{{banner.banner_url}}' mode='widthFix'></image>
-      <view class='title bold text-white text-l w100 text-center pt30'>{{banner.banner_title}}</view>
-      <view class='content notice_content text-white  w100 pt30' scroll-y="{{!is_cos_open&&!is_run_open}}"  scroll-top="{{scrollTop}}">
+      <view  wx:if="{{banner.banner_title!=''&&banner.banner_title!=null}}" class='title bold text-white text-l w100 text-center pt30'>{{banner.banner_title}}</view>
+      <view wx:if="{{banner.banner_desc!=''&&banner.banner_desc!=null}}" class='content notice_content text-white  w100 pt30' scroll-y="{{!is_cos_open&&!is_run_open}}" scroll-top="{{scrollTop}}">
             <text>{{banner.banner_desc}}</text>
       </view>
+
+      <view wx:if="{{banner.child_title1!=''}}" class='title bold text-white text-l w100 text-center pt30'>
+            {{banner.child_title1}}</view>
+      <view wx:if="{{banner.child_title1!=''}}" class='content notice_content text-white  w100 pt30'>
+            {{banner.child_content1}}</view>
+      <navigator open-type='redirect' wx:if="{{banner.child_title1!=''}}" url="{{is_comico_disabled||is_true_unpay_order==1?'':'/pages/comiketSign/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}" bindtap='checkPayment'>
+            <image src="../../assets/images/btn-sign.png" class="{{is_comico_disabled?'disabled':''}} btn-sign btn " mode="widthFix"></image>
+      </navigator>
+      <view wx:if="{{banner.child_title2!=''}}" class='title bold text-white text-l w100 text-center pt30'>
+            {{banner.child_title2}}</view>
+      <view wx:if="{{banner.child_title2!=''}}" class='content notice_content text-white  w100 pt30'>
+            {{banner.child_content2}}</view>
+      <navigator open-type='redirect' wx:if="{{banner.child_title2!=''}}" url="{{is_run_disabled||is_true_unpay_order==1?'':'/pages/runRules/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}" bindtap='checkPayment'>
+            <image src="../../assets/images/btn-sign-run.png" class="{{is_run_disabled?'disabled':''}} btn-sign btn " mode="widthFix"></image>
+      </navigator>
+      <view wx:if="{{banner.child_title3!=''}}" class='title bold text-white text-l w100 text-center pt30'>
+            {{banner.child_title3}}</view>
+      <view wx:if="{{banner.child_title3!=''}}" class='content notice_content text-white  w100 pt30'>
+            {{banner.child_content3}}</view>
+      <navigator open-type='redirect' wx:if="{{banner.child_title3!=''}}" url="{{is_perform_disabled||is_true_unpay_order==1?'':'/pages/performSign/index'}}" hover-class="none" class="pt30 {{iphone_type=='iPhone X'?'pt60':''}}" bindtap='checkPayment'>
+            <image src="../../assets/images/btn-sign-perform.png" class="{{is_perform_disabled?'disabled':''}} btn-sign btn " mode="widthFix"></image>
+      </navigator>
       <!-- <navigator url='/pages/index/index' hover-class='none'> -->
       <image bindtap='backhome' src="../../assets/images/btn-back.png" class='btn-back pt30' mode="widthFix"></image>
       <!-- </navigator> -->
+
 </view>

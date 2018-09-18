@@ -30,3 +30,8 @@
 width: 44%;
 margin-left: 28%;
 }
+.btn-sign {
+      width: 46%;
+      margin-left: 27%;
+      margin-top: 20rpx;
+}

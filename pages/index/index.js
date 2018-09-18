@@ -75,38 +75,38 @@ Page({
             }
             sign_list = wx.getStorageSync('sign_info').sign_list
 
-            if (sign_list.length != 0) {
-                  sign_list.forEach((item, index) => {
-                        if (parseInt(item.activity_id) == this.data.activity_id) {
-                              wx.setStorageSync('activity_index', index)
-                              console.log('当前活动存储过')
-                              app.globalData.activity_index = wx.getStorageSync('activity_index')
-                              app.globalData.user_sign_count = parseInt(item.count)
-                              this.setData({
-                                    user_sign_count: app.globalData.user_sign_count
-                              })
-                              console.log(app.globalData.user_sign_count)
-                        }
-                  })
-                  if (!sign_list.some(({
-                              activity_id
-                        }) => activity_id == this.data.activity_id)) {
-                        console.log('当前活动未存储过')
-                        let sign_info = wx.getStorageSync('sign_info')
-                        sign_info.sign_list.push({
-                              activity_id: this.data.activity_id,
-                              count: 0
-                        })
-                        wx.setStorageSync('sign_info', sign_info)
-                  }
-            } else {
-                  sign_info.sign_list.push({
-                        activity_id: this.data.activity_id,
-                        count: 0
-                  })
-                  wx.setStorageSync('sign_info', sign_info);
-                  app.globalData.user_sign_count = 0
-            }
+            // if (sign_list.length != 0) {
+            //       sign_list.forEach((item, index) => {
+            //             if (parseInt(item.activity_id) == this.data.activity_id) {
+            //                   wx.setStorageSync('activity_index', index)
+            //                   console.log('当前活动存储过')
+            //                   app.globalData.activity_index = wx.getStorageSync('activity_index')
+            //                   app.globalData.user_sign_count = parseInt(item.count)
+            //                   this.setData({
+            //                         user_sign_count: app.globalData.user_sign_count
+            //                   })
+            //                   console.log(app.globalData.user_sign_count)
+            //             }
+            //       })
+            //       if (!sign_list.some(({
+            //                   activity_id
+            //             }) => activity_id == this.data.activity_id)) {
+            //             console.log('当前活动未存储过')
+            //             let sign_info = wx.getStorageSync('sign_info')
+            //             sign_info.sign_list.push({
+            //                   activity_id: this.data.activity_id,
+            //                   count: 0
+            //             })
+            //             wx.setStorageSync('sign_info', sign_info)
+            //       }
+            // } else {
+            //       sign_info.sign_list.push({
+            //             activity_id: this.data.activity_id,
+            //             count: 0
+            //       })
+            //       wx.setStorageSync('sign_info', sign_info);
+            //       app.globalData.user_sign_count = 0
+            // }
       },
       clearSession: function() {
             wx.removeStorageSync('sign_info')
@@ -114,9 +114,9 @@ Page({
       
       onShow: function() {
             // 报名了但是没有选择是否报名幻装
-            this.setData({
-                  user_sign_count: app.globalData.user_sign_count
-            })
+            // this.setData({
+            //       user_sign_count: app.globalData.user_sign_count
+            // })
 
             if (wx.getStorageSync('isReady')) {
                   if (app.globalData.is_first == '1') {
@@ -172,7 +172,7 @@ Page({
             let sign_info = wx.getStorageSync('sign_info')
             sign_info.sign_list[app.globalData.activity_index].count = 0
             wx.setStorageSync('sign_info', sign_info)
-            app.globalData.user_sign_count = 0
+            // app.globalData.user_sign_count = 0
       },
       formatRules: function() {
             let rules = app.globalData.rules;
@@ -238,8 +238,10 @@ Page({
                         run_activity_start: res.data.activity.run_activity_start,
                   }
                   app.globalData.activity_is_run=res.data.activity.activity_is_run
+                  app.globalData.user_sign_count = res.data.counts
                  this.setData({
-                       is_run:app.globalData.activity_is_run
+                       is_run:app.globalData.activity_is_run,
+                       user_sign_count: res.data.counts,
                  })
                   app.globalData.project = res.data.project
                   app.globalData.solgan_run_time = res.data.activity.run_activity_logo
@@ -256,21 +258,21 @@ Page({
                   app.globalData.rules = res.data.activity.rules
                   this.formatRules();
 
-                  if (res.data.is_true_unpay_order == '1') {
-                        app.globalData.is_true_unpay_order = 1
-                        this.setData({
-                              is_true_unpay_order:1
-                        })
-                        wx.setStorageSync('is_true_unpay_order', 1)
-                        if (wx.getStorageSync('is_true_unpay_order') == '1') {
-                              this.setData({
-                                    user_sign_count: this.data.user_sign_count + 1
-                              })
-                        }
-                  } else {
-                        app.globalData.is_true_unpay_order = 2
-                        wx.setStorageSync('is_true_unpay_order', 0)
-                  }
+                  // if (res.data.is_true_unpay_order == '1') {
+                  //       app.globalData.is_true_unpay_order = 1
+                  //       this.setData({
+                  //             is_true_unpay_order:1
+                  //       })
+                  //       wx.setStorageSync('is_true_unpay_order', 1)
+                  //       if (wx.getStorageSync('is_true_unpay_order') == '1') {
+                  //             this.setData({
+                  //                   user_sign_count: this.data.user_sign_count + 1
+                  //             })
+                  //       }
+                  // } else {
+                  //       app.globalData.is_true_unpay_order = 2
+                  //       wx.setStorageSync('is_true_unpay_order', 0)
+                  // }
                   if (res.data.is_unpay_order == '1') {
                         wx.showModal({
                               title: '提示',
@@ -313,17 +315,20 @@ Page({
                         })
                   }
                   if (res.data.project.indexOf('1') != -1 || app.globalData.is_sign_up == '2' || app.globalData.activity_is_comico == '2' || app.globalData.is_sign_end == '1') {
+                        app.globalData.is_comico_disabled=true
                         this.setData({
                               is_comico_disabled: true,
                         })
                   }
 
                   if ((res.data.project.indexOf('2') != -1 && res.data.project.indexOf('4') != -1) || app.globalData.is_sign_up == '2' || app.globalData.activity_is_run == '2' || app.globalData.is_sign_end == '1' || app.globalData.run_number_limit == '1') {
+                        app.globalData.is_run_disabled = true
                         this.setData({
                               is_run_disabled: true,
                         })
                   }
                   if (res.data.project.indexOf('3') != -1 || app.globalData.is_sign_up == '2' || app.globalData.activity_is_perform == '2' || app.globalData.is_sign_end == '1') {
+                        app.globalData.is_perform_disabled = true
                         this.setData({
                               is_perform_disabled: true,
                         })

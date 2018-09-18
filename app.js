@@ -4,6 +4,10 @@ App({
       isReady: wx.getSystemInfoSync('isReady'),
       readyCallback: null,
       globalData: {
+            is_comico_disabled: false,
+            is_run_disabled: false,
+            is_perform_disabled: false,
+            
             // 当前活动是否有跑步
             activity_is_run:1,
             // 跑步开始时间
