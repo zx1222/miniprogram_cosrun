@@ -23,11 +23,11 @@
                                     <text><text class='bold'>性别:</text> {{item.comico_sex}}</text>
                               </view>
                               <!-- <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view> -->
-                               <view class='row'>
+                              <view class='row'>
                                     <text class='bold'>参赛时间:</text> {{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
-                             
+
                         </view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
                   </view>
@@ -47,7 +47,7 @@
                         <text wx:if="{{item.run_pay_status==0}}" class='text-pink'>待缴报名费用...</text>
                         <text wx:if="{{item.is_cosplay=='1'&&item.run_type=='1'}}" class='address'>{{item.activity.activity_name}}(幻装奖-全程)</text>
                         <text wx:if="{{item.is_cosplay=='2'&&item.run_type=='1'}}" class='address'>{{item.activity.activity_name}}(竞速奖-全程)</text>
-                          <text wx:if="{{item.is_cosplay=='1'&&item.run_type=='2'}}" class='address'>{{item.activity.activity_name}}(幻装奖-半程)</text>
+                        <text wx:if="{{item.is_cosplay=='1'&&item.run_type=='2'}}" class='address'>{{item.activity.activity_name}}(幻装奖-半程)</text>
                         <text wx:if="{{item.is_cosplay=='2'&&item.run_type=='2'}}" class='address'>{{item.activity.activity_name}}(竞速奖-半程)</text>
                         <text>{{item.created_at}}</text>
                   </view>
@@ -112,10 +112,10 @@
                                      <text class='bold'>赛程选报:</text>半程
                               </view> -->
                               <view class='row'>
-                                    <text class='bold'>参赛时间:</text> {{item.activity.run_activity_start}}-{{item.activity.run_activity_end}}</view>
+                                    <text class='bold'>参赛时间:</text> {{item.activity.run_activity_start}}-{{item.activity.run_show_time}}</view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
-                                       <view class='row'>
+                              <view class='row'>
                                     <text class='bold'>检录时间:</text> {{item.activity.run_check_start_time}}-{{item.activity.run_check_end_time}}</view>
 
                               <view class='flex align-items-center justify-content-between'>
@@ -186,7 +186,9 @@
                         </view>
 
                         <view class='row'>
-                              <text class='bold'>参赛时间: </text>{{item.activity.activity_start}}-{{item.activity.activity_end}}</view>
+                              <text class='bold'>参赛时间: </text>{{item.activity.activity_start}}-{{item.activity.comico_show_time}}</view>
+                        <view class='row'>
+                              <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
                   </view>
             </view>

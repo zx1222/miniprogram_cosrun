@@ -45,7 +45,7 @@ Page({
             }
             if (this.data.type == '3') {
                   wx.setNavigationBarTitle({
-                        title: 'COS RUN次元趴报名信息'
+                        title: 'COS RUN幻装表演赛报名信息'
                   })
             }
             if (this.data.type == '4') {

@@ -193,7 +193,7 @@
       <view class='flex flex-c  justify-content-center runInfo-wrp text-l '>
             <view><text class='bold'>姓名:</text>{{resultData.run_name}}</view>
             <view><text class='bold'>证件类型:</text>{{resultData.certificates_type}}</view>
-            <view><text class='bold'>有效证件号:</text>{{resultData.run_idcard}}</view>
+            <view><text class='bold'>有效证件号:</text>{{resultData.run_idcard}}230204199407221420</view>
             <!-- <view><text class='bold'>出生年月:</text>{{resultData.run_birthday}}</view>
               <view><text class='bold'>国籍:</text>{{resultData.run_country}}</view>
             <view><text class='bold'>家庭住址:</text>{{resultData.run_address}}</view>
