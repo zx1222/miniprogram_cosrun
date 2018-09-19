@@ -94,7 +94,7 @@ image {
 .btn-sign {
       width: 56%;
       margin-left: 22%;
-      animation: bounceIn 0.7s 1.3s ease 1;
+      animation: bounceIn 0.7s 1s ease 1;
       animation-fill-mode: forwards;
       margin-top: 20rpx;
 }
@@ -103,14 +103,14 @@ image {
       width: 56%;
       margin-left: 22%;
       margin-top: -30rpx;
-      animation: bounceIn 0.7s 1.1s ease 1;
+      animation: bounceIn 0.7s 0.8s ease 1;
       animation-fill-mode: forwards;
 }
 
 .btn-sign-perform {
       width:56%;
       margin-left: 22%;
-      animation: bounceIn 0.7s 1.4s ease 1;
+      animation: bounceIn 0.7s 1.2s ease 1;
       animation-fill-mode: forwards;
        margin-top: 20rpx;
 }

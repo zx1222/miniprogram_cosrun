@@ -23,7 +23,7 @@ App({
             userInfo: null,
             access_token: '',
             // baseUrl:'http://192.168.0.189/20180507/cn_acg-plus_cosrun/web/v1',
-            baseUrl: 'https://cosrun.sindcorp.net/v1',
+            baseUrl: 'https://cosrun.wxa.miinno.cn/v1',
             netWorkData: null,
             rules: [],
             is_activity_start: false,
