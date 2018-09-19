@@ -3,7 +3,7 @@
       font-size: 28rpx;
 }
 .container {
-      background-image: url('http://cosrun.sindcorp.net/cosrun_img/bg-run.png');
+      background-image: url('http://cosrun.wxa.miinno.cn/cosrun_img/bg-run.png');
       background-size: 100% auto;
       color: #fff;
 }

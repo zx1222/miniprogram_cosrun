@@ -64,7 +64,6 @@ Page({
             var _this = this;
             wx.getSetting({
                   success: (res) => {
-                        console.log(res.authSetting['scope.writePhotosAlbum'])
                         wx.authorize({
                               scope: 'scope.writePhotosAlbum',
                               success: (res) => {

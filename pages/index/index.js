@@ -297,7 +297,7 @@ Page({
                   if (res.data.project.indexOf('2') != -1 && res.data.is_cosplay == '2') {
                         wx.showModal({
                               title: '提示',
-                              content: '您已经报名幻装跑 但是还没有选择是否幻装 请去选择',
+                              content: '您已报名幻装跑，但是还没有选择是否报名幻装奖，请选择 ',
                               success: (res) => {
                                     const url = `${app.globalData.baseUrl}/person/tips-pay`
                                     const data = {

@@ -98,18 +98,7 @@
                         <text>*</text>
                   </view> -->
 
-                  <!-- <view class='input-wrp required'>
-                        <view class="section">
-                              <picker value="{{run_size.index}}" range="{{run_size.dataArr}}" name="run_size" bindchange="bindSizeChange">
-                                    <view class="picker">
-                                          <view wx:if="{{!run_size.selected&&!run_size.valid}}">服装尺码</view>
-                                          <view wx:if="{{!run_size.selected&&run_size.valid}}" class="text-explain">请选择服装尺码</view>
-                                          <view wx:if="{{run_size.selected&&run_size.valid}}"> {{run_size.dataArr[run_size.index]}}</view>
-                                    </view>
-                              </picker>
-                        </view>
-                        <text>*</text>
-                  </view> -->
+                
 
                   <view class='input-wrp required'>
                         <input placeholder="{{contact.valid?'联系方式':'请输入有效联系方式'}}" type='number' placeholder-class="{{contact.valid?'':'text-explain'}}" value='{{contact.value}}' name="run_phone" bindblur='verification_phone' />
@@ -131,6 +120,18 @@
                   </view>
                   <view class='input-wrp required'>
                         <input placeholder="{{run_emergency_contact.valid?'紧急联系方式':'请输入有效紧急联系方式'}}" type='number' placeholder-class="{{run_emergency_contact.valid?'':'text-explain'}}" value='{{run_emergency_contact.value}}' name="run_emergency_phone" />
+                        <text>*</text>
+                  </view>
+                    <view class='input-wrp required'>
+                        <view class="section">
+                              <picker value="{{run_size.index}}" range="{{run_size.dataArr}}" name="run_size" bindchange="bindSizeChange">
+                                    <view class="picker">
+                                          <view wx:if="{{!run_size.selected&&!run_size.valid}}">服装尺码</view>
+                                          <view wx:if="{{!run_size.selected&&run_size.valid}}" class="text-explain">请选择服装尺码</view>
+                                          <view wx:if="{{run_size.selected&&run_size.valid}}"> {{run_size.dataArr[run_size.index]}}</view>
+                                    </view>
+                              </picker>
+                        </view>
                         <text>*</text>
                   </view>
 

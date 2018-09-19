@@ -24,9 +24,9 @@
                               </view>
                               <!-- <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view> -->
                               <view class='row time' style='width:125%'>
-                                    <text class='bold'>参赛时间:</text> <view wx:for="{{item.activity.comico_show_time}}">{{item}}</view></view>
+                                    <text class='bold'>参展时间:</text> <view wx:for="{{item.activity.comico_show_time}}">{{item}}</view></view>
                               <view class='row'>
-                                    <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
+                                    <text class='bold'>参展地点:</text> {{item.activity.activity_point}}</view>
 
                         </view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
@@ -120,7 +120,7 @@
 
                               <view class='flex align-items-center justify-content-between'>
                                     <view wx:if="{{item.run_pay_status==0 && item.is_cosplay==2}}" class="btn-toPay" bindtap='pay' data-index="{{index}}">去支付</view>
-                                    <view wx:if="{{item.is_cosplay==2&&item.run_pay_status==1}}" class="btn-toPay" data-index="{{index}}" bindtap='turnToCos'>去报名幻装</view>
+                                    <view wx:if="{{item.is_cosplay==2&&item.run_pay_status==1}}" class="btn-toPay" data-index="{{index}}" bindtap='turnToCos'>报名幻装</view>
                                     <view class="btn-toPay" data-index="{{index}}" bindtap='downloadFile_rules'>竞赛规则</view>
                                     <view class="btn-toPay" data-index="{{index}}" bindtap='preview_greement'>参赛声明下载</view>
                               </view>
@@ -186,7 +186,7 @@
                         </view>
 
                         <view class='row time'>
-                              <text class='bold'>参赛时间: </text>{{item.activity.comico_show_time}}</view>
+                              <text class='bold'>参赛时间: </text> <view wx:for="{{item.activity.comico_show_time}}">{{item}}</view></view>
                         <view class='row'>
                               <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
                         <image class="logo-user" src="../../../assets/images/logo-user.png" mode="widthFix"></image>
@@ -208,7 +208,7 @@
                         <view class='header flex justify-content-between align-items-center'>
                               <view>
                                     <view class='text-xs text-gray row'>{{item.activity.activity_name}} {{item.created_at}}</view>
-                                    <view class=' row'>{{item.notice.notice_title}}</view>
+                                    <view class=' row'><text>{{item.notice.notice_title}}</text></view>
                               </view>
                               <text class="fa fa-angle-right" aria-hidden="true"></text>
                         </view>
@@ -244,7 +244,7 @@
                         <text class="fa fa-angle-down" aria-hidden="true"></text>
                   </view>
                   <view class='content'>
-                        <view class=''>{{item.question_content}}</view>
+                        <view class=''><text>{{item.question_content}}</text></view>
                   </view>
             </view>
       </view>

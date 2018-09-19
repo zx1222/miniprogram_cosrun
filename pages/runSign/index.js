@@ -247,7 +247,7 @@ Page({
                   // run_country_id: parseInt(this.data.country.index) + 1,
                   // run_country: run_country,
                   // run_blood: parseInt(this.data.blood.index) + 1,
-                  // run_size: parseInt(this.data.run_size.index) + 1,
+                  run_size: parseInt(this.data.run_size.index) + 1,
                   certificates_type: parseInt(this.data.certificates_type.index) + 1,
                   activity_id: this.data.activity_id
             })
@@ -363,17 +363,17 @@ Page({
                         flag: false
                   })
             }
-            // if (!this.data.run_size.selected) {
-            //       this.setData({
-            //             run_size: {
-            //                   dataArr: this.data.run_size.dataArr,
-            //                   index: 0,
-            //                   selected: false,
-            //                   valid: true
-            //             },
-            //             flag: false
-            //       })
-            // }
+            if (!this.data.run_size.selected) {
+                  this.setData({
+                        run_size: {
+                              dataArr: this.data.run_size.dataArr,
+                              index: 0,
+                              selected: false,
+                              valid: true
+                        },
+                        flag: false
+                  })
+            }
             // if (data.run_address == '') {
             //       this.setData({
             //             address: {
@@ -418,7 +418,7 @@ Page({
                         }
                   })
             }
-            if (data.run_name != '' && data.idCard != ''  && this.data.certificates_type.selected  && reg_contact.test(data.run_phone) && reg_contact.test(data.run_emergency_phone) && data.run_emergency_name != '' && this.data.verification.valid && this.data.verification.value != '' && this.data.verification.value.length == 6 && data.run_sex != 0) {
+            if (data.run_name != '' && data.idCard != '' && this.data.certificates_type.selected && this.data.run_size.selected  && reg_contact.test(data.run_phone) && reg_contact.test(data.run_emergency_phone) && data.run_emergency_name != '' && this.data.verification.valid && this.data.verification.value != '' && this.data.verification.value.length == 6 && data.run_sex != 0) {
                   this.setData({
                         flag: true
                   })
