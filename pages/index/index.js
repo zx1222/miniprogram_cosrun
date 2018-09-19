@@ -109,7 +109,7 @@ Page({
             // }
       },
       clearSession: function() {
-            wx.removeStorageSync('sign_info')
+            wx.removeStorageSync('access_token')
       },
       
       onShow: function() {

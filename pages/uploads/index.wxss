@@ -1,7 +1,7 @@
 @import '../../assets/style/scrollbar.wxss';
 
 .container {
-      background-image: url('http://ccrt.h5.sindcorp.net/asset/cosrun/bg-sign.png');
+      background-image: url('http://cosrun.sindcorp.net/cosrun_img/bg-sign.png');
       background-size: 100% 100%;
       color: #333;
       width: 100%;

@@ -163,7 +163,7 @@ Page({
       },
       downloadFile_rules: function() {
             const downloadTask = wx.downloadFile({
-                  url: 'https://cosrun.sindcorp.net/cosrun_img/COS RUN Race.docx', //仅为示例，并非真实的资源
+                  url: 'https://cosrun.wxa.miinno.cn/cosrun_img/COS RUN Race.docx', //仅为示例，并非真实的资源
                   success: function(res) {
                         console.log(res)
                         if (res.statusCode === 200) {
@@ -188,10 +188,10 @@ Page({
                   console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
             })
       },
-      preview_greement: function () {
+      preview_greement: function() {
             wx.previewImage({
-                  current: 'https://cosrun.sindcorp.net/cosrun_img/matchStatement.png', // 当前显示图片的http链接
-                  urls: ['https://cosrun.sindcorp.net/cosrun_img/matchStatement.png']
+                  current: 'http://cosrun.sindcorp.net/cosrun_img/matchStatement.png', // 当前显示图片的http链接
+                  urls: ['http://cosrun.sindcorp.net/cosrun_img/matchStatement.png']
             })
       },
       toggleSlide: function(e) {
@@ -208,6 +208,7 @@ Page({
             })
             return list
       },
+
       formatDate1: function(time) {
             const date = new Date(time * 1000);
             const year = date.getFullYear(),
@@ -272,6 +273,9 @@ Page({
       formatData: function(data) {
             let resData = data
             resData.forEach((item) => {
+                  if (item.activity.comico_show_time){
+                        item.activity.comico_show_time = item.activity.comico_show_time.split(',')
+                  }
                   item.activity_start = this.formatDate1(item.activity_start)
                   item.activity_end = this.formatDate1(item.activity_end)
                   item.activity.run_activity_start = this.formatDate1(item.activity.run_activity_start)
@@ -281,6 +285,7 @@ Page({
                   item.activity.run_check_start_time = this.formatDate3(item.activity.run_check_start_time)
                   item.activity.run_check_end_time = this.formatDate4(item.activity.run_check_end_time)
             })
+            console.log(resData)
             return resData
       },
       pay: function(e) {
@@ -343,7 +348,7 @@ Page({
                   url: `/pages/uploads/index?id=${this.data.list[index].run_id}&&activity_id=${this.data.list[index].activity.activity_id}&&from=list`,
             })
       },
-      turnToRules:function(){
+      turnToRules: function() {
             wx.redirectTo({
                   url: '/pages/runRules/index',
             })

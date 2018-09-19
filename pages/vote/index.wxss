@@ -1,6 +1,6 @@
 @import '../../assets/style/scrollbar.wxss';
 .container {
-      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-vote.png');
+      background-image: url('http://cosrun.sindcorp.net/cosrun_img/bg-vote.png');
       background-size: 100% 100%;
       color: #333;
       width: 100%;

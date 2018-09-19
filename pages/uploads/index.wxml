@@ -10,7 +10,7 @@
       <view class='mation-wrp text-left w100'>
       <view class='text-explain '>注：请您上传竖版照片, 上传的照片在1个工作日内审核完毕</view>
             <view class='pb25 pt30'>报名须知</view>
-            <view class='mation'>{{notice_content}}</view>
+            <view class='mation'><text>{{notice_content}}</text></view>
       </view>
 
       <!-- <navigator url='/pages/pay/index' hover-class='none' > -->

@@ -1,6 +1,6 @@
 @import '../../assets/style/scrollbar.wxss';
 .container {
-      background-image: url('https://cosrun.sindcorp.net/cosrun_img/bg-run.png');
+      background-image: url('http://cosrun.sindcorp.net/cosrun_img/bg-run.png');
       background-size: 100% 100%;
       color: #fff;
       /* height: 100% */
@@ -77,7 +77,7 @@ input, picker {
 .panel {
       width: 98%;
       height: 57%;
-      background: url('https://cosrun.sindcorp.net/cosrun_img/bg-popUp.png');
+      background: url('http://cosrun.sindcorp.net/cosrun_img/bg-popUp.png');
       background-size: 100% 100%;
 }
 

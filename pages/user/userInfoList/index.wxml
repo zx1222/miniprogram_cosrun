@@ -23,8 +23,8 @@
                                     <text><text class='bold'>性别:</text> {{item.comico_sex}}</text>
                               </view>
                               <!-- <view class='row'><text class='bold'>联系方式:</text> {{item.comico_phone}}</view> -->
-                              <view class='row time'>
-                                    <text class='bold'>参赛时间:</text> {{item.activity.comico_show_time}}</view>
+                              <view class='row time' style='width:125%'>
+                                    <text class='bold'>参赛时间:</text> <view wx:for="{{item.activity.comico_show_time}}">{{item}}</view></view>
                               <view class='row'>
                                     <text class='bold'>参赛地点:</text> {{item.activity.activity_point}}</view>
 

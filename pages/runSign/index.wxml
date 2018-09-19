@@ -153,7 +153,7 @@
                   <view class='text-xs text-explain bold pt30' style='padding-bottom:10rpx'>注：
                   <view>1、您所填写的个人资料用于购买保险，请确保资料填写的真实无误。如因填写错误导致无法购买保险，后果由您个人承担。</view>
                   <view>2、未满18周岁的参赛选手务必填写法定监护人或法定代理人的真实姓名和电话。 </view>
-                  <view>3、非中国籍人员的报名请在官方微信公众号“COSRUN幻装嘉年华”的后台留言。我们会尽快与您联系。 </view>
+                  <view>3、非中国籍人员的报名请在官方微信订阅号“COSRUN幻装嘉年华”留言，我们会尽快与您联系。</view>
 </view>
                   <view class='btn-submit-wrp'>
                         <image src="../../assets/images/btn-next.png" class='btn-submit' mode="widthFix"></image>
