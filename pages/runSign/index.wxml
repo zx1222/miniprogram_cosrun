@@ -198,8 +198,8 @@
             <!-- <view><text class='bold'>出生年月:</text>{{resultData.run_birthday}}</view>
               <view><text class='bold'>国籍:</text>{{resultData.run_country}}</view>
             <view><text class='bold'>家庭住址:</text>{{resultData.run_address}}</view>
-            <view><text class='bold'>血型:</text>{{resultData.run_blood}}</view>
-            <view><text class='bold'>服装尺码:</text>{{resultData.run_size}}码</view> -->
+            <view><text class='bold'>血型:</text>{{resultData.run_blood}}</view>-->
+            <view><text class='bold'>服装尺寸:</text>{{resultData.run_size}}码</view> 
             <view><text class='bold'>联系方式:</text>{{resultData.run_phone}}</view>
             <view><text class='bold'>紧急联系人:</text>{{resultData.run_emergency_name}}</view>
             <view><text class='bold'>紧急联系方式:</text>{{resultData.run_emergency_phone}}</view>

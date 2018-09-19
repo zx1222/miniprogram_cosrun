@@ -55,7 +55,7 @@ Page({
                   valid: false
             },
             run_size: {
-                  dataArr: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+                  dataArr: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
                   index: 0,
                   selected: false,
                   valid: false
