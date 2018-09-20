@@ -7,35 +7,35 @@ App({
             is_comico_disabled: false,
             is_run_disabled: false,
             is_perform_disabled: false,
-            
+
             // 当前活动是否有跑步
-            activity_is_run:1,
+            activity_is_run: 1,
             // 跑步开始时间
             run_activity_start: '',
             is_first: wx.getStorageSync('is_first'),
             user_sign_count: 0,
             // 当前活动在存储中的index
-            activity_index:0,
+            activity_index: 0,
             // 判断苹果手机型号
             activity_id: '',
-            activity_name:'',
+            activity_name: '',
             iphone_type: '',
             userInfo: null,
             access_token: '',
-            // baseUrl:'http://192.168.0.189/20180507/cn_acg-plus_cosrun/web/v1',
-            baseUrl: 'https://cosrun.wxa.miinno.cn/v1',
+            baseUrl:'http://192.168.0.189/20180507/cn_acg-plus_cosrun/web/v1',
+            // baseUrl: 'https://cosrun.wxa.miinno.cn/v1',
             netWorkData: null,
             rules: [],
             is_activity_start: false,
             activity_is_comico: 1,
             activity_is_perform: 1,
             activity_is_run: 1,
-            run_number_limit:2,
+            run_number_limit: 2,
             // 是否开始报名 1是 2否
             is_sign_up: 2,
             // 是否结束报名 1是 2否
             is_sign_end: 1,
-            is_run_sign_end:1,
+            is_run_sign_end: 1,
             // 活动是否开始
             is_activity_start: 2,
             // 1 不存在未审核 2存在未审核
@@ -46,11 +46,11 @@ App({
             // 当前活动是否返现 1返现 2不返现
             is_cash: '2',
             // 有待支付订单 1存在 2不存在
-            is_unpay_order:2,
-            is_true_unpay_order:2,
-            activity_time:{},
-            project:[],
-            solgan_run_time:''
+            is_unpay_order: 2,
+            is_true_unpay_order: 2,
+            activity_time: {},
+            project: [],
+            solgan_run_time: ''
       },
       onLaunch: function() {
             let info = wx.getSystemInfoSync();
@@ -72,7 +72,13 @@ App({
 
             handleLogin.checkSession()
                   .then((res) => {
-
+                        handleLogin.login()
+                              .then(() => {
+                                    wx.setStorageSync('isReady', true)
+                                    if (this.readyCallback) {
+                                          this.readyCallback();
+                                    }
+                              });
                   })
                   .catch(() => {
                         wx.setStorageSync('isReady', false)

@@ -167,7 +167,6 @@ Page({
       formatData: function(data) {
             let resData = data
             resData.forEach((item) => {
-                  console.log(item)
                   if(item.run_id<10){
                         item.run_id = '000' + item.run_id
                   }

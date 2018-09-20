@@ -27,7 +27,6 @@ Page({
        * 生命周期函数--监听页面加载
        */
       onLoad: function(options) {
-            console.log(options)
             this.setData({
                   type: options.type,
                   activity_id: app.globalData.activity_id
@@ -165,7 +164,6 @@ Page({
             const downloadTask = wx.downloadFile({
                   url: 'https://cosrun.wxa.miinno.cn/cosrun_img/COS RUN Race.docx', //仅为示例，并非真实的资源
                   success: function(res) {
-                        console.log(res)
                         if (res.statusCode === 200) {
                               wx.saveFile({
                                     tempFilePath: res.tempFilePath,

@@ -73,12 +73,9 @@ Page({
             var _this = this;　　
             wx.getSetting({
                   success: (res) => {
-                        console.log(res)
-                        console.log(res.authSetting['scope.writePhotosAlbum'])
                         wx.authorize({
                               scope: 'scope.writePhotosAlbum',
                               success: (res) => {
-                                    console.log("授权成功");
                                     this.downloadFile()
                               },
                               fail: function() {

@@ -44,7 +44,6 @@ Page({
                   comico_sex: this.data.gender,
                   activity_id: this.data.activity_id
             })
-            console.log(data)
           
             this.validForm(data)
             if (this.data.flag) {

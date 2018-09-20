@@ -90,7 +90,6 @@ Page({
             }
       },
       onPageScroll: function (e) {
-            // console.log(e)
             let _this = this;
             var query = wx.createSelectorQuery()
             query.selectViewport().scrollOffset()

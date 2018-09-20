@@ -105,7 +105,6 @@ Page({
                   performer_duration: parseInt(this.data.performer_duration.index)+1,
                   activity_id: this.data.activity_id
             }, data)
-            console.log(data)
             this.validForm(data)
 
             if (this.data.flag) {

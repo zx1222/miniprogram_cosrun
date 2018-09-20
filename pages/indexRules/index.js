@@ -28,7 +28,6 @@ Page({
                   activity_name: app.globalData.activity_name,
                   banner_index: options.index
             })
-            console.log(this.data.banner)
             wx.setNavigationBarTitle({
                   title: `COS RUN${this.data.activity_name}`
             })

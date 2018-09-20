@@ -273,7 +273,6 @@ Page({
                   //       valid: true
                   // },
             })
-            console.log(data)
 
             this.validForm(data)
 

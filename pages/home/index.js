@@ -17,6 +17,8 @@ Page({
             activity_end: '',
             is_unpay_order: '2',
             iphone_type: '',
+            // 渠道场景
+            scene: ''
       },
 
       /**
@@ -25,6 +27,10 @@ Page({
       onLoad: function(options) {
             this.setData({
                   activity_end: this.formatDate2(this.data.activity_end)
+            })
+            var scene = decodeURIComponent(options.scene) //参数二维码传递过来的参数
+            this.setData({
+                  scene: scene
             })
       },
 
@@ -41,12 +47,16 @@ Page({
       onShow: function() {
             console.log('isReady:', wx.getStorageSync('isReady'));
             if (wx.getStorageSync('isReady')) {
-                  this.initActivity();
-
+                  // this.initActivity();
+                  app.readyCallback = () => {
+                        this.initActivity();
+                        this.postScene();
+                  };
             } else {
                   wx.setStorageSync('isReady', true)
                   app.readyCallback = () => {
                         this.initActivity();
+                        this.postScene();
                   };
             }
 
@@ -86,10 +96,17 @@ Page({
             })
       },
 
-clear:function(){
-      wx.removeStorageSync('access_token')
-},
-
+      clear: function() {
+            wx.removeStorageSync('access_token')
+      },
+      postScene: function() {
+            let url = `${app.globalData.baseUrl}/person/source`
+            const data={
+                  scan_type: this.data.scene
+            }
+            http.request(url,data,'POST').then((res) => {
+            })
+      },
       initActivity: function() {
             let url = `${app.globalData.baseUrl}/activity/lists`
             http.request(url).then((res) => {
@@ -103,20 +120,18 @@ clear:function(){
                         wx.showModal({
                               title: '提示',
                               content: '您有待支付订单 请前去支付',
-                              success: (res)=> {
+                              success: (res) => {
                                     const url = `${app.globalData.baseUrl}/person/tips-pay`
-                                    const data={
-                                          type:1
+                                    const data = {
+                                          type: 1
                                     }
                                     if (res.confirm) {
-                                          http.request(url, data).then((res) => {
-                                          })
+                                          http.request(url, data).then((res) => {})
                                           wx.navigateTo({
                                                 url: '/pages/user/userInfoList/index?type=2',
                                           })
                                     } else if (res.cancel) {
-                                          http.request(url, data).then((res) => {
-                                          })
+                                          http.request(url, data).then((res) => {})
                                     }
                               }
                         })

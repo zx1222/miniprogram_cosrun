@@ -47,7 +47,6 @@ Page({
             })
       },
       onLoad: function(options) {
-            console.log(options)
             if (options.id) {
                   app.globalData.activity_id = options.id
             }
@@ -218,7 +217,6 @@ Page({
             return dataArr
       },
       initActivity: function() {
-            console.log('进入initActivity')
             let url = `${app.globalData.baseUrl}/activity/index`
             const data = {
                   id: this.data.activity_id

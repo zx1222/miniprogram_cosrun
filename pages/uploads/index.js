@@ -76,7 +76,6 @@ Page({
        * 生命周期函数--监听页面加载
        */
       onLoad: function(options) {
-            console.log(options)
             if (options.id) {
                   this.setData({
                         id: options.id
@@ -161,11 +160,8 @@ Page({
                         run_file_name: this.data.run_file_name,
                         activity_id: this.data.activity_id
                   }
-                  console.log(data)
                   http.request(url, data, 'POST').then((res) => {
-                        console.log(res)
                         if (res.data.id) {
-                              console.log('save成功')
                               wx.showToast({
                                     title: '提交成功',
                                     icon: 'success',
@@ -173,7 +169,6 @@ Page({
                               })
                               setTimeout(() => {
                                     if (this.data.from == '') {
-                                          console.log('from normal')
                                           wx.navigateBack({
                                                 delta: 1
                                           })
