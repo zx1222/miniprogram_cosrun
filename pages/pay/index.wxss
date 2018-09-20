@@ -1,5 +1,5 @@
 .container {
-      background-image: url('http://cosrun.wxa.miinno.cn/cosrun_img/bg-pay.jpg');
+      background-image: url('http://cosrun.statics.miinno.cn/cosrun_img/bg-pay.jpg');
       background-size: 100% auto;
       color: #333;
       width: 100%;
@@ -85,7 +85,7 @@
 .panel {
       width: 98%;
       height: 57%;
-      background: url('http://cosrun.wxa.miinno.cn/cosrun_img/bg-popUp.png');
+      background: url('http://cosrun.statics.miinno.cn/cosrun_img/bg-popUp.png');
       background-size: 100% 100%;
 
 }

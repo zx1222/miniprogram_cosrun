@@ -190,8 +190,8 @@ Page({
       },
       preview_greement: function() {
             wx.previewImage({
-                  current: 'http://cosrun.wxa.miinno.cn/cosrun_img/matchStatement.png', // 当前显示图片的http链接
-                  urls: ['http://cosrun.wxa.miinno.cn/cosrun_img/matchStatement.png']
+                  current: 'http://cosrun.statics.miinno.cn/cosrun_img/matchStatement.png', // 当前显示图片的http链接
+                  urls: ['http://cosrun.statics.miinno.cn/cosrun_img/matchStatement.png']
             })
       },
       toggleSlide: function(e) {

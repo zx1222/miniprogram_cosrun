@@ -2,7 +2,7 @@
 .container {
       width: 100%;
       height: auto;
-      background: url('http://cosrun.wxa.miinno.cn/cosrun_img/bg-user.png');
+      background: url('http://cosrun.statics.miinno.cn/cosrun_img/bg-user.png');
       background-size: 100% 100%;
 }
 
