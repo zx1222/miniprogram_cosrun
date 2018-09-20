@@ -28,10 +28,12 @@ Page({
             this.setData({
                   activity_end: this.formatDate2(this.data.activity_end)
             })
-            var scene = decodeURIComponent(options.scene) //参数二维码传递过来的参数
-            this.setData({
-                  scene: scene
-            })
+            if (options.scene){
+                  var scene = decodeURIComponent(options.scene) //参数二维码传递过来的参数
+                  this.setData({
+                        scene: scene
+                  })
+            }
       },
 
       /**
@@ -50,13 +52,18 @@ Page({
                   // this.initActivity();
                   app.readyCallback = () => {
                         this.initActivity();
-                        this.postScene();
+                        if(this.data.scene!=''){
+                              this.postScene();
+                        }
+                      
                   };
             } else {
                   wx.setStorageSync('isReady', true)
                   app.readyCallback = () => {
                         this.initActivity();
-                        this.postScene();
+                        if (this.data.scene != '') {
+                              this.postScene();
+                        }
                   };
             }
 
