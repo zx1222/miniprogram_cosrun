@@ -121,7 +121,7 @@ Page({
             if (this.data.is_cosplay == 0) {
                   wx.showModal({
                         title: '提示',
-                        content: '报名幻装跑步免费 无需再支付任何费用',
+                        content: '报名幻装奖免费 无需再支付任何费用',
                         success: function(res) {
                               if (res.confirm) {
 

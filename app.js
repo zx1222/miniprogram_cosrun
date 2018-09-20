@@ -35,6 +35,7 @@ App({
             is_sign_up: 2,
             // 是否结束报名 1是 2否
             is_sign_end: 1,
+            is_run_sign_end:1,
             // 活动是否开始
             is_activity_start: 2,
             // 1 不存在未审核 2存在未审核

@@ -251,6 +251,7 @@ Page({
                   app.globalData.is_activity_start = res.data.activity.is_activity_start
                   app.globalData.is_sign_up = res.data.activity.is_sign_up
                   app.globalData.is_sign_end = res.data.activity.is_sign_end
+                  app.globalData.is_run_sign_end = res.data.activity.is_run_sign_end
                   app.globalData.activity_is_comico = res.data.activity.activity_is_comico
                   app.globalData.activity_is_perform = res.data.activity.activity_is_perform
                   app.globalData.activity_is_run = res.data.activity.activity_is_run
@@ -321,7 +322,7 @@ Page({
                         })
                   }
 
-                  if ((res.data.project.indexOf('2') != -1 && res.data.project.indexOf('4') != -1) || app.globalData.is_sign_up == '2' || app.globalData.activity_is_run == '2' || app.globalData.is_sign_end == '1' || app.globalData.run_number_limit == '1') {
+                  if ((res.data.project.indexOf('2') != -1 && res.data.project.indexOf('4') != -1) || app.globalData.is_sign_up == '2' || app.globalData.activity_is_run == '2' || app.globalData.is_run_sign_end == '1' || app.globalData.run_number_limit == '1') {
                         app.globalData.is_run_disabled = true
                         this.setData({
                               is_run_disabled: true,
