@@ -20,7 +20,7 @@ export function request(url, params, method) {
                   method: method || 'GET',
                   success: function(res) {
                         resolve(res);
-                        console.log(res)
+                        // console.log(res)
                         if (res.data.error) {
                               wx.showModal({
                                     title: '提示',

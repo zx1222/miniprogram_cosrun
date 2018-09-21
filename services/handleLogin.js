@@ -74,8 +74,9 @@ export function loginServer(params) {
 
       let promise = new Promise(function(resolve, reject) {
             wx.request({
-                   url:'http://192.168.0.189/20180507/cn_acg-plus_cosrun/web/v1/login/login',
-                  // url: `https://cosrun.wxa.miinno.cn/v1/login/login`,
+                  // url: `http://cosrun.sindcorp.net/v1/login/login`,
+                  //  url:'http://192.168.0.189/20180507/cn_acg-plus_cosrun/web/v1/login/login',
+                  url: `https://cosrun.wxa.miinno.cn/v1/login/login`,
                   data: params,
                   header: {
                         'X-Token-With': token,
