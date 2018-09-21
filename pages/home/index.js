@@ -1,6 +1,7 @@
 // pages/home/index.js
 const app = getApp()
 import * as http from '../../utils/promise.js'
+import * as handleLogin from '../../services/handleLogin'
 import getSystemInfo from '../../utils/getSystemInfo.js'
 
 Page({
@@ -18,7 +19,8 @@ Page({
             is_unpay_order: '2',
             iphone_type: '',
             // 渠道场景
-            scene: ''
+            scene: '',
+            is_scene: 2
       },
 
       /**
@@ -26,12 +28,14 @@ Page({
        */
       onLoad: function(options) {
             this.setData({
-                  activity_end: this.formatDate2(this.data.activity_end)
+                  activity_end: this.formatDate2(this.data.activity_end),
+
             })
-            if (options.scene){
+            if (options.scene) {
                   var scene = decodeURIComponent(options.scene) //参数二维码传递过来的参数
                   this.setData({
-                        scene: scene
+                        scene: scene,
+                        is_scene: 1
                   })
             }
       },
@@ -48,24 +52,36 @@ Page({
        */
       onShow: function() {
             console.log('isReady:', wx.getStorageSync('isReady'));
-            if (wx.getStorageSync('isReady')) {
-                  // this.initActivity();
-                  app.readyCallback = () => {
-                        this.initActivity();
-                        if(this.data.scene!=''){
-                              this.postScene();
-                        }
-                      
-                  };
+            if (this.data.is_scene==1) {
+                  console.log('login scene')
+                  handleLogin.login()
+                        .then(() => {
+                              wx.setStorageSync('isReady', true)
+                                    console.log('has secne callback')
+                                    this.initActivity();
+                                    this.postScene();
+                        });
             } else {
-                  wx.setStorageSync('isReady', true)
-                  app.readyCallback = () => {
-                        this.initActivity();
-                        if (this.data.scene != '') {
-                              this.postScene();
-                        }
-                  };
+                  handleLogin.login()
+                        .then(() => {
+                              wx.setStorageSync('isReady', true)
+                              console.log('has secne callback')
+                              this.initActivity();
+                        });
+                  console.log('login no scene')
+                  // if (wx.getStorageSync('isReady')) {
+                  //       // this.initActivity();
+                  //       app.readyCallback = () => {
+                  //             this.initActivity();
+                  //       };
+                  // } else {
+                  //       wx.setStorageSync('isReady', true)
+                  //       app.readyCallback = () => {
+                  //             this.initActivity();
+                  //       };
+                  // }
             }
+
 
             const is_sign = wx.getStorageSync('is_sign')
 
@@ -108,15 +124,17 @@ Page({
       },
       postScene: function() {
             let url = `${app.globalData.baseUrl}/person/source`
-            const data={
+            const data = {
                   scan_type: this.data.scene
             }
-            http.request(url,data,'POST').then((res) => {
-            })
+            http.request(url, data, 'POST').then((res) => {})
+            console.log('post scene 结束')
       },
       initActivity: function() {
+            console.log('进入initActivity')
             let url = `${app.globalData.baseUrl}/activity/lists`
             http.request(url).then((res) => {
+                  console.log('initActivity success')
                   this.formatData(res.data.activity)
                   app.globalData.is_unpay_order = res.data.is_unpay_order
                   this.setData({

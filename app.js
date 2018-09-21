@@ -71,27 +71,27 @@ App({
             logs.unshift(Date.now())
             wx.setStorageSync('logs', logs)
 
-            handleLogin.checkSession()
-                  .then((res) => {
-                        handleLogin.login()
-                              .then(() => {
-                                    wx.setStorageSync('isReady', true)
-                                    if (this.readyCallback) {
-                                          this.readyCallback();
-                                    }
-                              });
-                  })
-                  .catch(() => {
-                        wx.setStorageSync('isReady', false)
-                        wx.removeStorageSync('access_token')
-                        handleLogin.login()
-                              .then(() => {
-                                    wx.setStorageSync('isReady', true)
-                                    if (this.readyCallback) {
-                                          this.readyCallback();
-                                    }
-                              });
-                  })
+            // handleLogin.checkSession()
+            //       .then((res) => {
+            //             handleLogin.login()
+            //                   .then(() => {
+            //                         wx.setStorageSync('isReady', true)
+            //                         if (this.readyCallback) {
+            //                               this.readyCallback();
+            //                         }
+            //                   });
+            //       })
+            //       .catch(() => {
+            //             wx.setStorageSync('isReady', false)
+            //             wx.removeStorageSync('access_token')
+            //             handleLogin.login()
+            //                   .then(() => {
+            //                         wx.setStorageSync('isReady', true)
+            //                         if (this.readyCallback) {
+            //                               this.readyCallback();
+            //                         }
+            //                   });
+            //       })
 
             // 获取用户信息
             wx.getSetting({
