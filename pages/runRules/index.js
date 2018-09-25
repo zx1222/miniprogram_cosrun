@@ -25,7 +25,7 @@ Page({
       onLoad: function(options) {
             const data = {
                   activity_sign_start: this.formatDate(app.globalData.activity_time.activity_sign_start),
-                  activity_sign_end: this.formatDate(app.globalData.activity_time.activity_sign_end),
+                  activity_sign_end: this.formatDate(app.globalData.activity_time.run_activity_sign_end),
                   run_activity_start: this.formatDate(app.globalData.activity_time.run_activity_start),
             }
             this.setData({

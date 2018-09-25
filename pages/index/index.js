@@ -234,6 +234,7 @@ Page({
                         activity_sign_start: res.data.activity.activity_sign_start,
                         activity_sign_end: res.data.activity.activity_sign_end,
                         run_activity_start: res.data.activity.run_activity_start,
+                        run_activity_sign_end: res.data.activity.run_activity_sign_end,
                   }
                   app.globalData.activity_is_run=res.data.activity.activity_is_run
                   app.globalData.user_sign_count = res.data.counts
